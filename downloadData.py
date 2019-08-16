@@ -1,5 +1,8 @@
 import os 
+import csv
+import requests
 import pandas as pd 
+from tqdm import tqdm
 
 def pre_steup():
     output_dir='./data'
@@ -17,4 +20,15 @@ def prepare_data_url(start_month,end_month):
             urls.append(url)
     return urls
 
+def Download_2_csv(data_urls):
+    for data_url in data_urls:
+        print ('>>> downloading ', data_url)
+        file_name = data_url.split('/')[-1]
+        download = requests.get(data_url)
+        with open(file_name, 'w') as temp_file:
+            temp_file.writelines(download.content)
 
+if __name__ == '__main__':
+    pre_steup()
+    urls = prepare_data_url('2019-01','2019-01')
+    Download_2_csv(urls)
