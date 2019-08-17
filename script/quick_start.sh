@@ -12,9 +12,9 @@ pyspark
 # os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.amazonaws:aws-java-sdk-pom:1.7.4,org.apache.hadoop:hadoop-aws:2.7.6 pyspark-shell'
 # from pyspark.sql import SQLContext
 # from pyspark import SparkContext
-# sc = SparkContext()
+# #sc = SparkContext()
 # sqlContext = SQLContext(sc)
-# filename="s3a://nyc-tlc/trip+data/green_tripdata_2019-01.csv"
+# filename = "s3a://nyctaxitrip/green_trip/green_tripdata_2019-01.csv"
 # sc = pyspark.SparkContext.getOrCreate()
 # sqlcontext = pyspark.sql.SQLContext(sc)
 # data = sc.textFile(filename)
