@@ -16,7 +16,7 @@ def prepare_data_url(start_month,end_month):
     travels = ['yellow']
     for month in months:
         for travel in travels:
-            url='https://s3.amazonaws.com/nyc-tlc/trip+data/{}_tripdata_{}.csv'.format(travel, month)
+            url='http://s3.amazonaws.com/nyc-tlc/trip+data/{}_tripdata_{}.csv'.format(travel, month)
             print (url)
             urls.append(url)
     return urls
@@ -25,11 +25,11 @@ def Download_2_csv(data_urls):
     for data_url in data_urls:
         print ('>>> downloading ', data_url)
         file_name = data_url.split('/')[-1]
-        download = requests.get('/data'+ data_url)
+        download = requests.get(data_url)
         count = 0 
-        with open(file_name, 'w') as temp_file:
+        with open('/data' + file_name, 'w') as temp_file:
             while count < 100:
-                temp_file.writelines(str(download.content))
+                temp_file.writelines(download.content)
                 count += 1 
 
 if __name__ == '__main__':
