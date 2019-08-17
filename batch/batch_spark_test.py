@@ -11,7 +11,7 @@ sqlcontext = pyspark.sql.SQLContext(sc)
 
 # file url
 green_trip_filename = "s3a://nyctaxitrip/green_trip/green_tripdata_2019-01.csv"
-yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_2019-01.csv"
+yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_2009-01.csv"
 
 
 ##################################################################################
@@ -21,7 +21,7 @@ yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_2019-01.cs
 def load_s3_greentrip_data(filename=green_trip_filename):
     data = sc.textFile(filename).map(lambda line: line.split(","))
     headers = data.first()
-    data_ = data.filter(lambda row: row != headers)
+    data_ = data.filter(lambda row: row != headers and row != [''])  # fix null data 
     dataFrame = sqlContext.createDataFrame(data_,
                 ['VendorID', 'lpep_pickup_datetime', 'lpep_dropoff_datetime',
                 'store_and_fwd_flag', 'RatecodeID', 'PULocationID', 'DOLocationID',
@@ -68,7 +68,32 @@ def top_trip_type(dataFrame):
 def load_s3_yellowtrip_data(filename=yellow_trip_filename):
     data = sc.textFile(filename).map(lambda line: line.split(","))
     headers = data.first()
-    data_ = data.filter(lambda row: row != headers)
-    return data_ 
+    data_ = data.filter(lambda row: row != headers and row != [''])  # fix null data 
+    dataFrame = sqlContext.createDataFrame(data_,
+                ['vendor_name','Trip_Pickup_DateTime', 'Trip_Dropoff_DateTime',
+                'Passenger_Count','Trip_Distance','Start_Lon',
+                'Start_Lat','Rate_Code','store_and_forward',
+                'End_Lon','End_Lat','Payment_Type',
+                'Fare_Amt','surcharge','mta_tax',
+                'Tip_Amt','Tolls_Amt','Total_Amt'])
+    dataFrame = dataFrame.withColumn("vendor_name", dataFrame["vendor_name"].cast("string"))    
+    dataFrame = dataFrame.withColumn("Trip_Pickup_DateTime", dataFrame["Trip_Pickup_DateTime"].cast("timestamp"))
+    dataFrame = dataFrame.withColumn("Trip_Dropoff_DateTime", dataFrame["Trip_Dropoff_DateTime"].cast("timestamp"))
+    dataFrame = dataFrame.withColumn("Passenger_Count", dataFrame["Passenger_Count"].cast("integer"))
+    dataFrame = dataFrame.withColumn("Trip_Distance", dataFrame["Trip_Distance"].cast("float"))
+    dataFrame = dataFrame.withColumn("Start_Lon", dataFrame["Start_Lon"].cast("float"))
+    dataFrame = dataFrame.withColumn("Start_Lat", dataFrame["Start_Lat"].cast("float"))
+    dataFrame = dataFrame.withColumn("Rate_Code", dataFrame["Rate_Code"].cast("string"))
+    dataFrame = dataFrame.withColumn("store_and_forward", dataFrame["store_and_forward"].cast("string"))
+    dataFrame = dataFrame.withColumn("End_Lon", dataFrame["End_Lon"].cast("float"))
+    dataFrame = dataFrame.withColumn("End_Lat", dataFrame["End_Lat"].cast("float"))
+    dataFrame = dataFrame.withColumn("Payment_Type", dataFrame["Payment_Type"].cast("string"))
+    dataFrame = dataFrame.withColumn("Fare_Amt", dataFrame["Fare_Amt"].cast("float"))
+    dataFrame = dataFrame.withColumn("surcharge", dataFrame["surcharge"].cast("float"))
+    dataFrame = dataFrame.withColumn("mta_tax", dataFrame["mta_tax"].cast("float"))
+    dataFrame = dataFrame.withColumn("Tip_Amt", dataFrame["Tip_Amt"].cast("float"))
+    dataFrame = dataFrame.withColumn("Tolls_Amt", dataFrame["Tolls_Amt"].cast("float"))
+    dataFrame = dataFrame.withColumn("Total_Amt", dataFrame["Total_Amt"].cast("float"))
+    return dataFrame
 
 
