@@ -9,9 +9,16 @@ sqlContext = SQLContext(sc)
 sc = pyspark.SparkContext.getOrCreate()
 sqlcontext = pyspark.sql.SQLContext(sc)
 
-# to update 
-filename = "s3a://nyctaxitrip/green_trip/green_tripdata_2019-01.csv"
-def load_s3_data(filename):
+# file url
+green_trip_filename = "s3a://nyctaxitrip/green_trip/green_tripdata_2019-01.csv"
+yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_2019-01.csv"
+
+
+##################################################################################
+# green trip data 
+##################################################################################
+
+def load_s3_greentrip_data(filename=green_trip_filename):
     data = sc.textFile(filename).map(lambda line: line.split(","))
     headers = data.first()
     data_ = data.filter(lambda row: row != headers)
@@ -43,5 +50,25 @@ def load_s3_data(filename):
     dataFrame = dataFrame.withColumn("trip_type", dataFrame["trip_type"].cast("integer"))
     dataFrame = dataFrame.withColumn("congestion_surcharge", dataFrame["congestion_surcharge"].cast("string"))
     return dataFrame
+
+
+def top_trip_type(dataFrame):
+    spark_RDD = dataFrame.rdd
+    top_trip_type = sorted(spark_RDD\
+                    .filter(lambda x : x['trip_type'] != None)\
+                    .map(lambda x: (x.trip_type,1))\
+                    .groupByKey().mapValues(len)\
+                    .collect())
+    return top_trip_type
+
+##################################################################################
+# yellow trip data 
+##################################################################################
+
+def load_s3_yellowtrip_data(filename=yellow_trip_filename):
+    data = sc.textFile(filename).map(lambda line: line.split(","))
+    headers = data.first()
+    data_ = data.filter(lambda row: row != headers)
+    return data_ 
 
 
