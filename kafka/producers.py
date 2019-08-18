@@ -1,11 +1,11 @@
 import sys
-sys.path.append("./helpers/")
+sys.path.append("./utility/")
 
 import time
 import json
 import boto3
 import lazyreader
-import helpers
+import utility
 from kafka.producer import KafkaProducer
 
 class MyKafkaProducer(object):
@@ -21,10 +21,10 @@ class MyKafkaProducer(object):
         :type schema_file     : str     path to schema file
         :type s3_configfile   : str     path to S3 config file
         """
-        self.kafka_config = helpers.parse_config(kafka_configfile)
+        self.kafka_config = utility.parse_config(kafka_configfile)
 
-        self.schema = helpers.parse_config(schema_file)
-        self.s3_config = helpers.parse_config(s3_configfile)
+        self.schema = utility.parse_config(schema_file)
+        self.s3_config = utility.parse_config(s3_configfile)
 
         self.producer = KafkaProducer(bootstrap_servers=self.kafka_config["BROKERS_IP"])
 
@@ -35,7 +35,7 @@ class MyKafkaProducer(object):
         :type msg: dict     message for which to generate the key
         :rtype   : str      key that has to be of type bytes
         """
-        msgwithkey = helpers.add_block_fields(msg)
+        msgwithkey = utility.add_block_fields(msg)
         if msgwithkey is None:
             return
         x, y = msgwithkey["block_lonid"], msgwithkey["block_latid"]
@@ -51,14 +51,18 @@ class MyKafkaProducer(object):
         while True:
 
             s3 = boto3.client('s3')
-            obj = s3.get_object(Bucket=self.s3_config["BUCKET"],
-                                Key="{}/{}".format(self.s3_config["FOLDER"],
-                                                   self.s3_config["STREAMING_FILE"]))
+            # obj = s3.get_object(Bucket=self.s3_config["BUCKET"],
+            #                     Key="{}/{}".format(self.s3_config["FOLDER"],
+            #                                        self.s3_config["STREAMING_FILE"]))
+
+            obj = s3.get_object(Bucket='nyctaxitrip',
+                    Key="{}/{}".format('yellow_trip',
+                                       'yellow_tripdata_sample.csv'))
 
             for line in lazyreader.lazyread(obj['Body'], delimiter='\n'):
 
                 message_info = line.strip()
-                msg = helpers.map_schema(message_info, self.schema)
+                msg = utility.map_schema(message_info, self.schema)
 
                 if msg is not None:
                     self.producer.send(self.kafka_config["TOPIC"],
