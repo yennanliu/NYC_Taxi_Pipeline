@@ -5,11 +5,11 @@ CREATE DATABASE IF NOT EXISTS taxi;
 use taxi; 
 DROP TABLE IF EXISTS yellow_trip;
 CREATE TABLE yellow_trip  (
-        id INT NOT NULL AUTO_INCREMENT,
+        id FLOAT NOT NULL,
         vendor_name CHAR(10),
         Trip_Pickup_DateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         Trip_Dropoff_DateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        Passenger_Count INTEGER NULL,
+        Passenger_Count FLOAT,
         Trip_Distance FLOAT NOT NULL,
         Start_Lon FLOAT NULL,
         Start_Lat FLOAT NULL,
