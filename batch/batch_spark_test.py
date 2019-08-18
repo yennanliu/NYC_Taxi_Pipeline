@@ -1,17 +1,17 @@
 import os
 import pyspark
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.amazonaws:aws-java-sdk-pom:1.7.4,org.apache.hadoop:hadoop-aws:2.7.6 pyspark-shell'
-from pyspark.sql import SQLContext
+from pyspark.sql import SQLContext, Row
 from pyspark import SparkContext
 
-#sc = SparkContext()
-sqlContext = SQLContext(sc)
+
 sc = pyspark.SparkContext.getOrCreate()
 sqlcontext = pyspark.sql.SQLContext(sc)
 
 # file url
 green_trip_filename = "s3a://nyctaxitrip/green_trip/green_tripdata_2019-01.csv"
-yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_2009-01.csv"
+#yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_2009-01.csv"
+yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_sample.csv"
 
 
 ##################################################################################
@@ -96,4 +96,14 @@ def load_s3_yellowtrip_data(filename=yellow_trip_filename):
     dataFrame = dataFrame.withColumn("Total_Amt", dataFrame["Total_Amt"].cast("float"))
     return dataFrame
 
+
+def get_timeslot(dataFrame):
+    dataFrame_ = dataFrame.rdd.map(
+                      lambda x: Row(
+                      vendor_name = x['vendor_name'],
+                      Start_Lat = x['Start_Lat'],
+                      time=((datetime.strptime(str(x['Trip_Dropoff_DateTime']), "%Y-%m-%d %H:%M:%S").hour*60 +
+                             datetime.strptime(str(x['Trip_Dropoff_DateTime']), "%Y-%m-%d %H:%M:%S").minute)/10),
+                      timestamp=x['Trip_Dropoff_DateTime'].strftime('%Y-%m-%d')))
+    return dataFrame_ 
 
