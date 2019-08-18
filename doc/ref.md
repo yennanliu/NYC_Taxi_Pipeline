@@ -13,4 +13,6 @@
 - https://github.com/acoullandreau/nyc_taxi_trips - init sql 
 - https://github.com/lingyielia/YellowTaxi - geo hash
 - https://github.com/AndreyBozhko/TaxiOptimizer  - pipeline 
-- https://towardsdatascience.com/putting-ml-in-production-i-using-apache-kafka-in-python-ce06b3a395c8 - kafka 
+- https://towardsdatascience.com/putting-ml-in-production-i-using-apache-kafka-in-python-ce06b3a395c8 - Kafka
+- https://engineeringblog.yelp.com/2016/08/streaming-mysql-tables-in-real-time-to-kafka.html - Streaming mysql to Kafka 
+- https://www.confluent.io/blog/ksql-in-action-enriching-csv-events-with-data-from-rdbms-into-AWS/ - Streaming csv to Kafka
