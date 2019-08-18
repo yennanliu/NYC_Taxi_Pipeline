@@ -5,8 +5,22 @@
 <img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/framework.png" width="800" height="400">
 
 
+## File structure 
+```
+├── README.md
+├── batch             : scripts for batch pipeline 
+├── config            : configuration files 
+├── data              : saved NYC nyc-tlc-trip-records-pds data / sample data 
+├── doc               : reference 
+├── kafka             : scripts for kafka 
+├── requirements.txt  : needed python libraries 
+├── script            : scripts help set up env/services 
+├── stream            : scripts for stream pipeline 
+└── utility           : help scripts for pipeline
 
-### Quick start 
+```
+
+## Quick start 
 <details>
 <summary>Quick-Start-Batch-Pipeline-Manually</summary>
 
