@@ -1,14 +1,10 @@
 # NYC_Taxi_Pipeline
 
 
-### Process 
-```
-                             --> Stream pre-process --> stream dataset -->  stream pipeline --> real-time report 
-NYC tlc-trip-record-data ---> 
+## Framework  
+<img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/framework.png" width="800" height="400">
 
-                             --> Storage to DB/csv --> batch pipeline --> historical report  
 
-```
 
 ### Quick start 
 <details>
