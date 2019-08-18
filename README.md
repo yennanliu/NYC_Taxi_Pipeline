@@ -57,3 +57,18 @@ $ spark-submit batch/batch_pipeline.py
 
 ```
 </details>
+
+<details>
+<summary>Quick-Start-Stream-Pipeline-Manually</summary>
+
+```bash 
+$ git clone https://github.com/yennanliu/NYC_Taxi_Pipeline.git
+$ cd NYC_Taxi_Pipeline
+$ export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
+$ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
+# start streaming data with kafka 
+$ bash kafka-run.sh --produce
+$ bash stream/spark-run.sh --stream
+```
+</details>
+
