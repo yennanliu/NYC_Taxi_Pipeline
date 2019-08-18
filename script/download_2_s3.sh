@@ -8,7 +8,7 @@ export AWS_ACCESS_KEY_ID=MY_ACCESS_KEY
 # ChangeAWS_SECRET_ACCESS_KEY to your secret key
 export AWS_SECRET_ACCESS_KEY=MY_SECRET_KEY
 # Change S3_BASE_FOLDER to your base folder.
-export AWS_DEFAULT_PROFILE=my-aws-profile-user
+export AWS_DEFAULT_PROFILE=yenliu
 export AWS_DEFAULT_REGION=us-east-1
 aws configure --profile $AWS_DEFAULT_PROFILE 
 # do not change URL_ROOT
