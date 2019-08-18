@@ -10,6 +10,7 @@
 - https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 
 ### Reference code 
-- [sql](https://github.com/acoullandreau/nyc_taxi_trips)
-- [geo hash](https://github.com/lingyielia/YellowTaxi)
-- [DE](https://github.com/AndreyBozhko/TaxiOptimizer)
+- https://github.com/acoullandreau/nyc_taxi_trips - init sql 
+- https://github.com/lingyielia/YellowTaxi - geo hash
+- https://github.com/AndreyBozhko/TaxiOptimizer  - pipeline 
+- https://towardsdatascience.com/putting-ml-in-production-i-using-apache-kafka-in-python-ce06b3a395c8 - kafka 
