@@ -38,3 +38,16 @@ CREATE TABLE geo_hash_block  (
         timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (id)
         );
+
+-- Create pickup_geo_hash table  
+use taxi; 
+DROP TABLE IF EXISTS pickup_geo_hash;
+CREATE TABLE pickup_geo_hash  (
+        id INT NOT NULL AUTO_INCREMENT,
+        Trip_Pickup_DateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        Start_Lat FLOAT NOT NULL, 
+        Start_Lon FLOAT NOT NULL, 
+        geo_hash_id CHAR(10),
+        PRIMARY KEY (id)
+        );
+
