@@ -26,6 +26,17 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 
 ```
 
+## Prerequisites
+<details>
+<summary>Quick-Start-Batch-Pipeline-Manually</summary>
+
+```
+# 1. Install spark, Java 8, zoopkeeper, and kafka, Mysql
+# 2. Set up AWS account and launch S3 service
+# 3. Get AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY 
+```
+</details>
+
 ## Quick start 
 <details>
 <summary>Quick-Start-Batch-Pipeline-Manually</summary>
