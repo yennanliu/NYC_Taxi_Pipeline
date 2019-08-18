@@ -2,11 +2,11 @@ import os
 import pyspark
 import math 
 from datetime import datetime
-os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.amazonaws:aws-java-sdk-pom:1.7.4,org.apache.hadoop:hadoop-aws:2.7.6 pyspark-shell'
 from pyspark.sql import SQLContext, Row
 from pyspark import SparkContext
+from pyspark.sql import functions as F
 
-
+os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.amazonaws:aws-java-sdk-pom:1.7.4,org.apache.hadoop:hadoop-aws:2.7.6 pyspark-shell'
 sc = pyspark.SparkContext.getOrCreate()
 sqlcontext = pyspark.sql.SQLContext(sc)
 
@@ -71,14 +71,16 @@ def top_trip_type(dataFrame):
 def load_s3_yellowtrip_data(filename=yellow_trip_filename):
     data = sc.textFile(filename).map(lambda line: line.split(","))
     headers = data.first()
-    data_ = data.filter(lambda row: row != headers and row != [''])  # fix null data 
+    #data_ = data.filter(lambda row: row != headers and row != [''])  # fix null data 
+    data_ = data.filter(lambda row: row != headers )  # fix null data 
     dataFrame = sqlContext.createDataFrame(data_,
-                ['vendor_name','Trip_Pickup_DateTime', 'Trip_Dropoff_DateTime',
+                ['id','vendor_name','Trip_Pickup_DateTime', 'Trip_Dropoff_DateTime',
                 'Passenger_Count','Trip_Distance','Start_Lon',
                 'Start_Lat','Rate_Code','store_and_forward',
                 'End_Lon','End_Lat','Payment_Type',
                 'Fare_Amt','surcharge','mta_tax',
                 'Tip_Amt','Tolls_Amt','Total_Amt'])
+    dataFrame = dataFrame.withColumn("id", dataFrame["id"].cast("float")) 
     dataFrame = dataFrame.withColumn("vendor_name", dataFrame["vendor_name"].cast("string"))    
     dataFrame = dataFrame.withColumn("Trip_Pickup_DateTime", dataFrame["Trip_Pickup_DateTime"].cast("timestamp"))
     dataFrame = dataFrame.withColumn("Trip_Dropoff_DateTime", dataFrame["Trip_Dropoff_DateTime"].cast("timestamp"))
@@ -122,6 +124,11 @@ def spark_transform(dataFrame):
                   .filter(lambda x: x is not None)
     return dataFrame_
 
+
+def get_geohash_id(dataFrame):
+    udf_geohash = F.udf(lambda x,y: pgh.encode(x,y,precision=7))
+    df_geohash = dataFrame.select('Trip_Pickup_DateTime','Start_Lat','Start_Lon',udf_geohash('Start_Lat','Start_Lon').alias('geo_hash_id'))
+    return df_geohash
 
 def get_mysql_config(config_file):
     return mysql_config
