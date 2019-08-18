@@ -92,7 +92,7 @@ $ bash stream/spark-run.sh --stream
 <details>
 <summary>TODO</summary>
 
-```bash
+```
 # 1. Tune the main pipeline for large scale data (to process whole nyc-tlc-trip data)
 # 2. Add front-end UI (flask to visualize supply & demand and surging price)
 # 2. Add test 
