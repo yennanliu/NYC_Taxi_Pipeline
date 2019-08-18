@@ -1,6 +1,7 @@
 import os
 import pyspark
 import math 
+from datetime import datetime
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.amazonaws:aws-java-sdk-pom:1.7.4,org.apache.hadoop:hadoop-aws:2.7.6 pyspark-shell'
 from pyspark.sql import SQLContext, Row
 from pyspark import SparkContext
@@ -117,6 +118,22 @@ def spark_transform(dataFrame):
                   large_block_id = tuple(map( lambda z: z/20, map(lambda y: int(math.floor(y/0.00025)), [(x['Start_Lon']+74.25), (x['Start_Lat']-40.5)]))),
                   time_slot=((datetime.strptime(str(x['Trip_Dropoff_DateTime']), "%Y-%m-%d %H:%M:%S").hour*60 +
                          datetime.strptime(str(x['Trip_Dropoff_DateTime']), "%Y-%m-%d %H:%M:%S").minute)/10),
-                  timestamp=x['Trip_Dropoff_DateTime'].strftime('%Y-%m-%d')))
+                  timestamp=x['Trip_Dropoff_DateTime'].strftime('%Y-%m-%d')))\
+                  .filter(lambda x: x is not None)
     return dataFrame_
+
+
+
+def save_to_postgresql():
+    """
+    saves result of batch transformation to PostgreSQL database and adds necessary index
+    """
+    configs = {key: psql_config[key] for key in ["url", "driver", "user", "password"]}
+    configs["dbtable"] = psql_config["dbtable_batch"]
+
+    save_to_postgresql(data, pyspark.sql.SQLContext(sc), configs, psql_config["mode_batch"])
+    add_index_postgresql(configs["dbtable"], psql_config["partitionColumn"], psql_config)
+
+
+
 
