@@ -3,6 +3,7 @@ CREATE DATABASE IF NOT EXISTS taxi;
 
 -- Create a table with yellow taxi trip 
 use taxi; 
+DROP TABLE IF EXISTS yellow_trip;
 CREATE TABLE yellow_trip  (
         id INT NOT NULL AUTO_INCREMENT,
         vendor_name CHAR(10),
@@ -11,14 +12,14 @@ CREATE TABLE yellow_trip  (
         Passenger_Count INTEGER NULL,
         Trip_Distance FLOAT NOT NULL,
         Start_Lon FLOAT NULL,
-        Start_Lat FLOAT NOT NULL,
+        Start_Lat FLOAT NULL,
         Rate_Code CHAR(10) NULL,
         store_and_forward CHAR(10) NULL,
-        End_Lon FLOAT NOT NULL,
-        End_Lat FLOAT NOT NULL,
-        Payment_Type CHAR(10) NOT NULL,
-        Fare_Amt FLOAT NOT NULL,
-        surcharge FLOAT NOT NULL,
+        End_Lon FLOAT  NULL,
+        End_Lat FLOAT  NULL,
+        Payment_Type CHAR(10)  NULL,
+        Fare_Amt FLOAT  NULL,
+        surcharge FLOAT  NULL,
         mta_tax FLOAT NULL,
         Tip_Amt FLOAT NULL,
         Tolls_Amt FLOAT NULL,
