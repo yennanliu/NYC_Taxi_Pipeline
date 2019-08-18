@@ -5,3 +5,4 @@ pyspark
 pygeohash
 lazyreader
 kafka
+numpy
