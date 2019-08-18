@@ -114,8 +114,8 @@ def get_timeslot(dataFrame):
 def spark_transform(dataFrame):
     dataFrame_ = dataFrame.rdd.map(
                   lambda x: Row(
-                  small_block_id = tuple(map(lambda y: int(math.floor(y/0.00025)), [(x['Start_Lon']+74.25), (x['Start_Lat']-40.5)])),
-                  large_block_id = tuple(map( lambda z: z/20, map(lambda y: int(math.floor(y/0.00025)), [(x['Start_Lon']+74.25), (x['Start_Lat']-40.5)]))),
+                  small_block_id = str(tuple(map(lambda y: int(math.floor(y/0.00025)), [(x['Start_Lon']+74.25), (x['Start_Lat']-40.5)]))),
+                  large_block_id = str(tuple(map( lambda z: z/20, map(lambda y: int(math.floor(y/0.00025)), [(x['Start_Lon']+74.25), (x['Start_Lat']-40.5)])))),
                   time_slot=((datetime.strptime(str(x['Trip_Dropoff_DateTime']), "%Y-%m-%d %H:%M:%S").hour*60 +
                          datetime.strptime(str(x['Trip_Dropoff_DateTime']), "%Y-%m-%d %H:%M:%S").minute)/10),
                   timestamp=x['Trip_Dropoff_DateTime'].strftime('%Y-%m-%d')))\
