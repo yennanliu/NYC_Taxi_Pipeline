@@ -23,7 +23,7 @@ $ cd NYC_Taxi_Pipeline
 $ echo "create database `taxi`" | mysql -u <user_name> -p <mysql_password>
 $ mysql -u <mysql_user_name> -p <mysql_password> taxi < batch/create_table.sql
 $ export SPARK_HOME=/Users/$USER/spark && export PATH=$SPARK_HOME/bin:$PATH
-$ spark-submit batch/batch_spark_test.py 
+$ spark-submit batch/batch_pipeline.py 
 # check the results (mysql)
 # mysql> SELECT pickup.*,
 #     ->        dropoff.*

@@ -146,12 +146,9 @@ def save_to_mysql(dataFrame, table_name, mysql_config):
           password='0000').mode('append').save()
 
 
-
 if __name__ == '__main__':
     mysql_config=''
     df_yellow = load_s3_yellowtrip_data()
     pickup_geohash, dropoff_geohash = get_geohash_id(df_yellow)
     save_to_mysql(pickup_geohash, 'pickup_geo_hash',mysql_config)
     save_to_mysql(dropoff_geohash, 'dropoff_geo_hash',mysql_config)
-
-
