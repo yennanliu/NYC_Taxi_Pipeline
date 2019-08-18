@@ -83,7 +83,7 @@ $ cd NYC_Taxi_Pipeline
 $ export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
 $ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
 # start streaming data with kafka 
-$ bash kafka-run.sh --produce
+$ bash script/kafka-run.sh --produce
 $ bash stream/spark-run.sh --stream
 ```
 </details>
@@ -99,6 +99,5 @@ $ bash stream/spark-run.sh --stream
 # 3. Dockerize the project 
 # 4. Tune the spark batch/stream code 
 # 5. Tune the kafka, zoopkeeper cluster setting 
-
 ```
 </details>
