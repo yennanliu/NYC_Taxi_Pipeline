@@ -13,8 +13,8 @@ sqlContext = pyspark.sql.SQLContext(sc)
 
 # file url
 green_trip_filename = "s3a://nyctaxitrip/green_trip/green_tripdata_2019-01.csv"
+yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_sample.csv"  # use sample file here, since yellow taxi trip data is too large  
 #yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_2009-01.csv"
-yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_sample.csv"
 
 
 ##################################################################################

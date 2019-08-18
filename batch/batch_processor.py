@@ -1,6 +1,6 @@
 import json
 import heapq
-import helpers
+import utility
 import postgres
 import pyspark
 
@@ -18,9 +18,9 @@ class BatchProcessor:
         :type schema_configfile: str        path to schema config file
         :type psql_configfile:   str        path to psql config file
         """
-        self.s3_config   = helpers.parse_config(s3_configfile)
-        self.schema      = helpers.parse_config(schema_configfile)
-        self.psql_config = helpers.parse_config(psql_configfile)
+        self.s3_config   = utility.parse_config(s3_configfile)
+        self.schema      = utility.parse_config(schema_configfile)
+        self.psql_config = utility.parse_config(psql_configfile)
 
         self.sc = pyspark.SparkContext.getOrCreate()
         self.sc.setLogLevel("ERROR")
@@ -51,10 +51,10 @@ class BatchProcessor:
         """
         schema = self.sc.broadcast(self.schema)
         self.data = (self.data
-                           .map(lambda line: helpers.map_schema(line, schema.value))
-                           .map(helpers.add_block_fields)
-                           .map(helpers.add_time_slot_field)
-                           .map(helpers.check_passengers)
+                           .map(lambda line: utility.map_schema(line, schema.value))
+                           .map(utility.add_block_fields)
+                           .map(utility.add_time_slot_field)
+                           .map(utility.check_passengers)
                            .filter(lambda x: x is not None))
 
     def run(self):
@@ -100,14 +100,14 @@ class TaxiBatchProcessor(BatchProcessor):
         maxval = self.psql_config["upperBound"]
         self.data = (self.data
                         .map(lambda x: ( (x["block_id"], x["time_slot"]), x["subblocks_psgcnt"] ))
-                        .flatMap(lambda x: [x] + [ ( (bl, (x[0][1]-1) % maxval), x[1] ) for bl in helpers.get_neighboring_blocks(x[0][0]) ] )
+                        .flatMap(lambda x: [x] + [ ( (bl, (x[0][1]-1) % maxval), x[1] ) for bl in utility.get_neighboring_blocks(x[0][0]) ] )
                         .reduceByKey(lambda x,y: x+y)
                         .mapValues(lambda vals: heapq.nlargest(n, vals, key=lambda x: x[1]))
                         .map(lambda x: {"block_latid":  x[0][0][0],
                                         "block_lonid":  x[0][0][1],
                                         "time_slot":    x[0][1],
-                                        "longitude":    [helpers.determine_subblock_lonlat(el[0])[0] for el in x[1]],
-                                        "latitude":     [helpers.determine_subblock_lonlat(el[0])[1] for el in x[1]],
+                                        "longitude":    [utility.determine_subblock_lonlat(el[0])[0] for el in x[1]],
+                                        "latitude":     [utility.determine_subblock_lonlat(el[0])[1] for el in x[1]],
                                         "passengers":   [el[1] for el in x[1]] } ))
 
         self.data.persist(pyspark.StorageLevel(True, True, False, False, 3)).count()    # MEMORY_AND_DISK_3
