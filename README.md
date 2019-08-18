@@ -33,9 +33,12 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 ```bash 
 $ git clone https://github.com/yennanliu/NYC_Taxi_Pipeline.git
 $ cd NYC_Taxi_Pipeline
+$ pip install -r requirements.txt 
 $ export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
 $ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
-# download and upload data to s3 
+# download and upload data to s3
+# currently use sample texi trip data at s3 nyctaxi bucket yellow_trip folder  
+$ bash script/download_2_s3.sh
 # init mysql 
 # run mysql server local 
 $ echo "create database `taxi`" | mysql -u <user_name> -p <mysql_password>
@@ -80,6 +83,12 @@ $ spark-submit batch/batch_pipeline.py
 ```bash 
 $ git clone https://github.com/yennanliu/NYC_Taxi_Pipeline.git
 $ cd NYC_Taxi_Pipeline
+$ pip install -r requirements.txt 
+$ export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
+$ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
+# download and upload data to s3
+# currently use sample texi trip data at s3 nyctaxi bucket yellow_trip folder  
+$ bash script/download_2_s3.sh
 $ export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
 $ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
 # start streaming data with kafka 
