@@ -1,7 +1,7 @@
 -- Create db in mysql
 CREATE DATABASE IF NOT EXISTS taxi;
 
--- Create a table with yellow taxi trip 
+-- Create yellow taxi trip table 
 use taxi; 
 DROP TABLE IF EXISTS yellow_trip;
 CREATE TABLE yellow_trip  (
@@ -24,5 +24,17 @@ CREATE TABLE yellow_trip  (
         Tip_Amt FLOAT NULL,
         Tolls_Amt FLOAT NULL,
         Total_Amt FLOAT NULL,
+        PRIMARY KEY (id)
+        );
+
+-- Create geo_hash_block table  
+use taxi; 
+DROP TABLE IF EXISTS geo_hash_block;
+CREATE TABLE geo_hash_block  (
+        id INT NOT NULL AUTO_INCREMENT,
+        large_block_id CHAR(50),
+        small_block_id CHAR(50),
+        time_slot FLOAT NULL,
+        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (id)
         );
