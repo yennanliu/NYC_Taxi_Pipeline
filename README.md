@@ -89,8 +89,6 @@ $ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
 # download and upload data to s3
 # currently use sample texi trip data at s3 nyctaxi bucket yellow_trip folder  
 $ bash script/download_2_s3.sh
-$ export AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
-$ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
 # start streaming data with kafka 
 $ bash script/kafka-run.sh --produce
 $ bash stream/spark-run.sh --stream
@@ -108,5 +106,6 @@ $ bash stream/spark-run.sh --stream
 # 3. Dockerize the project 
 # 4. Tune the spark batch/stream code 
 # 5. Tune the kafka, zoopkeeper cluster setting 
+# 6. Travis CI/CD 
 ```
 </details>
