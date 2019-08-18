@@ -28,7 +28,7 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 
 ## Prerequisites
 <details>
-<summary>Quick-Start-Batch-Pipeline-Manually</summary>
+<summary>Prerequisites</summary>
 
 ```
 # 1. Install spark, Java 8, zoopkeeper, and kafka, Mysql
@@ -118,5 +118,6 @@ $ bash stream/spark-run.sh --stream
 # 4. Tune the spark batch/stream code 
 # 5. Tune the kafka, zoopkeeper cluster setting 
 # 6. Travis CI/CD 
+# 7. Use Airflow to schedule batch pipeline 
 ```
 </details>
