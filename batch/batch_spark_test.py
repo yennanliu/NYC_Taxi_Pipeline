@@ -1,5 +1,6 @@
 import os
 import pyspark
+import math 
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.amazonaws:aws-java-sdk-pom:1.7.4,org.apache.hadoop:hadoop-aws:2.7.6 pyspark-shell'
 from pyspark.sql import SQLContext, Row
 from pyspark import SparkContext
@@ -17,6 +18,7 @@ yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_sample.csv
 ##################################################################################
 # green trip data 
 ##################################################################################
+
 
 def load_s3_greentrip_data(filename=green_trip_filename):
     data = sc.textFile(filename).map(lambda line: line.split(","))
@@ -106,4 +108,15 @@ def get_timeslot(dataFrame):
                              datetime.strptime(str(x['Trip_Dropoff_DateTime']), "%Y-%m-%d %H:%M:%S").minute)/10),
                       timestamp=x['Trip_Dropoff_DateTime'].strftime('%Y-%m-%d')))
     return dataFrame_ 
+
+
+def spark_transform(dataFrame):
+    dataFrame_ = dataFrame.rdd.map(
+                  lambda x: Row(
+                  small_block_id = tuple(map(lambda y: int(math.floor(y/0.00025)), [(x['Start_Lon']+74.25), (x['Start_Lat']-40.5)])),
+                  large_block_id = tuple(map( lambda z: z/20, map(lambda y: int(math.floor(y/0.00025)), [(x['Start_Lon']+74.25), (x['Start_Lat']-40.5)]))),
+                  time_slot=((datetime.strptime(str(x['Trip_Dropoff_DateTime']), "%Y-%m-%d %H:%M:%S").hour*60 +
+                         datetime.strptime(str(x['Trip_Dropoff_DateTime']), "%Y-%m-%d %H:%M:%S").minute)/10),
+                  timestamp=x['Trip_Dropoff_DateTime'].strftime('%Y-%m-%d')))
+    return dataFrame_
 
