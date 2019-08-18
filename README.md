@@ -88,3 +88,15 @@ $ bash stream/spark-run.sh --stream
 ```
 </details>
 
+### TODO 
+<details>
+<summary>TODO</summary>
+```
+1. Tune the main pipeline for large scale data (to process whole nyc-tlc-trip data)
+2. Add front-end UI (flask to visualize supply & demand and surging price)
+2. Add test 
+3. Dockerize the project 
+4. Tune the spark batch/stream code 
+5. Tune the kafka, zoopkeeper cluster setting 
+```
+</details>
