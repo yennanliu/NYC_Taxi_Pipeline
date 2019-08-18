@@ -1,6 +1,7 @@
 import os
 import pyspark
 import math 
+import pygeohash as pgh
 from datetime import datetime
 from pyspark.sql import SQLContext, Row
 from pyspark import SparkContext
@@ -8,7 +9,7 @@ from pyspark.sql import functions as F
 
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.amazonaws:aws-java-sdk-pom:1.7.4,org.apache.hadoop:hadoop-aws:2.7.6 pyspark-shell'
 sc = pyspark.SparkContext.getOrCreate()
-sqlcontext = pyspark.sql.SQLContext(sc)
+sqlContext = pyspark.sql.SQLContext(sc)
 
 # file url
 green_trip_filename = "s3a://nyctaxitrip/green_trip/green_tripdata_2019-01.csv"
