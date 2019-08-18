@@ -51,3 +51,14 @@ CREATE TABLE pickup_geo_hash  (
         PRIMARY KEY (id)
         );
 
+-- Create pickup_geo_hash table  
+use taxi; 
+DROP TABLE IF EXISTS dropoff_geo_hash;
+CREATE TABLE dropoff_geo_hash  (
+        id INT NOT NULL AUTO_INCREMENT,
+        Trip_Dropoff_DateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        End_Lat FLOAT NOT NULL, 
+        End_Lon FLOAT NOT NULL, 
+        geo_hash_id CHAR(10),
+        PRIMARY KEY (id)
+        );

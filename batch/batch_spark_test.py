@@ -127,18 +127,30 @@ def spark_transform(dataFrame):
 
 def get_geohash_id(dataFrame):
     udf_geohash = F.udf(lambda x,y: pgh.encode(x,y,precision=7))
-    df_geohash = dataFrame.select('Trip_Pickup_DateTime','Start_Lat','Start_Lon',udf_geohash('Start_Lat','Start_Lon').alias('geo_hash_id'))
-    return df_geohash
+    pickup_geohash = dataFrame.select('Trip_Pickup_DateTime','Start_Lat','Start_Lon',udf_geohash('Start_Lat','Start_Lon').alias('geo_hash_id'))
+    dropoff_geohash = dataFrame.select('Trip_Dropoff_DateTime','End_Lat','End_Lon',udf_geohash('End_Lat','End_Lon').alias('geo_hash_id'))
+    return pickup_geohash, dropoff_geohash
+
 
 def get_mysql_config(config_file):
     return mysql_config
 
 
-def save_to_mysql(dataFrame, mysql_config):
+def save_to_mysql(dataFrame, table_name, mysql_config):
     dataFrame.write.format('jdbc').options(
           url='jdbc:mysql://localhost/taxi',
           driver='com.mysql.jdbc.Driver',
-          dbtable='yellow_trip',
+          dbtable=table_name,
           user='yennanliu',
           password='0000').mode('append').save()
+
+
+
+if __name__ == '__main__':
+    mysql_config=''
+    df_yellow = load_s3_yellowtrip_data()
+    pickup_geohash, dropoff_geohash = get_geohash_id(df_yellow)
+    save_to_mysql(pickup_geohash, 'pickup_geo_hash',mysql_config)
+    save_to_mysql(dropoff_geohash, 'dropoff_geo_hash',mysql_config)
+
 
