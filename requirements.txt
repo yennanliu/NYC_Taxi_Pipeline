@@ -3,3 +3,5 @@ tqdm
 psycopg2
 pyspark 
 pygeohash
+lazyreader
+kafka
