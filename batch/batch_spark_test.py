@@ -123,17 +123,15 @@ def spark_transform(dataFrame):
     return dataFrame_
 
 
-
-def save_to_postgresql():
-    """
-    saves result of batch transformation to PostgreSQL database and adds necessary index
-    """
-    configs = {key: psql_config[key] for key in ["url", "driver", "user", "password"]}
-    configs["dbtable"] = psql_config["dbtable_batch"]
-
-    save_to_postgresql(data, pyspark.sql.SQLContext(sc), configs, psql_config["mode_batch"])
-    add_index_postgresql(configs["dbtable"], psql_config["partitionColumn"], psql_config)
+def get_mysql_config(config_file):
+    return mysql_config
 
 
-
+def save_to_mysql(dataFrame, mysql_config):
+    dataFrame.write.format('jdbc').options(
+          url='jdbc:mysql://localhost/taxi',
+          driver='com.mysql.jdbc.Driver',
+          dbtable='yellow_trip',
+          user='yennanliu',
+          password='0000').mode('append').save()
 
