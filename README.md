@@ -100,9 +100,12 @@ $ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
 # download and upload data to s3
 # currently use sample texi trip data at s3 nyctaxi bucket yellow_trip folder  
 $ bash script/download_2_s3.sh
-# start streaming data with kafka 
-$ bash script/kafka-run.sh --produce
-$ bash stream/spark-run.sh --stream
+# start kafka, zookeeper 
+$ bash kafka/start_kafka.sh
+# stream data from s3 
+$ python s3_csv_2_stream.py
+# run the stream pipeline 
+$  spark-submit --jars /Users/$USER/spark/jars/spark-streaming-kafka-0-8-assembly_2.11-2.4.3.jar stream/stream_pipeline.py localhost:9092 new_topic
 ```
 </details>
 
@@ -113,11 +116,11 @@ $ bash stream/spark-run.sh --stream
 ```
 # 1. Tune the main pipeline for large scale data (to process whole nyc-tlc-trip data)
 # 2. Add front-end UI (flask to visualize supply & demand and surging price)
-# 2. Add test 
-# 3. Dockerize the project 
-# 4. Tune the spark batch/stream code 
-# 5. Tune the kafka, zoopkeeper cluster setting 
-# 6. Travis CI/CD 
-# 7. Use Airflow to schedule batch pipeline 
+# 3. Add test 
+# 4. Dockerize the project 
+# 5. Tune the spark batch/stream code 
+# 6. Tune the kafka, zoopkeeper cluster setting 
+# 7. Travis CI/CD 
+# 8. Use Airflow to schedule batch pipeline 
 ```
 </details>
