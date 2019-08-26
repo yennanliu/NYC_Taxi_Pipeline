@@ -4,8 +4,9 @@
 E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) -> L (load : Spark -> Mysql), then calculate the `Supply VS Demand ratio` for `Surging price` application. 
 
 * Tech : Spark, Kafka, S3, Mysql, Python 
-
-
+* Batch pipeline : [batch_pipeline.py](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/batch/batch_pipeline.py)
+* Stream pipeline : [stream_pipeline.py](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/stream/stream_pipeline.py)
+* S3 data to stream : [s3_csv_2_stream.py](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/stream/s3_csv_2_stream.py)
 
 ## Framework  
 <img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/framework.png" width="800" height="400">
