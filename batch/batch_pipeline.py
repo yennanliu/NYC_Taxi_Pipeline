@@ -56,15 +56,6 @@ def load_s3_greentrip_data(filename=green_trip_filename):
     return dataFrame
 
 
-def top_trip_type(dataFrame):
-    spark_RDD = dataFrame.rdd
-    top_trip_type = sorted(spark_RDD\
-                    .filter(lambda x : x['trip_type'] != None)\
-                    .map(lambda x: (x.trip_type,1))\
-                    .groupByKey().mapValues(len)\
-                    .collect())
-    return top_trip_type
-
 ##################################################################################
 # yellow trip data 
 ##################################################################################
@@ -131,10 +122,6 @@ def get_geohash_id(dataFrame):
     pickup_geohash = dataFrame.select('Trip_Pickup_DateTime','Start_Lat','Start_Lon',udf_geohash('Start_Lat','Start_Lon').alias('geo_hash_id'))
     dropoff_geohash = dataFrame.select('Trip_Dropoff_DateTime','End_Lat','End_Lon',udf_geohash('End_Lat','End_Lon').alias('geo_hash_id'))
     return pickup_geohash, dropoff_geohash
-
-
-def get_mysql_config(config_file):
-    return mysql_config
 
 
 def save_to_mysql(dataFrame, table_name, mysql_config):
