@@ -8,7 +8,11 @@ from pyspark import SparkContext
 from pyspark.sql import functions as F
 
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.amazonaws:aws-java-sdk-pom:1.7.4,org.apache.hadoop:hadoop-aws:2.7.6 pyspark-shell'
-sc = pyspark.SparkContext.getOrCreate()
+AWSAccessKeyId = os.environ['AWSAccessKeyId']
+AWSSecretKey = os.environ['AWSSecretKey']
+sc = SparkContext.getOrCreate()
+sc._jsc.hadoopConfiguration().set('fs.s3a.access.key', AWSAccessKeyId)
+sc._jsc.hadoopConfiguration().set('fs.s3a.secret.key', AWSSecretKey)
 sqlContext = pyspark.sql.SQLContext(sc)
 
 # file url
