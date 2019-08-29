@@ -53,8 +53,9 @@ $ export AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
 $ bash script/download_2_s3.sh
 # init mysql 
 # run mysql server local 
-$ echo "create database `taxi`" | mysql -u <user_name> -p <mysql_password>
-$ mysql -u <mysql_user_name> -p <mysql_password> taxi < batch/create_table.sql
+$ echo "create database taxi" | mysql -u <mysql_user>  -p  # create db 
+# enter mysql password for <mysql_user>
+$ mysql -u <mysql_user> -p  taxi < batch/create_table.sql  # create tables 
 $ export SPARK_HOME=/Users/$USER/spark && export PATH=$SPARK_HOME/bin:$PATH
 $ spark-submit batch/batch_pipeline.py 
 # check the results (mysql)
