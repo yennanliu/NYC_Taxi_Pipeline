@@ -134,6 +134,21 @@ $ spark-submit --jars /Users/$USER/spark/jars/spark-streaming-kafka-0-8-assembly
 ```
 </details>
 
+### Dependency 
+<details>
+<summary>Dependency</summary>
+
+1. Spark 2.4.3 
+2. Java 8
+3. Apache Hadoop 2.7
+4. Jars 
+	- [aws-java-sdk-1.7.4](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk/1.7.4)
+	- [hadoop-aws-2.7.6](https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-aws/2.7.6)
+	- [spark-streaming-kafka-0-8-assembly_2.11-2.4.3.jar](https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka-0-8-assembly_2.11/2.4.3)
+	-[mysql-connector-java-8.0.15.jar](https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.15)
+
+</details>
+
 ### TODO 
 <details>
 <summary>TODO</summary>
