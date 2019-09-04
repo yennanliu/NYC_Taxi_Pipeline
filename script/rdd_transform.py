@@ -21,5 +21,6 @@ def get_group_max_Total_Amt(rdd):
     output : max Total_Amt for each vendor_name group 
     """
     filter_rdd = rdd.map(lambda x : (float(x[19]), x[2]))
-    max_group = filter_rdd.map(lambda x: ((x[1]), x[0])).reduceByKey(add).collect()
-    return max_group
+    grouped_sum = filter_rdd.map(lambda x: ((x[1]), x[0])).reduceByKey(add).collect()
+    grouped_max = filter_rdd.map(lambda x: ((x[1]), x[0])).reduceByKey(max).collect()
+    return grouped_max, grouped_sum 
