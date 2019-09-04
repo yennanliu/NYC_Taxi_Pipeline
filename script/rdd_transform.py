@@ -13,3 +13,13 @@ def get_max_Total_Amt(df):
                    Total_Amt = x['Total_Amt'] ))
     .max(key = lambda x : x['Total_Amt']))
     return max_Total_Amt
+
+
+def get_group_max_Total_Amt(rdd):
+    """
+    input  : yellow taxi RDD
+    output : max Total_Amt for each vendor_name group 
+    """
+    filter_rdd = rdd.map(lambda x : (float(x[19]), x[2]))
+    max_group = filter_rdd.map(lambda x: ((x[1]), x[0])).reduceByKey(add).collect()
+    return max_group
