@@ -1,10 +1,15 @@
 import time
 import json
 import boto3
+import os 
 from kafka.producer import KafkaProducer
 
 if __name__ == '__main__':
-    s3 = boto3.client('s3')
+    AWSAccessKeyId = os.environ['AWSAccessKeyId']
+    AWSSecretKey = os.environ['AWSSecretKey']
+    s3 = boto3.client('s3',
+         aws_access_key_id=AWSAccessKeyId,
+         aws_secret_access_key= AWSSecretKey)
     producer = KafkaProducer(bootstrap_servers="127.0.0.1:9092")
     obj = s3.get_object(Bucket='nyctaxitrip',
             Key="{}/{}".format('yellow_trip',
