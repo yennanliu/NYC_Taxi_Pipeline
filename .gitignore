@@ -1,2 +1,3 @@
 .DS_Store
+utility/__pycache__/
 config/aws_creds.config
