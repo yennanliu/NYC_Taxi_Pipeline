@@ -12,17 +12,19 @@ from pyspark.sql import functions as F
 from utility import * 
 
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.amazonaws:aws-java-sdk-pom:1.7.4,org.apache.hadoop:hadoop-aws:2.7.6 pyspark-shell'
-AWSAccessKeyId = os.environ['AWSAccessKeyId']
-AWSSecretKey = os.environ['AWSSecretKey']
+aws_creds = parse_config('config/aws_creds.config')
+AWSAccessKeyId = aws_creds['AWSAccessKeyId']
+AWSSecretKey = aws_creds['AWSSecretKey']
+
 sc = SparkContext.getOrCreate()
 sc._jsc.hadoopConfiguration().set('fs.s3a.access.key', AWSAccessKeyId)
 sc._jsc.hadoopConfiguration().set('fs.s3a.secret.key', AWSSecretKey)
 sqlContext = pyspark.sql.SQLContext(sc)
 
 # file url
-green_trip_filename = "s3a://nyctaxitrip/green_trip/green_tripdata_2019-01.csv"
-yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_sample.csv"  # use sample file here, since yellow taxi trip data is too large  
-#yellow_trip_filename = "s3a://nyctaxitrip/yellow_trip/yellow_tripdata_2009-01.csv"
+s3_samplefile = parse_config('config/s3_sample_file.config') 
+green_trip_filename =s3_samplefile['green_trip_file']
+yellow_trip_filename = s3_samplefile['yellow_trip_file']
 
 
 ##################################################################################
