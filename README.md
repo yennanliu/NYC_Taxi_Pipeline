@@ -57,7 +57,7 @@ $ echo "create database taxi" | mysql -u <mysql_user>  -p  # create db
 # enter mysql password for <mysql_user>
 $ mysql -u <mysql_user> -p  taxi < batch/create_table.sql  # create tables 
 $ export SPARK_HOME=/Users/$USER/spark && export PATH=$SPARK_HOME/bin:$PATH
-$ spark-submit batch/batch_pipeline.py 
+$ spark-submit batch/batch_pipeline_manually.py 
 # check the results (mysql)
 # mysql> SELECT pickup.*,
 #     ->        dropoff.*
