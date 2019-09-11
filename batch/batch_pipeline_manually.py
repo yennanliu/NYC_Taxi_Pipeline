@@ -1,3 +1,5 @@
+import sys
+sys.path.append("./utility/")
 import os
 import pyspark
 import math 
@@ -6,6 +8,8 @@ from datetime import datetime
 from pyspark.sql import SQLContext, Row
 from pyspark import SparkContext
 from pyspark.sql import functions as F
+# UDF 
+from utility import * 
 
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages com.amazonaws:aws-java-sdk-pom:1.7.4,org.apache.hadoop:hadoop-aws:2.7.6 pyspark-shell'
 AWSAccessKeyId = os.environ['AWSAccessKeyId']
@@ -128,19 +132,23 @@ def get_geohash_id(dataFrame):
     return pickup_geohash, dropoff_geohash
 
 
-def save_to_mysql(dataFrame, table_name, mysql_config):
+def save_to_mysql(dataFrame, table_name):
+    mysql_config= parse_config('config/mysql.config')
     dataFrame.write.format('jdbc').options(
-          url='jdbc:mysql://localhost/taxi',
-          driver='com.mysql.jdbc.Driver',
-          dbtable=table_name,
-          user='mysql_user',
-          password='0000').mode('append').save()
+        url=mysql_config['url'],
+        driver=mysql_config['driver'],
+        dbtable=table_name,
+        user=mysql_config['user'],
+        password=mysql_config['password']).mode('append').save()
+
+def main():
+    df_yellow = load_s3_yellowtrip_data()
+    pickup_geohash, dropoff_geohash = get_geohash_id(df_yellow)
+    save_to_mysql(df_yellow, 'yellow_trip')
+    save_to_mysql(pickup_geohash, 'pickup_geo_hash')
+    save_to_mysql(dropoff_geohash, 'dropoff_geo_hash')
 
 
 if __name__ == '__main__':
-    mysql_config=''
-    df_yellow = load_s3_yellowtrip_data()
-    pickup_geohash, dropoff_geohash = get_geohash_id(df_yellow)
-    save_to_mysql(df_yellow, 'yellow_trip',mysql_config)
-    save_to_mysql(pickup_geohash, 'pickup_geo_hash',mysql_config)
-    save_to_mysql(dropoff_geohash, 'dropoff_geo_hash',mysql_config)
+    main()
+
