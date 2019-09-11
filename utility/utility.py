@@ -127,7 +127,7 @@ def replace_envvars_with_vals(dic):
         if type(val) is dict:
             val = replace_envvars_with_vals(val)
         else:
-            if type(val) in [unicode, str] and len(val) > 0 and '$' in val:
+            if type(val) in [str] and len(val) > 0 and '$' in val:
                 command = "echo {}".format(val)
                 dic[el] = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read().strip()
     return dic
