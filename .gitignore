@@ -1,1 +1,2 @@
 .DS_Store
+config/aws_creds.config
