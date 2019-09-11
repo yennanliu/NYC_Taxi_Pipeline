@@ -133,7 +133,7 @@ def save_to_mysql(dataFrame, table_name, mysql_config):
           url='jdbc:mysql://localhost/taxi',
           driver='com.mysql.jdbc.Driver',
           dbtable=table_name,
-          user='yennanliu',
+          user='mysql_user',
           password='0000').mode('append').save()
 
 
