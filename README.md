@@ -12,8 +12,9 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 
 ## Framework : Lambda 
 - `Stream | Batch | Service` layer 
-<img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/framework.png" width="800" height="400">
+- `Query = λ (Complete data) = λ (live streaming data) * λ (Stored data)`
 
+<img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/framework.png" width="800" height="400">
 
 ## File structure 
 ```
