@@ -34,7 +34,7 @@ libraryDependencies ++= Seq(
 
 conflictManager := ConflictManager.latestRevision
 
-//mainClass := Some("rdd.WordCount")
+mainClass := Some("ETLdev.CollectValueZonesEMR")
 //mainClass := Some("sparkhelloworld.SparkProcessGameRDD")
 
 assemblyMergeStrategy in assembly := {
