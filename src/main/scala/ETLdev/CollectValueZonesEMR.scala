@@ -114,14 +114,14 @@ object CollectValueZonesEMR {
           .write
           .mode("OVERWRITE")
           .partitionBy("year","month")
-          .parquet("s3a://nyc-tlc-taxi/etl_output/raw-rides")
+          .parquet("s3a://nyc-tlc-taxi/etl_output/raw-rides/rawQuery")
 
         val aggregateQuery = zoneAttractiveness
           .repartition(1)
           .sortWithinPartitions($"pickup_hour")
           .write
           .mode("OVERWRITE")
-          .parquet("s3a://nyc-tlc-taxi/etl_output/raw-rides")
+          .parquet("s3a://nyc-tlc-taxi/etl_output/raw-rides/aggregateQuery")
     }
   
 }
