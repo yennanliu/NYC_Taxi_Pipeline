@@ -10,11 +10,11 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 
 > Please also check [NYC_Taxi_Trip_Duration](https://github.com/yennanliu/NYC_Taxi_Trip_Duration) in case you are interested in the data science projects with similar taxi dataset. 
 
-## Framework : Lambda 
-- `Stream | Batch | Service` layer 
-- `Query = λ (Complete data) = λ (live streaming data) * λ (Stored data)`
+## Architecture 
+<img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/pic/batch_architecture.svg" width="800" height="400">
 
-<img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/framework.png" width="800" height="400">
+- Architecture idea (Batch):
+- Architecture idea (Stream):
 
 ## File structure 
 ```

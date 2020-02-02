@@ -22,7 +22,6 @@ object CollectValueZonesEMR {
       lazy val session =
           SparkSession.builder
             .appName("nyctaxi-value-zones")
-            .config("spark.master", "local")
             .getOrCreate()
 
       try {
