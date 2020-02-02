@@ -12,6 +12,7 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 
 ## Architecture 
 <img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/pic/batch_architecture.svg" width="800" height="400">
+<img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/pic/stream_architecture.svg" width="800" height="400">
 
 - Architecture idea (Batch):
 - Architecture idea (Stream):
