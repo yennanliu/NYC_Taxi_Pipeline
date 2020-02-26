@@ -11,7 +11,7 @@ import org.apache.spark.SparkConf
 import java.util.Calendar
 
 
-object GetYellowTripSchema {
+object LoadYellowTripData {
 
     //Source, destination directories
     val srcDataDirRoot = "/data/staging/transactional-data/" 

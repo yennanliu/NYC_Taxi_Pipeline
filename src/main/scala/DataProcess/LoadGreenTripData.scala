@@ -10,7 +10,7 @@ import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
 import java.util.Calendar
 
-object GetGreenTripSchema { 
+object LoadGreenTripData { 
 
   //Source, destination directories
   val srcDataDirRoot = "/data/staging/transactional-data/" 
