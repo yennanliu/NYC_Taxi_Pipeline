@@ -15,7 +15,7 @@ object LoadYellowTripData {
 
     //Source, destination directories
     val srcDataDirRoot = "/data/staging/transactional-data/" 
-    val destDataDirRoot = "/data/raw/yellow-taxi" 
+    val destDataDirRoot = "/data/processed/yellow-taxi" 
 
 
     //Canonical ordered column list for yellow taxi across years to homogenize schema
