@@ -17,6 +17,16 @@ object LoadReferenceData {
     val srcDataDirRoot = "/data/staging/reference-data/" 
     val destDataDirRoot = "/data/processed/reference/" 
 
+
+    val sc = new SparkContext("local[*]", "LoadReferenceData")   
+    val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+    val spark = SparkSession
+        .builder
+        .appName("LoadReferenceData")
+        .master("local[*]")
+        .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+        .getOrCreate()
+
     //1.  Taxi zone lookup
     val taxiZoneSchema = StructType(Array(
         StructField("location_id", StringType, true),
@@ -60,7 +70,7 @@ object LoadReferenceData {
       println(".......................................................") 
       
       //Execute for idempotent runs
-      println("....deleting destination directory - " + dbutils.fs.rm(destDataDir, recurse=true))
+      //println("....deleting destination directory - " + dbutils.fs.rm(destDataDir, recurse=true))
       
       //Read source data
       val refDF = spark.read.option("header", "true")
@@ -74,7 +84,7 @@ object LoadReferenceData {
       
       //Delete residual files from job operation (_SUCCESS, _start*, _committed*)
       println("....deleting flag files")
-      dbutils.fs.ls(destDataDir + "/").foreach((i: FileInfo) => if (!(i.path contains "parquet")) dbutils.fs.rm(i.path))
+      //dbutils.fs.ls(destDataDir + "/").foreach((i: FileInfo) => if (!(i.path contains "parquet")) dbutils.fs.rm(i.path))
       
       println("....done")
     }
@@ -86,7 +96,7 @@ object LoadReferenceData {
     loadReferenceData("trip type",srcDataDirRoot + "trip_type_lookup.csv",destDataDirRoot + "trip-type",tripTypeSchema,"|")
     loadReferenceData("vendor",srcDataDirRoot + "vendor_lookup.csv",destDataDirRoot + "vendor",vendorSchema,"|")
 
-    display(dbutils.fs.ls("/mnt/workshop/curated/nyctaxi/reference/"))
+    //display(dbutils.fs.ls("/mnt/workshop/curated/nyctaxi/reference/"))
 
     // COMMAND ----------
 

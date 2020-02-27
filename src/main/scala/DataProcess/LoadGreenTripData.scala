@@ -10,6 +10,10 @@ import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
 import java.util.Calendar
 
+import org.apache.hadoop.fs.{ FileSystem, Path }
+import org.apache.hadoop.conf.Configuration
+
+
 object LoadGreenTripData { 
 
   //Source, destination directories
@@ -256,7 +260,29 @@ object LoadGreenTripData {
   }
 
    //Delete any residual data from prior executions for an idempotent run
-  dbutils.fs.rm(destDataDirRoot,recurse=true)
+  //dbutils.fs.rm(destDataDirRoot,recurse=true)
+
+  /*
+  help func
+  */
+
+  val prqShrinkageFactor = 0.19 //We found a saving in space of 81% with Parquet
+
+  // COMMAND ----------
+
+
+  // COMMAND ----------
+
+  def calcOutputFileCountTxtToPrq(srcDataFile: String, targetedFileSizeMB: Int): Int = {
+    val fs = FileSystem.get(new Configuration())
+    val estFileCount: Int = Math.floor((fs.getContentSummary(new Path(srcDataFile)).getLength * prqShrinkageFactor) / (targetedFileSizeMB * 1024 * 1024)).toInt
+    if(estFileCount == 0) 1 else estFileCount
+  }
+
+  // COMMAND ----------
+
+  // COMMAND ----------
+
 
   // COMMAND ----------
 
@@ -278,6 +304,8 @@ object LoadGreenTripData {
         val taxiSchema = getTaxiSchema(j,i)
 
         //Read source data
+        val sc = new SparkContext("local[*]", "LoadGreenTripData")   
+        val sqlContext = new org.apache.spark.sql.SQLContext(sc)
         val taxiDF = sqlContext.read.format("csv")
                         .option("header", "true")
                         .schema(taxiSchema)

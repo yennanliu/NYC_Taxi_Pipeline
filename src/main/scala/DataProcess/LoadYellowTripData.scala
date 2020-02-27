@@ -213,7 +213,7 @@ object LoadYellowTripData {
     }
 
     //Delete any residual data from prior executions for an idempotent run
-    dbutils.fs.rm(destDataDirRoot,recurse=true)
+    //dbutils.fs.rm(destDataDirRoot,recurse=true)
 
     // COMMAND ----------
 
@@ -234,6 +234,19 @@ object LoadYellowTripData {
           //Source schema
           val taxiSchema = getTaxiSchema(j,i)
 
+          val sc = new SparkContext("local[*]", "LoadYellowTripData")   
+          val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+          val spark = SparkSession
+            .builder
+            .appName("LoadYellowTripData")
+            .master("local[*]")
+            .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+            .getOrCreate()
+          
+          // Convert our csv file to a DataSet, using our Person case
+          // class to infer the schema.
+          import spark.implicits._
+
           //Read source data
           val taxiDF = sqlContext.read.format("csv")
                           .option("header", "true")
@@ -252,9 +265,8 @@ object LoadYellowTripData {
           spark.sqlContext.setConf("spark.sql.parquet.writeLegacyFormat", "true")
 
           //Write parquet output, calling function to calculate number of partition files
-          taxiCanonicalDF
-                    .coalesce(calcOutputFileCountTxtToPrq(srcDataFile, 128))
-                    .write
+          taxiCanonicalDF   
+                    .write  //.coalesce(srcDataFile)  //.coalesce(calcOutputFileCountTxtToPrq(srcDataFile, 128))
                     .format("delta")
                     .mode("append")
                     .partitionBy("trip_year","trip_month")

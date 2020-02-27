@@ -16,7 +16,14 @@ import java.util.Calendar
 
 object TransformGreenTaxiData { 
 
-  // COMMAND ----------
+    val sc = new SparkContext("local[*]", "TransformGreenTaxiData")   
+    val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+    val spark = SparkSession
+        .builder
+        .appName("TransformGreenTaxiData")
+        .master("local[*]")
+        .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+        .getOrCreate()
 
   //Destination directory
   val destDataDirRoot =  "/output/transactions/green-taxi" 

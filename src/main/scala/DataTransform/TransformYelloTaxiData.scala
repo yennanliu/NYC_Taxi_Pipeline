@@ -9,6 +9,11 @@ import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerT
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
 import java.util.Calendar
+import org.apache.spark._
+import org.apache.spark.SparkContext._
+import org.apache.spark.sql._
+
+
 
 //import org.apache.hadoop.conf.Configuration
 //import org.apache.hadoop.fs.{ FileSystem, Path }
@@ -16,7 +21,17 @@ import java.util.Calendar
 
 object TransformYelloTaxiData { 
 
-    // COMMAND ----------
+    // Use new SparkSession interface in Spark 2.0
+    val spark = SparkSession
+      .builder
+      .appName("TransformYelloTaxiData")
+      .master("local[*]")
+      .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+      .getOrCreate()
+    
+    // Convert our csv file to a DataSet, using our Person case
+    // class to infer the schema.
+    import spark.implicits._
 
     //Destination directory
     val destDataDirRoot =  "/output/transactions/yellow-taxi" 
@@ -96,10 +111,9 @@ object TransformYelloTaxiData {
   // COMMAND ----------
 
   //Destination directory
-  val destDataDirRoot = "/mnt/workshop/curated/nyctaxi/transactions/yellow-taxi" 
 
   //Delete any residual data from prior executions for an idempotent run
-  dbutils.fs.rm(destDataDirRoot,recurse=true)
+  //dbutils.fs.rm(destDataDirRoot,recurse=true)
 
   // COMMAND ----------
 
