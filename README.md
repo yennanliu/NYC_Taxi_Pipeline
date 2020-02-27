@@ -26,10 +26,10 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 ├── doc               : reference 
 ├── kafka             : scripts for kafka 
 ├── requirements.txt  : needed python libraries 
-├── script            : scripts help set up env/services 
+├── script            : help scripts (env/services) 
+├── src               : Main working script (Scala/Python)
 ├── stream            : scripts for stream pipeline 
-└── utility           : help scripts for pipeline
-
+└── utility           : help scripts (pipeline)
 ```
 
 ## Prerequisites
@@ -152,6 +152,14 @@ $ spark-submit --jars /Users/$USER/spark/jars/spark-streaming-kafka-0-8-assembly
 	- [hadoop-aws-2.7.6](https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-aws/2.7.6)
 	- [spark-streaming-kafka-0-8-assembly_2.11-2.4.3.jar](https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka-0-8-assembly_2.11/2.4.3)
 	- [mysql-connector-java-8.0.15.jar](https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.15)
+
+</details>
+
+### Ref
+<details>
+<summary>Ref</summary>
+
+- [ref.md](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/ref.md) - dataset link ref, code ref, other ref
 
 </details>
 
