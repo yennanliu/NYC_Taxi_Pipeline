@@ -1,0 +1,7 @@
+payment_type,abbreviation,description
+1,CC,Credit card
+2,CASH,Cash
+3,NC,No charge
+4,DISP,Dispute
+5,UNK,Unknown
+6,VOID,Voided trip
