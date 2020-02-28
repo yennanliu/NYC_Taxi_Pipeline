@@ -222,13 +222,17 @@ object LoadYellowTripData {
       //Process data, save as parquet
 
       //for (j <- 2009 to 2017)
-      for (j <- 2016 to 2017)
+      //for (j <- 2016 to 2017)
+      for (j <- 2017 to 2017)
         { 
           val endMonth = if (j==2017) 6 else 12 
           for (i <- 1 to endMonth) 
           {
             //Source path  
-            val srcDataFile= srcDataDirRoot + "year=" + j + "/month=" +  "%02d".format(i) + "/type=yellow/yellow_tripdata_" + j + "-" + "%02d".format(i) + ".csv"
+            //val srcDataFile= srcDataDirRoot + "year=" + j + "/month=" +  "%02d".format(i) + "/type=yellow/yellow_tripdata_" + j + "-" + "%02d".format(i) + ".csv"
+
+            val srcDataFile= srcDataDirRoot + "/yellow_tripdata_" + j + "%02d".format(i) + ".csv"
+            println (srcDataFile)
             
             println("Processing the yellow taxi data for year=" + j + ", month=" + i + " at " + Calendar.getInstance().getTime())
             println("...............")
