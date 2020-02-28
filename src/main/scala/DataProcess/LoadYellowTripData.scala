@@ -19,6 +19,15 @@ object LoadYellowTripData {
       val srcDataDirRoot = "data/staging/transactional-data/yellow-taxi" 
       val destDataDirRoot = "data/processed/yellow-taxi" 
 
+      val sc = new SparkContext("local[*]", "LoadYellowTripData")   
+      val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+      val spark = SparkSession
+        .builder
+        .appName("LoadYellowTripData")
+        .master("local[*]")
+        .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+        .getOrCreate()
+
 
       //Canonical ordered column list for yellow taxi across years to homogenize schema
       val canonicalTripSchemaColList = Seq("taxi_type","vendor_id","pickup_datetime","dropoff_datetime","store_and_fwd_flag","rate_code_id","pickup_location_id","dropoff_location_id","pickup_longitude","pickup_latitude","dropoff_longitude","dropoff_latitude","passenger_count","trip_distance","fare_amount","extra","mta_tax","tip_amount","tolls_amount","improvement_surcharge","total_amount","payment_type","trip_year","trip_month")
@@ -239,15 +248,6 @@ object LoadYellowTripData {
             
             //Source schema
             val taxiSchema = getTaxiSchema(j,i)
-
-            val sc = new SparkContext("local[*]", "LoadYellowTripData")   
-            val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-            val spark = SparkSession
-              .builder
-              .appName("LoadYellowTripData")
-              .master("local[*]")
-              .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
-              .getOrCreate()
             
             // Convert our csv file to a DataSet, using our Person case
             // class to infer the schema.
@@ -276,7 +276,7 @@ object LoadYellowTripData {
                       .write  //.coalesce(srcDataFile)  //.coalesce(calcOutputFileCountTxtToPrq(srcDataFile, 128))
                       .format("csv")
                       .mode("append")
-                      .partitionBy("trip_year") //.partitionBy("trip_year","trip_month")
+                      .partitionBy("trip_year","trip_month")
                       .save(destDataDirRoot)   
           }
         }
