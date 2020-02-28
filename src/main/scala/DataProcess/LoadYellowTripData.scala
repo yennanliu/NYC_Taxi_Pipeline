@@ -231,7 +231,7 @@ object LoadYellowTripData {
             //Source path  
             //val srcDataFile= srcDataDirRoot + "year=" + j + "/month=" +  "%02d".format(i) + "/type=yellow/yellow_tripdata_" + j + "-" + "%02d".format(i) + ".csv"
 
-            val srcDataFile= srcDataDirRoot + "/yellow_tripdata_" + j + "%02d".format(i) + ".csv"
+            val srcDataFile= srcDataDirRoot + "/yellow_tripdata_" + j + "-" + "%02d".format(i) + ".csv"
             println (srcDataFile)
             
             println("Processing the yellow taxi data for year=" + j + ", month=" + i + " at " + Calendar.getInstance().getTime())
