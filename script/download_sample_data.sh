@@ -11,9 +11,30 @@ CAB_TYPES=("yellow")
 export srcDataDirRoot=data/staging/transactional-data/yellow-taxi
 
 
-urls=("https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-07.csv"
+urls=("https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-01.csv"
+	  "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-02.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-03.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-04.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-05.csv"
+	  "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-06.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-07.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-08.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-09.csv"
+	  "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-10.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-11.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2016-12.csv"
+	  "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-01.csv"
+	  "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-02.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-03.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-04.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-05.csv"
+	  "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-06.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-07.csv"
       "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-08.csv"
-      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-09.csv")
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-09.csv"
+	  "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-10.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-11.csv"
+      "https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2017-12.csv")
 
 for url in ${urls[@]}; 
 do 
