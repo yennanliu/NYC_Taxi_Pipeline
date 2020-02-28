@@ -222,8 +222,8 @@ object LoadYellowTripData {
       //Process data, save as parquet
 
       //for (j <- 2009 to 2017)
-      //for (j <- 2016 to 2017)
-      for (j <- 2017 to 2017)
+      for (j <- 2016 to 2017)
+      //for (j <- 2017 to 2017)
         { 
           val endMonth = if (j==2017) 6 else 12 
           for (i <- 1 to endMonth) 
@@ -266,6 +266,7 @@ object LoadYellowTripData {
 
             //Order all columns to align with the canonical schema for yellow taxi
             val taxiCanonicalDF = taxiFormattedDF.select(canonicalTripSchemaColList.map(c => col(c)): _*).repartition(400)
+            //val taxiCanonicalDF = taxiFormattedDF.select(canonicalTripSchemaColList.map(c => col(c)): _*).repartition(50)
 
             //To make Hive Parquet format compatible with Spark Parquet format
             spark.sqlContext.setConf("spark.sql.parquet.writeLegacyFormat", "true")
@@ -273,9 +274,9 @@ object LoadYellowTripData {
             //Write parquet output, calling function to calculate number of partition files
             taxiCanonicalDF   
                       .write  //.coalesce(srcDataFile)  //.coalesce(calcOutputFileCountTxtToPrq(srcDataFile, 128))
-                      .format("delta")
+                      .format("csv")
                       .mode("append")
-                      .partitionBy("trip_year","trip_month")
+                      .partitionBy("trip_year") //.partitionBy("trip_year","trip_month")
                       .save(destDataDirRoot)   
           }
         }
