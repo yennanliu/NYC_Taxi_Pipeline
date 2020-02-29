@@ -20,9 +20,20 @@ object LoadGreenTripData {
 
       //Source, destination directories
       val srcDataDirRoot = "data/staging/transactional-data/green-taxi" 
-      val destDataDirRoot = "/data/processed/green-taxi" 
+      val destDataDirRoot = "data/processed/green-taxi" 
       val canonicalTripSchemaColList = Seq("taxi_type","vendor_id","pickup_datetime","dropoff_datetime","store_and_fwd_flag","rate_code_id","pickup_location_id","dropoff_location_id","pickup_longitude","pickup_latitude","dropoff_longitude","dropoff_latitude","passenger_count","trip_distance","fare_amount","extra","mta_tax","tip_amount","tolls_amount","ehail_fee","improvement_surcharge","total_amount","payment_type","trip_type","trip_year","trip_month")
 
+      val sc = new SparkContext("local[*]", "LoadGreenTripData")   
+      val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+      val spark = SparkSession
+        .builder
+        .appName("LoadGreenTripData")
+        .master("local[*]")
+        .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+        .config("spark.network.timeout", "6000s") // https://stackoverflow.com/questions/48219169/3600-seconds-timeout-that-spark-worker-communicating-with-spark-driver-in-heartb
+        .config("spark.executor.heartbeatInterval", "10000s")
+        .config("spark.executor.memory", "10g")
+        .getOrCreate()
 
       //Schema for data based on year and month
 
@@ -272,25 +283,12 @@ object LoadGreenTripData {
 
       // COMMAND ----------
 
-
-      // COMMAND ----------
-
-      def calcOutputFileCountTxtToPrq(srcDataFile: String, targetedFileSizeMB: Int): Int = {
-        val fs = FileSystem.get(new Configuration())
-        val estFileCount: Int = Math.floor((fs.getContentSummary(new Path(srcDataFile)).getLength * prqShrinkageFactor) / (targetedFileSizeMB * 1024 * 1024)).toInt
-        if(estFileCount == 0) 1 else estFileCount
-      }
-
-      // COMMAND ----------
-
-      // COMMAND ----------
-
-
       // COMMAND ----------
 
       //Green taxi data starts from 2013/08
       //for (j <- 2013 to 2017)
-      for (j <- 2016 to 2017)
+      //for (j <- 2017 to 2017)
+        for (j <- 2016 to 2017)
         {
           val startMonth = if(j==2013) 8 else 1
           val endMonth = if (j==2017) 6 else 12 
@@ -298,16 +296,19 @@ object LoadGreenTripData {
           {
             
             //Source path  
-            val srcDataFile= srcDataDirRoot + "year=" + j + "/month=" +  "%02d".format(i) + "/type=green/green_tripdata_" + j + "-" + "%02d".format(i) + ".csv"
+            //val srcDataFile= srcDataDirRoot + "year=" + j + "/month=" +  "%02d".format(i) + "/type=green/green_tripdata_" + j + "-" + "%02d".format(i) + ".csv"
+            
+            val srcDataFile= srcDataDirRoot + "/green_tripdata_" + j + "-" + "%02d".format(i) + ".csv"
+
             println("Processing the green taxi data for year=" + j + ", month=" + i + " at " + Calendar.getInstance().getTime())
             println("...............")
             
             //Source schema
             val taxiSchema = getTaxiSchema(j,i)
 
-            //Read source data
-            val sc = new SparkContext("local[*]", "LoadGreenTripData")   
-            val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+            import spark.implicits._
+
+                        //Read source data
             val taxiDF = sqlContext.read.format("csv")
                             .option("header", "true")
                             .schema(taxiSchema)
@@ -322,9 +323,8 @@ object LoadGreenTripData {
 
             //Write parquet output, calling function to calculate number of partition files
             taxiCanonicalDF
-                      .coalesce(calcOutputFileCountTxtToPrq(srcDataFile,128))
                       .write
-                      .format("delta")
+                      .format("csv")
                       .mode("append")
                       .partitionBy("trip_year","trip_month")
                       .save(destDataDirRoot)   
