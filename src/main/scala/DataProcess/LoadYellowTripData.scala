@@ -26,8 +26,9 @@ object LoadYellowTripData {
         .appName("LoadYellowTripData")
         .master("local[*]")
         .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
-        .config("spark.network.timeout", "600s") // https://stackoverflow.com/questions/48219169/3600-seconds-timeout-that-spark-worker-communicating-with-spark-driver-in-heartb
+        .config("spark.network.timeout", "6000s") // https://stackoverflow.com/questions/48219169/3600-seconds-timeout-that-spark-worker-communicating-with-spark-driver-in-heartb
         .config("spark.executor.heartbeatInterval", "10000s")
+        .config("spark.executor.memory", "10g")
         .getOrCreate()
 
 
@@ -237,6 +238,7 @@ object LoadYellowTripData {
       //for (j <- 2017 to 2017)
         { 
           val endMonth = if (j==2017) 6 else 12 
+          //val endMonth = 1
           for (i <- 1 to endMonth) 
           {
             //Source path  
@@ -267,7 +269,7 @@ object LoadYellowTripData {
             val taxiFormattedDF = getSchemaHomogenizedDataframe(taxiDF, j, i)
 
             //Order all columns to align with the canonical schema for yellow taxi
-            val taxiCanonicalDF = taxiFormattedDF.select(canonicalTripSchemaColList.map(c => col(c)): _*).repartition(400)
+            val taxiCanonicalDF = taxiFormattedDF.select(canonicalTripSchemaColList.map(c => col(c)): _*)//.repartition(400)
             //val taxiCanonicalDF = taxiFormattedDF.select(canonicalTripSchemaColList.map(c => col(c)): _*).repartition(50)
 
             //To make Hive Parquet format compatible with Spark Parquet format
@@ -279,7 +281,7 @@ object LoadYellowTripData {
                       .format("csv")
                       .mode("append")
                       .partitionBy("trip_year","trip_month")
-                      .save(destDataDirRoot)   
+                      .save(destDataDirRoot)
           }
         }
 
