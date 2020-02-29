@@ -26,6 +26,8 @@ object LoadYellowTripData {
         .appName("LoadYellowTripData")
         .master("local[*]")
         .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+        .config("spark.network.timeout", "600s") // https://stackoverflow.com/questions/48219169/3600-seconds-timeout-that-spark-worker-communicating-with-spark-driver-in-heartb
+        .config("spark.executor.heartbeatInterval", "10000s")
         .getOrCreate()
 
 
