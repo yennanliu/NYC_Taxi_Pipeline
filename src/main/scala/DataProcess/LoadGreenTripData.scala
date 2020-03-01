@@ -315,6 +315,8 @@ object LoadGreenTripData {
                             .option("delimiter",",")
                             .load(srcDataFile)
 
+            taxiDF.show()
+
             //Add additional columns to homogenize schema across years
             val taxiFormattedDF = getSchemaHomogenizedDataframe(taxiDF, j, i)
 
@@ -326,6 +328,7 @@ object LoadGreenTripData {
                       .write
                       .format("csv")
                       .mode("append")
+                      .option("header","true")
                       .partitionBy("trip_year","trip_month")
                       .save(destDataDirRoot)   
           }

@@ -263,8 +263,9 @@ object LoadYellowTripData {
                             .schema(taxiSchema)
                             .option("delimiter",",")
                             .load(srcDataFile)
-            
 
+            taxiDF.show()
+            
             //Add additional columns to homogenize schema across years
             val taxiFormattedDF = getSchemaHomogenizedDataframe(taxiDF, j, i)
 
@@ -280,6 +281,7 @@ object LoadYellowTripData {
                       .write  //.coalesce(srcDataFile)  //.coalesce(calcOutputFileCountTxtToPrq(srcDataFile, 128))
                       .format("csv")
                       .mode("append")
+                      .option("header","true")
                       .partitionBy("trip_year","trip_month")
                       .save(destDataDirRoot)
           }
