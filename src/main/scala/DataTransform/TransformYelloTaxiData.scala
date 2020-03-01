@@ -14,7 +14,6 @@ import org.apache.spark.SparkContext._
 import org.apache.spark.sql._
 
 
-
 //import org.apache.hadoop.conf.Configuration
 //import org.apache.hadoop.fs.{ FileSystem, Path }
 
@@ -41,6 +40,8 @@ object TransformYelloTaxiData {
         //Destination directory
         val destDataDirRoot =  "data/output/transactions/yellow-taxi" 
         val srcDataFile = "data/processed"
+
+        // load processed data
 
         val vendor_lookup = spark.read
                                  .option("header","true")
@@ -80,77 +81,100 @@ object TransformYelloTaxiData {
                              .option("delimiter", ",")
                              .csv(srcDataFile + "/yellow-taxi/*/*/" + "*.csv")
 
-        val green_taxi = spark.read
-                             .option("header","true")
-                             .option("delimiter", ",")
-                             .csv(srcDataFile + "/green-taxi/*/*/" + "*.csv")
+        // RDD -> spark sql table
 
+        vendor_lookup.createOrReplaceTempView("vendor_lookup")
+        trip_type.createOrReplaceTempView("trip_type")
+        trip_month.createOrReplaceTempView("trip_month")
+        trip_zone.createOrReplaceTempView("trip_zone")
+        rate_code.createOrReplaceTempView("rate_code")
+        payment_type.createOrReplaceTempView("payment_type")
+        yellow_taxi.createOrReplaceTempView("yellow_taxi")
+
+        // merge spark sql table
+
+        /***
+        to fix : get taxi data trip_year, trip_month,,, make below actual SQL work
+        ***/
+        
         val curatedDF = spark.sql("""
-        select distinct t.taxi_type,
-            t.vendor_id as vendor_id,
-            t.pickup_datetime,
-            t.dropoff_datetime,
-            t.store_and_fwd_flag,
-            t.rate_code_id,
-            t.pickup_location_id,
-            t.dropoff_location_id,
-            t.pickup_longitude,
-            t.pickup_latitude,
-            t.dropoff_longitude,
-            t.dropoff_latitude,
-            t.passenger_count,
-            t.trip_distance,
-            t.fare_amount,
-            t.extra,
-            t.mta_tax,
-            t.tip_amount,
-            t.tolls_amount,
-            t.improvement_surcharge,
-            t.total_amount,
-            t.payment_type,
-            t.trip_year,
-            t.trip_month,
-            v.abbreviation as vendor_abbreviation,
-            v.description as vendor_description,
-            tm.month_name_short,
-            tm.month_name_full,
-            pt.description as payment_type_description,
-            rc.description as rate_code_description,
-            tzpu.borough as pickup_borough,
-            tzpu.zone as pickup_zone,
-            tzpu.service_zone as pickup_service_zone,
-            tzdo.borough as dropoff_borough,
-            tzdo.zone as dropoff_zone,
-            tzdo.service_zone as dropoff_service_zone,
-            year(t.pickup_datetime) as pickup_year,
-            month(t.pickup_datetime) as pickup_month,
-            day(t.pickup_datetime) as pickup_day,
-            hour(t.pickup_datetime) as pickup_hour,
-            minute(t.pickup_datetime) as pickup_minute,
-            second(t.pickup_datetime) as pickup_second,
-            date(t.pickup_datetime) as pickup_date,
-            year(t.dropoff_datetime) as dropoff_year,
-            month(t.dropoff_datetime) as dropoff_month,
-            day(t.dropoff_datetime) as dropoff_day,
-            hour(t.dropoff_datetime) as dropoff_hour,
-            minute(t.dropoff_datetime) as dropoff_minute,
-            second(t.dropoff_datetime) as dropoff_second,
-            date(t.dropoff_datetime) as dropoff_date
-        from 
-          taxi_db.yellow_taxi_trips_raw t
-          left outer join taxi_db.vendor_lookup v 
-            on (t.vendor_id = case when t.trip_year < "2015" then v.abbreviation else v.vendor_id end)
-          left outer join taxi_db.trip_month_lookup tm 
-            on (t.trip_month = tm.trip_month)
-          left outer join taxi_db.payment_type_lookup pt 
-            on (t.payment_type = case when t.trip_year < "2015" then pt.abbreviation else pt.payment_type end)
-          left outer join taxi_db.rate_code_lookup rc 
-            on (t.rate_code_id = rc.rate_code_id)
-          left outer join taxi_db.taxi_zone_lookup tzpu 
-            on (t.pickup_location_id = tzpu.location_id)
-          left outer join taxi_db.taxi_zone_lookup tzdo 
-            on (t.dropoff_location_id = tzdo.location_id)
-        """)
+          SELECT DISTINCT t.*,
+                          rc.*,
+                          tzpu.*,
+                          tzdo.*
+          FROM yellow_taxi t
+          LEFT OUTER JOIN rate_code rc ON (t.rate_code_id = rc.rate_code_id)
+          LEFT OUTER JOIN trip_zone tzpu ON (t.pickup_location_id = tzpu.location_id)
+          LEFT OUTER JOIN trip_zone tzdo ON (t.dropoff_location_id = tzdo.location_id)
+
+              """)
+        // val curatedDF = spark.sql("""
+        //   select distinct t.taxi_type,
+        //       t.vendor_id as vendor_id,
+        //       t.pickup_datetime,
+        //       t.dropoff_datetime,
+        //       t.store_and_fwd_flag,
+        //       t.rate_code_id,
+        //       t.pickup_location_id,
+        //       t.dropoff_location_id,
+        //       t.pickup_longitude,
+        //       t.pickup_latitude,
+        //       t.dropoff_longitude,
+        //       t.dropoff_latitude,
+        //       t.passenger_count,
+        //       t.trip_distance,
+        //       t.fare_amount,
+        //       t.extra,
+        //       t.mta_tax,
+        //       t.tip_amount,
+        //       t.tolls_amount,
+        //       t.improvement_surcharge,
+        //       t.total_amount,
+        //       t.payment_type,
+        //       t.trip_year,
+        //       t.trip_month,
+        //       v.abbreviation as vendor_abbreviation,
+        //       v.description as vendor_description,
+        //       tm.month_name_short,
+        //       tm.month_name_full,
+        //       pt.description as payment_type_description,
+        //       rc.description as rate_code_description,
+        //       tzpu.borough as pickup_borough,
+        //       tzpu.zone as pickup_zone,
+        //       tzpu.service_zone as pickup_service_zone,
+        //       tzdo.borough as dropoff_borough,
+        //       tzdo.zone as dropoff_zone,
+        //       tzdo.service_zone as dropoff_service_zone,
+        //       year(t.pickup_datetime) as pickup_year,
+        //       month(t.pickup_datetime) as pickup_month,
+        //       day(t.pickup_datetime) as pickup_day,
+        //       hour(t.pickup_datetime) as pickup_hour,
+        //       minute(t.pickup_datetime) as pickup_minute,
+        //       second(t.pickup_datetime) as pickup_second,
+        //       date(t.pickup_datetime) as pickup_date,
+        //       year(t.dropoff_datetime) as dropoff_year,
+        //       month(t.dropoff_datetime) as dropoff_month,
+        //       day(t.dropoff_datetime) as dropoff_day,
+        //       hour(t.dropoff_datetime) as dropoff_hour,
+        //       minute(t.dropoff_datetime) as dropoff_minute,
+        //       second(t.dropoff_datetime) as dropoff_second,
+        //       date(t.dropoff_datetime) as dropoff_date
+        //   from 
+        //     yellow_taxi t
+        //     left outer join vendor_lookup v 
+        //       on (t.vendor_id = case when t.trip_year < "2015" then v.abbreviation else v.vendor_id end)
+        //     left outer join trip_month tm 
+        //       on (t.trip_month = tm.trip_month)
+        //     left outer join payment_type  pt 
+        //       on (t.payment_type = case when t.trip_year < "2015" then pt.abbreviation else pt.payment_type end)
+        //     left outer join rate_code rc 
+        //       on (t.rate_code_id = rc.rate_code_id)
+        //     left outer join trip_zone tzpu 
+        //       on (t.pickup_location_id = tzpu.location_id)
+        //     left outer join trip_zone tzdo 
+        //       on (t.dropoff_location_id = tzdo.location_id)
+
+        //       """)
 
       val curatedDFConformed = curatedDF.withColumn("temp_vendor_id",col("vendor_id").cast(IntegerType)).drop("vendor_id")
                                 .withColumnRenamed("temp_vendor_id", "vendor_id")
