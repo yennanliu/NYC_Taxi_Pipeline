@@ -76,13 +76,15 @@ object LoadReferenceData {
           //Read source data
           val refDF = spark.read.option("header", "true")
                               .schema(srcSchema)
-                              .option("delimiter",delimiter)
+                              .option("delimiter",",") //.option("delimiter",delimiter)
                               .csv(srcDataFile)
               
           //Write csv output
           println("....reading source and saving as parquet")
           //refDF.coalesce(1).write.parquet(destDataDir)
           //refDF.coalesce(1).write.csv(destDataDir)
+
+          refDF.show()
 
           refDF   
               .write  //.coalesce(srcDataFile)  //.coalesce(calcOutputFileCountTxtToPrq(srcDataFile, 128))
