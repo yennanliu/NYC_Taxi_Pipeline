@@ -79,9 +79,17 @@ object LoadReferenceData {
                               .option("delimiter",delimiter)
                               .csv(srcDataFile)
               
-          //Write parquet output
+          //Write csv output
           println("....reading source and saving as parquet")
-          refDF.coalesce(1).write.parquet(destDataDir)
+          //refDF.coalesce(1).write.parquet(destDataDir)
+          //refDF.coalesce(1).write.csv(destDataDir)
+
+          refDF   
+              .write  //.coalesce(srcDataFile)  //.coalesce(calcOutputFileCountTxtToPrq(srcDataFile, 128))
+              .format("csv")
+              .mode("append")
+              .option("header","true")
+              .save(destDataDir)
           
           //Delete residual files from job operation (_SUCCESS, _start*, _committed*)
           println("....deleting flag files")
