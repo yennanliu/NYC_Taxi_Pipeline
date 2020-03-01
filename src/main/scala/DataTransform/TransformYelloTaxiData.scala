@@ -75,6 +75,15 @@ object TransformYelloTaxiData {
                              .option("delimiter", ",")
                              .csv(srcDataFile + "/reference/payment-type/" + "*.csv")
 
+        val yellow_taxi = spark.read
+                             .option("header","true")
+                             .option("delimiter", ",")
+                             .csv(srcDataFile + "/yellow-taxi/*/*/" + "*.csv")
+
+        val green_taxi = spark.read
+                             .option("header","true")
+                             .option("delimiter", ",")
+                             .csv(srcDataFile + "/green-taxi/*/*/" + "*.csv")
 
         val curatedDF = spark.sql("""
         select distinct t.taxi_type,
