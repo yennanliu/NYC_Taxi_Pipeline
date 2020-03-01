@@ -25,3 +25,4 @@ derby.log
 metastore_db/
 /data/yellow_tripdata_2019-06.csv
 output/*
+output/raw-rides/*
