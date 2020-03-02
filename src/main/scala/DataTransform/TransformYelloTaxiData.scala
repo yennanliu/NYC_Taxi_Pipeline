@@ -91,61 +91,10 @@ object TransformYelloTaxiData {
         payment_type.createOrReplaceTempView("payment_type")
         yellow_taxi.createOrReplaceTempView("yellow_taxi")
 
-        // merge spark sql table
-
-        /***
-        to fix : get taxi data trip_year, trip_month,,, make below actual SQL work
-        ***/
-        
-        val curatedDF = spark.sql("""
-          SELECT DISTINCT t.*,
-                          rc.*,
-                          tzpu.*,
-                          tzdo.*
-          FROM yellow_taxi t
-          LEFT OUTER JOIN rate_code rc ON (t.rate_code_id = rc.rate_code_id)
-          LEFT OUTER JOIN trip_zone tzpu ON (t.pickup_location_id = tzpu.location_id)
-          LEFT OUTER JOIN trip_zone tzdo ON (t.dropoff_location_id = tzdo.location_id)
-
-              """)
-        // val curatedDF = spark.sql("""
-        //   select distinct t.taxi_type,
-        //       t.vendor_id as vendor_id,
-        //       t.pickup_datetime,
-        //       t.dropoff_datetime,
-        //       t.store_and_fwd_flag,
-        //       t.rate_code_id,
-        //       t.pickup_location_id,
-        //       t.dropoff_location_id,
-        //       t.pickup_longitude,
-        //       t.pickup_latitude,
-        //       t.dropoff_longitude,
-        //       t.dropoff_latitude,
-        //       t.passenger_count,
-        //       t.trip_distance,
-        //       t.fare_amount,
-        //       t.extra,
-        //       t.mta_tax,
-        //       t.tip_amount,
-        //       t.tolls_amount,
-        //       t.improvement_surcharge,
-        //       t.total_amount,
-        //       t.payment_type,
-        //       t.trip_year,
-        //       t.trip_month,
-        //       v.abbreviation as vendor_abbreviation,
-        //       v.description as vendor_description,
-        //       tm.month_name_short,
-        //       tm.month_name_full,
-        //       pt.description as payment_type_description,
-        //       rc.description as rate_code_description,
-        //       tzpu.borough as pickup_borough,
-        //       tzpu.zone as pickup_zone,
-        //       tzpu.service_zone as pickup_service_zone,
-        //       tzdo.borough as dropoff_borough,
-        //       tzdo.zone as dropoff_zone,
-        //       tzdo.service_zone as dropoff_service_zone,
-        //       year(t.pickup_datetime) as pickup_year,
+        // spark.sql("""
+        //   with CTE AS ( 
+        //   select 
+        //   year(t.pickup_datetime) as pickup_year,
         //       month(t.pickup_datetime) as pickup_month,
         //       day(t.pickup_datetime) as pickup_day,
         //       hour(t.pickup_datetime) as pickup_hour,
@@ -159,22 +108,64 @@ object TransformYelloTaxiData {
         //       minute(t.dropoff_datetime) as dropoff_minute,
         //       second(t.dropoff_datetime) as dropoff_second,
         //       date(t.dropoff_datetime) as dropoff_date
-        //   from 
-        //     yellow_taxi t
-        //     left outer join vendor_lookup v 
-        //       on (t.vendor_id = case when t.trip_year < "2015" then v.abbreviation else v.vendor_id end)
-        //     left outer join trip_month tm 
-        //       on (t.trip_month = tm.trip_month)
-        //     left outer join payment_type  pt 
-        //       on (t.payment_type = case when t.trip_year < "2015" then pt.abbreviation else pt.payment_type end)
-        //     left outer join rate_code rc 
-        //       on (t.rate_code_id = rc.rate_code_id)
-        //     left outer join trip_zone tzpu 
-        //       on (t.pickup_location_id = tzpu.location_id)
-        //     left outer join trip_zone tzdo 
-        //       on (t.dropoff_location_id = tzdo.location_id)
+        //       from yellow_taxi t limit 100 )
 
-        //       """)
+        //       SELECT  * FROM CTE """
+        // ).show()
+
+
+        // merge spark sql table
+        
+        val curatedDF = spark.sql("""
+          WITH CTE AS
+            (SELECT yellow_taxi.*,
+                    year(pickup_datetime) AS pickup_year,
+                    month(pickup_datetime) AS pickup_month,
+                    day(pickup_datetime) AS pickup_day,
+                    hour(pickup_datetime) AS pickup_hour,
+                    minute(pickup_datetime) AS pickup_minute,
+                    second(pickup_datetime) AS pickup_second,
+                    date(pickup_datetime) AS pickup_date,
+                    year(dropoff_datetime) AS dropoff_year,
+                    month(dropoff_datetime) AS dropoff_month,
+                    day(dropoff_datetime) AS dropoff_day,
+                    hour(dropoff_datetime) AS dropoff_hour,
+                    minute(dropoff_datetime) AS dropoff_minute,
+                    second(dropoff_datetime) AS dropoff_second,
+                    date(dropoff_datetime) AS dropoff_date
+                    FROM yellow_taxi)
+          SELECT DISTINCT t.*,
+                          v.abbreviation AS vendor_abbreviation,
+                          v.description AS vendor_description,
+                          tm.month_name_short,
+                          tm.month_name_full,
+                          pt.description AS payment_type_description,
+                          rc.description AS rate_code_description,
+                          tzpu.borough AS pickup_borough,
+                          tzpu.zone AS pickup_zone,
+                          tzpu.service_zone AS pickup_service_zone,
+                          tzdo.borough AS dropoff_borough,
+                          tzdo.zone AS dropoff_zone,
+                          tzdo.service_zone AS dropoff_service_zone
+                          FROM CTE t
+                          LEFT OUTER JOIN vendor_lookup v 
+                          ON (t.vendor_id = CASE
+                              WHEN t.pickup_year < "2015" THEN v.abbreviation
+                              ELSE v.vendor_id
+                               END)
+            LEFT OUTER JOIN trip_month tm ON (t.pickup_month = tm.trip_month)
+            LEFT OUTER JOIN payment_type pt ON 
+            (t.payment_type = CASE
+             WHEN t.pickup_year < "2015" THEN pt.abbreviation
+             ELSE pt.payment_type
+             END)
+            LEFT OUTER JOIN rate_code rc ON (t.rate_code_id = rc.rate_code_id)
+            LEFT OUTER JOIN trip_zone tzpu ON (t.pickup_location_id = tzpu.location_id)
+            LEFT OUTER JOIN trip_zone tzdo ON (t.dropoff_location_id = tzdo.location_id)
+
+              """)
+
+      curatedDF.show()
 
       val curatedDFConformed = curatedDF.withColumn("temp_vendor_id",col("vendor_id").cast(IntegerType)).drop("vendor_id")
                                 .withColumnRenamed("temp_vendor_id", "vendor_id")
