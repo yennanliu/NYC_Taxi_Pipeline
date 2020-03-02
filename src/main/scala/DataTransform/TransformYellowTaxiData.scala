@@ -16,17 +16,17 @@ import org.apache.spark.sql._
 //import org.apache.hadoop.fs.{ FileSystem, Path }
 
 
-object TransformYelloTaxiData { 
+object TransformYellowTaxiData { 
 
     def main(args: Array[String]){ 
 
         // Use new SparkSession interface in Spark 2.0
 
-        val sc = new SparkContext("local[*]", "TransformYelloTaxiData")   
+        val sc = new SparkContext("local[*]", "TransformYellowTaxiData")   
         val sqlContext = new org.apache.spark.sql.SQLContext(sc)
         val spark = SparkSession
           .builder
-          .appName("TransformYelloTaxiData")
+          .appName("TransformYellowTaxiData")
           .master("local[*]")
           .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
           .getOrCreate()
