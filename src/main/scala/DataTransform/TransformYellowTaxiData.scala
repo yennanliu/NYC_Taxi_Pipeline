@@ -31,11 +31,11 @@ object TransformYellowTaxiData {
           .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
           .getOrCreate()
         
-        // Convert our csv file to a DataSet, using our Person case
         // class to infer the schema.
         import spark.implicits._
 
         //Destination directory
+
         val destDataDirRoot =  "data/output/transactions/yellow-taxi" 
         val srcDataFile = "data/processed"
 
@@ -177,7 +177,8 @@ object TransformYellowTaxiData {
 
       // COMMAND ----------
 
-      //Save as Delta, partition by year and month
+      //Save as csv, partition by year and month
+      
       curatedDF
           .repartition(1)  //save output in 1 csv by month by year, can do the "larger" repartition when work on the whole dataset
           .write
