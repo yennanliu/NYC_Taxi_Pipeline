@@ -12,8 +12,6 @@ import java.util.Calendar
 import org.apache.spark._
 import org.apache.spark.SparkContext._
 import org.apache.spark.sql._
-
-
 //import org.apache.hadoop.conf.Configuration
 //import org.apache.hadoop.fs.{ FileSystem, Path }
 
@@ -44,42 +42,40 @@ object TransformYelloTaxiData {
         // load processed data
 
         val vendor_lookup = spark.read
-                                 .option("header","true")
-                                 .option("delimiter", ",")
-                                 .csv(srcDataFile + "/reference/vendor/" + "*.csv")
+                            .option("header","true")
+                            .option("delimiter", ",")
+                            .csv(srcDataFile + "/reference/vendor/" + "*.csv")
 
         val trip_type = spark.read
-                             .option("header","true")
-                             .option("delimiter", ",")
-                             .csv(srcDataFile + "/reference/trip-type/" + "*.csv")
+                        .option("header","true")
+                        .option("delimiter", ",")
+                        .csv(srcDataFile + "/reference/trip-type/" + "*.csv")
 
         val trip_month = spark.read
-                             .option("header","true")
-                             .option("delimiter", ",")
-                             .csv(srcDataFile + "/reference/trip-month/" + "*.csv")
-
+                         .option("header","true")
+                         .option("delimiter", ",")
+                         .csv(srcDataFile + "/reference/trip-month/" + "*.csv")
 
         val trip_zone = spark.read
-                             .option("header","true")
-                             .option("delimiter", ",")
-                             .csv(srcDataFile + "/reference/taxi-zone/" + "*.csv")
-
+                        .option("header","true")
+                        .option("delimiter", ",")
+                        .csv(srcDataFile + "/reference/taxi-zone/" + "*.csv")
 
         val rate_code = spark.read
-                             .option("header","true")
-                             .option("delimiter", ",")
-                             .csv(srcDataFile + "/reference/rate-code/" + "*.csv")
+                        .option("header","true")
+                        .option("delimiter", ",")
+                        .csv(srcDataFile + "/reference/rate-code/" + "*.csv")
 
 
         val payment_type = spark.read
-                             .option("header","true")
-                             .option("delimiter", ",")
-                             .csv(srcDataFile + "/reference/payment-type/" + "*.csv")
+                           .option("header","true")
+                           .option("delimiter", ",")
+                           .csv(srcDataFile + "/reference/payment-type/" + "*.csv")
 
         val yellow_taxi = spark.read
-                             .option("header","true")
-                             .option("delimiter", ",")
-                             .csv(srcDataFile + "/yellow-taxi/*/*/" + "*.csv")
+                          .option("header","true")
+                          .option("delimiter", ",")
+                          .csv(srcDataFile + "/yellow-taxi/*/*/" + "*.csv")
 
         // RDD -> spark sql table
 
@@ -167,10 +163,10 @@ object TransformYelloTaxiData {
 
       curatedDF.show()
 
-      val curatedDFConformed = curatedDF.withColumn("temp_vendor_id",col("vendor_id").cast(IntegerType)).drop("vendor_id")
-                                .withColumnRenamed("temp_vendor_id", "vendor_id")
-                                .withColumn("temp_payment_type", col("payment_type").cast(IntegerType)).drop("payment_type")
-                                .withColumnRenamed("temp_payment_type", "payment_type")
+      // val curatedDFConformed = curatedDF.withColumn("temp_vendor_id",col("vendor_id").cast(IntegerType)).drop("vendor_id")
+      //                           .withColumnRenamed("temp_vendor_id", "vendor_id")
+      //                           .withColumn("temp_payment_type", col("payment_type").cast(IntegerType)).drop("payment_type")
+      //                           .withColumnRenamed("temp_payment_type", "payment_type")
 
       // COMMAND ----------
 
@@ -182,12 +178,13 @@ object TransformYelloTaxiData {
       // COMMAND ----------
 
       //Save as Delta, partition by year and month
-      curatedDFConformed
-          .coalesce(10)
+      curatedDF
+          .repartition(1)  //save output in 1 csv by month by year, can do the "larger" repartition when work on the whole dataset
           .write
-          .format("delta")
+          .format("csv")
           .mode("append")
-          .partitionBy("trip_year","trip_month")
+          .option("header","true")
+          .partitionBy("pickup_year","pickup_month")
           .save(destDataDirRoot)   
 
       // COMMAND ----------
