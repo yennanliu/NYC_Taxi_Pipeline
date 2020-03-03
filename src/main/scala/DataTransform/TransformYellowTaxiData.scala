@@ -163,7 +163,7 @@ object TransformYellowTaxiData {
 
       curatedDF.show()
 
-      // make dupliated columns : pickup_year, pickup_month, for preventing these columns been dropped out when "partitionby"
+      // make duplicated columns : pickup_year, pickup_month, for preventing these columns been dropped out when "partitionby"
       val curatedDF_ = curatedDF.withColumn("_pickup_year", $"pickup_year").withColumn("_pickup_month", $"pickup_month")
 
 
