@@ -30,6 +30,8 @@ object CreateMaterializedView {
         .config("spark.executor.memory", "10g")
         .getOrCreate()
 
+      import spark.implicits._ 
+
       //Source, destination directories
       var srcDataDirRoot = "data/output/transactions"
       val destDataDirRoot = "data/output/materializedview/" 
@@ -98,16 +100,14 @@ object CreateMaterializedView {
           dropoff_day,
           dropoff_hour,
           dropoff_minute,
-          dropoff_second,
-          pick_year,
-          pick_month
+          dropoff_second
         FROM yellow_taxi 
       """)
 
       //Add extra columns
       val yellowTaxiDFHomogenized = yellowTaxiDF.withColumn("ehail_fee",lit(0.0))
                                                 .withColumn("trip_type",lit(0))
-                                                .withColumn("trip_type_description",lit("")).cache()
+                                                .withColumn("rate_code_description",lit("")).cache()
       //Materialize
       yellowTaxiDFHomogenized.count()
 
@@ -160,7 +160,6 @@ object CreateMaterializedView {
           trip_type,
           vendor_abbreviation,
           vendor_description,
-          trip_type_description,
           month_name_short,
           month_name_full,
           payment_type_description,
@@ -182,9 +181,7 @@ object CreateMaterializedView {
           dropoff_day,
           dropoff_hour,
           dropoff_minute,
-          dropoff_second,
-          pick_year,
-          pick_month
+          dropoff_second
         FROM yellow_taxi_trips_unionable 
       UNION ALL
         SELECT DISTINCT 
@@ -214,7 +211,6 @@ object CreateMaterializedView {
           trip_type,
           vendor_abbreviation,
           vendor_description,
-          trip_type_description,
           month_name_short,
           month_name_full,
           payment_type_description,
@@ -236,25 +232,23 @@ object CreateMaterializedView {
           dropoff_day,
           dropoff_hour,
           dropoff_minute,
-          dropoff_second,
-          pick_year,
-          pick_month
+          dropoff_second
         FROM green_taxi 
       """)
 
       // make duplicated columns : pickup_year, pickup_month, for preventing these columns been dropped out when "partitionby"
-      //val matViewDF_ = matViewDF.withColumn("_pickup_year", $"pickup_year").withColumn("_pickup_month", $"pickup_month")//.withColumn("_taxi_type", $"taxi_type")
+      val matViewDF_ = matViewDF.withColumn("_pickup_year", $"pickup_year").withColumn("_pickup_month", $"pickup_month")//.withColumn("_taxi_type", $"taxi_type")
 
       matViewDF.printSchema
 
       //Save as Delta
-      matViewDF
+      matViewDF_
           .repartition(1)  //save output in 1 csv by month by year, can do the "larger" repartition when work on the whole dataset
           .write
           .format("csv")
           .mode("append")
           .option("header","true")
-          .partitionBy("pick_year","pick_month") //.partitionBy("_taxi_type","_pick_year","_pick_month")
+          .partitionBy("_pickup_year","_pickup_month") //.partitionBy("_taxi_type","_pickup_year","_pick_month")
           .save(destDataDirRoot)  
  
       // COMMAND ----------
@@ -280,7 +274,7 @@ object CreateMaterializedView {
       // COMMAND ----------
 
       // MAGIC %sql
-      // MAGIC select * from taxi_db.taxi_trips_mat_view where pick_year=2017
+      // MAGIC select * from taxi_db.taxi_trips_mat_view where pickup_year=2017
 
       // COMMAND ----------
 
