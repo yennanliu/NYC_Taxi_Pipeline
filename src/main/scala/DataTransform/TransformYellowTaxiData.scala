@@ -36,9 +36,9 @@ object TransformYellowTaxiData {
 
         //Destination directory
 
-        val destDataDirRoot =  "data/output/transactions/yellow-taxi" 
         val srcDataFile = "data/processed"
-
+        val destDataDirRoot =  "data/output/transactions/yellow-taxi" 
+  
         // load processed data
 
         val vendor_lookup = spark.read

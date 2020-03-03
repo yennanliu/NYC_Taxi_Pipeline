@@ -31,8 +31,8 @@ object TransformGreenTaxiData {
 
         //Destination directory
 
-        val destDataDirRoot =  "data/output/transactions/green-taxi"
         val srcDataFile = "data/processed"
+        val destDataDirRoot =  "data/output/transactions/green-taxi"
 
         // load processed data
 
