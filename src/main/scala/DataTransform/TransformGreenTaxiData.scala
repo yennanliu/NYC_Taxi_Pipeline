@@ -127,14 +127,18 @@ object TransformGreenTaxiData {
 
       curatedDF.show()
 
+      // make dupliated columns : pickup_year, pickup_month, for preventing these columns been dropped out when "partitionby"
+      val curatedDF_ = curatedDF.withColumn("_pickup_year", $"pickup_year").withColumn("_pickup_month", $"pickup_month")
+
+
       //Save as csv, partition by year and month
-      curatedDF
+      curatedDF_
           .repartition(1)  //save output in 1 csv by month by year, can do the "larger" repartition when work on the whole dataset
           .write
           .format("csv")
           .mode("append")
           .option("header","true")
-          .partitionBy("pickup_year","pickup_month")
+          .partitionBy("_pickup_year","_pickup_month")
           .save(destDataDirRoot)   
 
         // COMMAND ----------
