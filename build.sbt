@@ -1,4 +1,3 @@
-
 name := "NYC_Taxi_Pipeline"
 
 version := "1.0"
@@ -34,10 +33,10 @@ libraryDependencies ++= Seq(
 
 conflictManager := ConflictManager.latestRevision
 
-mainClass := Some("ETLdev.CollectValueZonesEMR")
+//mainClass := Some("ETLdev.CollectValueZonesEMR")
 //mainClass := Some("sparkhelloworld.SparkProcessGameRDD")
 
-assemblyMergeStrategy in assembly := {
-  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
-  case x => MergeStrategy.first
-}
+// assemblyMergeStrategy in assembly := {
+//   case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+//   case x => MergeStrategy.first
+// }
