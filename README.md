@@ -48,7 +48,6 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 <summary>Quick-Start-Batch-Pipeline-Manually</summary>
 
 ```bash 
-
 # STEP 1) Download the dataset
 bash script download_sample_data.sh
 
@@ -56,7 +55,6 @@ bash script download_sample_data.sh
 sbt package
 
 # STEP 3) Load data 
-
 spark-submit \
  --class DataProcess.LoadReferenceData \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
@@ -70,7 +68,6 @@ spark-submit \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
 # STEP 4) Transform data 
-
 spark-submit \
  --class DataTransform.TransformGreenTaxiData \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
@@ -80,7 +77,6 @@ spark-submit \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
 # STEP 5) Create view 
-
 spark-submit \
  --class CreateView.CreateMaterializedView \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
