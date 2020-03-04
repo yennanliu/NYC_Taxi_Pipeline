@@ -35,7 +35,7 @@ object JDBCToDBDemo {
 
       import spark.implicits._ 
 
-      // load data 
+      // create data 
       val df = Seq(
                     (100, "cat"),
                     (10, "mouse"),
@@ -67,48 +67,20 @@ object JDBCToDBDemo {
     
       df.write.mode("append").jdbc(jdbcUrl, table, connectionProperties)
 
-
-    //   jdbcDF.write
-    //     .option("createTableColumnTypes", "name CHAR(64), comments VARCHAR(1024)")
-    //     .jdbc("jdbc:postgresql:dbserver", "schema.tablename", connectionProperties)
-
-    // df_2.write().mode(SaveMode.Append).jdbc(connectionProperties.getProperty("url"), "family", connectionProperties);
-
       // Load from mysql 
-
       // https://spark.apache.org/docs/2.2.0/sql-programming-guide.html#hive-tables
-      //Note: JDBC loading and saving can be achieved via either the load/save or jdbc methods
-      //Loading data from a JDBC source
-      // val jdbcDF = spark.read
-      //   .format("jdbc")
-      //   .option("url", "jdbc:mysql:dbserver")
-      //   .option("dbtable", "yelp.user")
-      //   .option("user", "mysql_user")
-      //   .option("password", "0000")
-      //   .load()
+      // Note: JDBC loading and saving can be achieved via either the load/save or jdbc methods
+      // Loading data from a JDBC source
+      
+      val jdbcDF = spark.read
+        .format("jdbc")
+        .option("url", jdbcUrl)
+        .option("dbtable", table)
+        .option("user", jdbcUsername)
+        .option("password", jdbcPassword)
+        .load()
 
-      // val connectionProperties = new Properties()
-      // connectionProperties.put("user", "mysql_user")
-      // connectionProperties.put("password", "0000")
-      // val jdbcDF2 = spark.read.jdbc("jdbc:mysql:dbserver", "schema.tablename", connectionProperties)
-
-
-      // // Saving data to a JDBC source
-      // jdbcDF.write
-      //   .format("jdbc")
-      //   .option("url", "jdbc:postgresql:dbserver")
-      //   .option("dbtable", "schema.tablename")
-      //   .option("user", "username")
-      //   .option("password", "password")
-      //   .save()
-
-      // jdbcDF2.write
-      //   .jdbc("jdbc:postgresql:dbserver", "schema.tablename", connectionProperties)
-
-      // // Specifying create table column data types on write
-      // jdbcDF.write
-      //   .option("createTableColumnTypes", "name CHAR(64), comments VARCHAR(1024)")
-      //   .jdbc("jdbc:postgresql:dbserver", "schema.tablename", connectionProperties)
+      jdbcDF.show()
 
   }
 
