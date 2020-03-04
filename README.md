@@ -49,7 +49,7 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 
 ```bash 
 # STEP 1) Download the dataset
-bash script download_sample_data.sh
+bash script/download_sample_data.sh
 
 # STEP 2) sbt package 
 sbt package
