@@ -72,7 +72,7 @@ object JDBCToMysql {
 
       taxi_df.show()
 
-      // write to mysql
+      // Write to mysql
       // http://bigdatums.net/2016/10/16/writing-to-a-database-from-spark/
       // https://docs.databricks.com/data/data-sources/sql-databases.html
 
@@ -96,6 +96,10 @@ object JDBCToMysql {
       connectionProperties.put("jdbcDatabase", s"${jdbcDatabase}")
     
       taxi_df.write.mode("append").jdbc(jdbcUrl, table, connectionProperties)
+
+      // TODO : create a new table called my_new_table and write the data there
+      // https://www.jowanza.com/blog/writing-a-spark-dataframe-to-mysql-tips-and
+
 
       // Load from mysql 
       // https://spark.apache.org/docs/2.2.0/sql-programming-guide.html#hive-tables
