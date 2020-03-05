@@ -64,7 +64,13 @@ object JDBCToDBDemo {
       connectionProperties.put("user", s"${jdbcUsername}")
       connectionProperties.put("password", s"${jdbcPassword}")
       connectionProperties.put("jdbcDatabase", s"${jdbcDatabase}")
-    
+      
+      // Insert to a new table (spark will create a new one first)
+      
+      df.write.jdbc(jdbcUrl, "test_table", connectionProperties)
+      
+      // Append to an existing table
+      
       df.write.mode("append").jdbc(jdbcUrl, table, connectionProperties)
 
       // Load from mysql 
