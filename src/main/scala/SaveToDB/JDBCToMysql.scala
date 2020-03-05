@@ -47,29 +47,22 @@ object JDBCToMysql {
 
       taxi_data.createOrReplaceTempView("taxi")
 
-      // only select needed columns here 
-      // val taxi_df = spark.sql("""
-      //   SELECT 
-      //   pickup_year, 
-      //   pickup_month, 
-      //   pickup_day,
-      //   dropoff_year,
-      //   dropoff_month,
-      //   dropoff_day,
-      //   pickup_location_id,
-      //   dropoff_location_id,
-      //   trip_distance,
-      //   fare_amount
-      //   FROM taxi LIMIT 100
-      //   """)
-
-     val taxi_df = spark.sql("""
+      //only select needed columns here 
+      val taxi_df = spark.sql("""
         SELECT 
         pickup_year, 
-        pickup_month
+        pickup_month, 
+        pickup_day,
+        dropoff_year,
+        dropoff_month,
+        dropoff_day,
+        pickup_location_id,
+        dropoff_location_id,
+        trip_distance,
+        fare_amount
         FROM taxi LIMIT 100
         """)
-
+      
       taxi_df.show()
 
       // Write to mysql
@@ -95,10 +88,10 @@ object JDBCToMysql {
       connectionProperties.put("password", s"${jdbcPassword}")
       connectionProperties.put("jdbcDatabase", s"${jdbcDatabase}")
     
-      taxi_df.write.mode("append").jdbc(jdbcUrl, table, connectionProperties)
-
-      // TODO : create a new table called my_new_table and write the data there
+      // Insert to a new table (spark will create a new one first)
       // https://www.jowanza.com/blog/writing-a-spark-dataframe-to-mysql-tips-and
+
+      taxi_df.write.jdbc(jdbcUrl, table, connectionProperties)
 
 
       // Load from mysql 
