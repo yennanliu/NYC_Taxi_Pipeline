@@ -31,6 +31,7 @@ object SaveToHiveDemo {
         .config("spark.network.timeout", "6000s") // https://stackoverflow.com/questions/48219169/3600-seconds-timeout-that-spark-worker-communicating-with-spark-driver-in-heartb
         .config("spark.executor.heartbeatInterval", "10000s")
         .config("spark.executor.memory", "10g")
+        .enableHiveSupport()
         .getOrCreate()
 
       import spark.implicits._ 
@@ -42,51 +43,11 @@ object SaveToHiveDemo {
                     (99, "horse")
                   ).toDF("userid", "name")
 
-      // write to mysql
-      // http://bigdatums.net/2016/10/16/writing-to-a-database-from-spark/
-      // https://docs.databricks.com/data/data-sources/sql-databases.html
+      // save df to Hive  
+      df.write.mode(SaveMode.Overwrite).saveAsTable("hive_table")
 
-      //val url="jdbc:mysql://localhost:3306"
-      // val jdbcHostname = "localhost"
-      // val jdbcPort = 3306
-      // val jdbcDatabase = "nyc_taxi_pipeline"
-      // val jdbcUsername = "mysql_user"
-      // val jdbcPassword = "0000"
-      // val jdbcUrl = s"jdbc:mysql://${jdbcHostname}:${jdbcPort}/${jdbcDatabase}"
+      spark.sql("SELECT * FROM hive_table").show()
 
-      // val table = "test_table"
-
-      // // Create a Properties() object to hold the parameters.
-      // import java.util.Properties
-
-      // val connectionProperties = new Properties()
-
-      // connectionProperties.put("user", s"${jdbcUsername}")
-      // connectionProperties.put("password", s"${jdbcPassword}")
-      // connectionProperties.put("jdbcDatabase", s"${jdbcDatabase}")
-      
-      // // Insert to a new table (spark will create a new one first)
-      
-      // df.write.jdbc(jdbcUrl, "test_table", connectionProperties)
-      
-      // // Append to an existing table
-      
-      // df.write.mode("append").jdbc(jdbcUrl, table, connectionProperties)
-
-      // // Load from mysql 
-      // // https://spark.apache.org/docs/2.2.0/sql-programming-guide.html#hive-tables
-      // // Note: JDBC loading and saving can be achieved via either the load/save or jdbc methods
-      // // Loading data from a JDBC source
-      
-      // val jdbcDF = spark.read
-      //   .format("jdbc")
-      //   .option("url", jdbcUrl)
-      //   .option("dbtable", table)
-      //   .option("user", jdbcUsername)
-      //   .option("password", jdbcPassword)
-      //   .load()
-
-      // jdbcDF.show()
 
   }
 
