@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run:  docker build . -t spark_env 
+    - name: Run Docker image
+      run: docker run  --mount \
+           type=bind,\
+           source="$(pwd)"/.,\
+           target=/NYC_Taxi_Pipeline \
+           -i -t spark_env \
+           /bin/bash  -c "sbt test"
