@@ -56,15 +56,15 @@ sbt package
 
 # STEP 3) Load data 
 spark-submit \
- --class DataProcess.LoadReferenceData \
+ --class DataLoad.LoadReferenceData \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
 spark-submit \
- --class DataProcess.LoadGreenTripData \
+ --class DataLoad.LoadGreenTripData \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
 spark-submit \
- --class DataProcess.LoadYellowTripData \
+ --class DataLoad.LoadYellowTripData \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
 # STEP 4) Transform data 
