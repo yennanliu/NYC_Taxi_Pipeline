@@ -21,3 +21,8 @@ jobs:
       run: sbt test
     - name: Run sbt package
       run: sbt package
+    - name: Run spark job 1
+      run: spark-submit \
+           --class DataLoad.LoadReferenceData \
+           /home/runner/work/NYC_Taxi_Pipeline/NYC_Taxi_Pipeline/target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
+
