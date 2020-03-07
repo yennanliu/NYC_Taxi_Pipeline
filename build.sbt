@@ -22,10 +22,10 @@ libraryDependencies ++= Seq(
   "org.apache.hadoop" % "hadoop-aws" % "2.7.6",
 
   // DB 
-  "mysql" % "mysql-connector-java" % "8.0.19"
+  "mysql" % "mysql-connector-java" % "8.0.19",
 
   // spark stream 
-  // "org.apache.spark" %% "spark-streaming" % "2.3.1",
+   "org.apache.spark" %% "spark-streaming" % "2.3.1"
   // "org.apache.spark" % "spark-sql-kafka-0-10_2.11" % "2.2.1",
   // "org.apache.spark" % "spark-streaming-kafka-0-8_2.11" % "2.2.1",
   // "org.apache.spark" %% "spark-streaming-kinesis-asl" % "2.2.1",
