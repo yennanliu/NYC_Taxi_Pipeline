@@ -68,9 +68,9 @@ object SaveToHive {
       taxi_df.show()
 
       // save df to Hive  
-      taxi_df.write.mode(SaveMode.Overwrite).saveAsTable("taxi")
+      taxi_df.write.mode(SaveMode.Overwrite).saveAsTable("hive_taxi")
 
-      spark.sql("SELECT * FROM taxi").show()
+      spark.sql("SELECT * FROM hive_taxi").show()
 
   }
 
