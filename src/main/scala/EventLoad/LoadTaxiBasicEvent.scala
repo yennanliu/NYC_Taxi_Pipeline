@@ -19,7 +19,7 @@ object LoadTaxiBasicEvent {
     def main(args: Array[String]){ 
 
         val sc = new SparkContext("local[*]", "LoadTaxiBasicEvent")   
-        val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+        //val sqlContext = new org.apache.spark.sql.SQLContext(sc)
         // val spark = SparkSession
         //     .builder
         //     .appName("LoadTaxiBasicEvent")
@@ -27,18 +27,21 @@ object LoadTaxiBasicEvent {
         //     .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
         //     .getOrCreate()
 
-        val conf = new SparkConf()
-                   .setMaster("local[*]")
-                   .setAppName("LoadTaxiBasicEvent")
-                   .set("spark.driver.allowMultipleContexts", "true")
+        // val conf = new SparkConf()
+        //            .setMaster("local[*]")
+        //            .setAppName("LoadTaxiBasicEvent")
+        //            .set("spark.driver.allowMultipleContexts", "true")
 
-        val ssc = new StreamingContext(conf, Seconds(1))
+        //val ssc = new StreamingContext(conf, Seconds(1))
+        val ssc = new StreamingContext(sc, Seconds(1))
 
         //import spark.implicits._
 
         // will listen localhost:44444 with stream from TaxiEvent.CreateBasicTaxiEvent script
 
         val lines = ssc.socketTextStream("localhost", 44444)
+
+        println (lines)
 
         val words = lines.flatMap( x => x.split(" "))
 
