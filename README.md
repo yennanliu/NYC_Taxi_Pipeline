@@ -1,3 +1,6 @@
+<p align="center"><img src ="https://github.com/yennanliu/NYC_Taxi_Trip_Duration/blob/master/doc/pic/taxi_logo.png"></p>
+
+
 # NYC_Taxi_Pipeline
 
 > Set up the pipelines (batch/stream) from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), via the ETL process :
