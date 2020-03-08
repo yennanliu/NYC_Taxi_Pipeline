@@ -19,12 +19,16 @@ import org.apache.spark.{SparkContext, SparkConf}
 //import org.apache.spark.sql.hive.HiveContext
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
+/*
+Spark structured-streaming
+https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
+*/
 
-object LoadCSVStream { 
+object SparkStructureStream_demo_LoadCSV { 
 
     def main(args: Array[String]){ 
 
-        val sc = new SparkContext("local[*]", "LoadCSVStream")   
+        val sc = new SparkContext("local[*]", "SparkStructureStream_demo_LoadCSV")   
         val ssc = new StreamingContext(sc, Seconds(1))
 
         val spark = SparkSession

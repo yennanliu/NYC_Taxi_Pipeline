@@ -14,11 +14,11 @@ import org.apache.spark._
 import org.apache.spark.streaming._
 
 
-object LoadTaxiBasicEvent { 
+object SparkStream_demo_LoadTaxiEvent { 
 
     def main(args: Array[String]){ 
 
-        val sc = new SparkContext("local[*]", "LoadTaxiBasicEvent")   
+        val sc = new SparkContext("local[*]", "SparkStream_demo_LoadTaxiEvent")   
         //val sqlContext = new org.apache.spark.sql.SQLContext(sc)
         // val spark = SparkSession
         //     .builder
