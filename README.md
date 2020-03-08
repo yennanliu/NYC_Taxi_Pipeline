@@ -1,4 +1,4 @@
-<p align="center"><img src ="https://github.com/yennanliu/NYC_Taxi_Trip_Duration/blob/master/doc/pic/taxi_logo.png"></p>
+<p align="center"><img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/pic/taxi_logo.png"></p>
 
 
 # NYC_Taxi_Pipeline
