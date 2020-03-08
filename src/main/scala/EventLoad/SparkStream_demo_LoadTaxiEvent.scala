@@ -19,20 +19,7 @@ object SparkStream_demo_LoadTaxiEvent {
     def main(args: Array[String]){ 
 
         val sc = new SparkContext("local[*]", "SparkStream_demo_LoadTaxiEvent")   
-        //val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-        // val spark = SparkSession
-        //     .builder
-        //     .appName("LoadTaxiBasicEvent")
-        //     .master("local[*]")
-        //     .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
-        //     .getOrCreate()
 
-        // val conf = new SparkConf()
-        //            .setMaster("local[*]")
-        //            .setAppName("LoadTaxiBasicEvent")
-        //            .set("spark.driver.allowMultipleContexts", "true")
-
-        //val ssc = new StreamingContext(conf, Seconds(1))
         val ssc = new StreamingContext(sc, Seconds(1))
 
         //import spark.implicits._
@@ -53,9 +40,13 @@ object SparkStream_demo_LoadTaxiEvent {
         
         wordCounts.print()
 
-        ssc.start()             // Start the computation
+        // Start the computation
 
-        ssc.awaitTermination()  // Wait for the computation to terminate
+        ssc.start()            
+
+        // Wait for the computation to terminate
+        
+        ssc.awaitTermination()  
 
   }
 

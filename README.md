@@ -112,7 +112,7 @@ curl localhost:44444
 
 # STEP 7) Process Taxi event
 spark-submit \
- --class EventLoad.LoadTaxiBasicEvent \
+ --class EventLoad.SparkStream_demo_LoadTaxiEvent \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
 ```
