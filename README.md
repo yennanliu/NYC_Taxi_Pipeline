@@ -6,7 +6,7 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 * Tech : Spark, Kafka, S3, Mysql, Python 
 * Download sample data : [download_sample_data.sh](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/script/download_sample_data.sh)
 * Batch pipeline : [DataLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/DataLoad) -> [DataTransform](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/DataTransform) -> [CreateView](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/CreateView) -> [SaveToDB](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/SaveToDB) -> [SaveToHive](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/SaveToHive)
-
+* Stream pipeline : [TaxiEvent](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent) -> [EventLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/EventLoad)
 
 > Please also check [NYC_Taxi_Trip_Duration](https://github.com/yennanliu/NYC_Taxi_Trip_Duration) in case you are interested in the data science projects with similar taxi dataset. 
 
@@ -79,6 +79,16 @@ spark-submit \
 # STEP 5) Create view 
 spark-submit \
  --class CreateView.CreateMaterializedView \
+ target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
+
+ # STEP 6) Save to JDBC (mysql)
+ spark-submit \
+ --class SaveToDB.JDBCToMysql \
+ target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
+
+ # STEP 7) Save to Hive
+ spark-submit \
+ --class SaveToHive.SaveMaterializedviewToHive \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
 ```
