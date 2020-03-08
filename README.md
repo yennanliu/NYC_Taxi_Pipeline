@@ -4,9 +4,9 @@
 E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) -> L (load : Spark -> Mysql), then calculate the `Supply VS Demand ratio` for `Surging price` application. 
 
 * Tech : Spark, Kafka, S3, Mysql, Python 
-* Batch pipeline : [batch_pipeline.py](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/batch/batch_pipeline.py)
-* Stream pipeline : [stream_pipeline.py](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/stream/stream_pipeline.py)
-* S3 data to stream : [s3_csv_2_stream.py](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/stream/s3_csv_2_stream.py)
+* Download sample data : [download_sample_data.sh](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/script/download_sample_data.sh)
+* Batch pipeline : [DataLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/DataLoad) -> [DataTransform](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/DataTransform) -> [CreateView](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/CreateView) -> [SaveToDB](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/SaveToDB) -> [SaveToHive](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/SaveToHive)
+
 
 > Please also check [NYC_Taxi_Trip_Duration](https://github.com/yennanliu/NYC_Taxi_Trip_Duration) in case you are interested in the data science projects with similar taxi dataset. 
 
