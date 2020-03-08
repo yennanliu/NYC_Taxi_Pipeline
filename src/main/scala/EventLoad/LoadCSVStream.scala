@@ -27,15 +27,36 @@ object LoadCSVStream {
         val sc = new SparkContext("local[*]", "LoadCSVStream")   
         val ssc = new StreamingContext(sc, Seconds(1))
 
-        val inputDirectory = "data/yellow_tripdata_sample.csv"
+        val spark = SparkSession
+            .builder
+            .appName("JDBCToMysql")
+            .master("local[*]")
+            .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+            .config("spark.network.timeout", "6000s") // https://stackoverflow.com/questions/48219169/3600-seconds-timeout-that-spark-worker-communicating-with-spark-driver-in-heartb
+            .config("spark.executor.heartbeatInterval", "10000s")
+            .config("spark.executor.memory", "10g")
+            .getOrCreate()
 
-        val lines = ssc.fileStream[LongWritable, Text, TextInputFormat](inputDirectory).map( x => x.toString )  //.map( (x, y) => (x.toString, y.toString) )
+        val inputDirectory = "data/test.csv"
+
+        val userSchema = new StructType().add("name", "string").add("age", "integer")
+        
+        val csvDF = spark
+          .readStream
+          .option("sep", ";")
+          .schema(userSchema)
+          .csv(inputDirectory)  
+
+
+        csvDF.writeStream.format("console").option("truncate","false").start()
+
+        // val lines = ssc.fileStream[LongWritable, Text, TextInputFormat](inputDirectory).map( x => x.toString )  //.map( (x, y) => (x.toString, y.toString) )
     
-        lines.print()
+        // lines.print()
 
-        ssc.start()             // Start the computation
+        // ssc.start()             // Start the computation
 
-        ssc.awaitTermination()  // Wait for the computation to terminate
+        // ssc.awaitTermination()  // Wait for the computation to terminate
 
   }
 
