@@ -1,0 +1,195 @@
+{ "id": 2488458,
+   "event_date": 1583124526615,
+   "tour_value": 38.41992169568393,
+   "id_driver": 0,
+   "id_passenger": 36
+}
+                
+{ "id": 8683621,
+   "event_date": 1583124526720,
+   "tour_value": 48.7012655930085,
+   "id_driver": 2,
+   "id_passenger": 55
+}
+                
+{ "id": 166395,
+   "event_date": 1583124526824,
+   "tour_value": 23.712063328038646,
+   "id_driver": 6,
+   "id_passenger": 18
+}
+                
+{ "id": 6009199,
+   "event_date": 1583124526929,
+   "tour_value": 71.99211036859903,
+   "id_driver": 6,
+   "id_passenger": 65
+}
+                
+{ "id": 6999289,
+   "event_date": 1583124527034,
+   "tour_value": 18.363694751206474,
+   "id_driver": 4,
+   "id_passenger": 27
+}
+                
+{ "id": 6982384,
+   "event_date": 1583124527136,
+   "tour_value": 41.925693813602116,
+   "id_driver": 3,
+   "id_passenger": 78
+}
+                
+{ "id": 1670907,
+   "event_date": 1583124527240,
+   "tour_value": 94.65483667486018,
+   "id_driver": 3,
+   "id_passenger": 29
+}
+                
+{ "id": 6725846,
+   "event_date": 1583124527341,
+   "tour_value": 5.885473357576587,
+   "id_driver": 3,
+   "id_passenger": 13
+}
+                
+{ "id": 7350791,
+   "event_date": 1583124527442,
+   "tour_value": 92.12368704195413,
+   "id_driver": 5,
+   "id_passenger": 25
+}
+                
+{ "id": 6628132,
+   "event_date": 1583124527547,
+   "tour_value": 95.8855281816265,
+   "id_driver": 1,
+   "id_passenger": 63
+}
+                
+{ "id": 7661667,
+   "event_date": 1583124527652,
+   "tour_value": 41.46082897180743,
+   "id_driver": 8,
+   "id_passenger": 62
+}
+                
+{ "id": 5582386,
+   "event_date": 1583124527758,
+   "tour_value": 56.43118877029223,
+   "id_driver": 1,
+   "id_passenger": 58
+}
+                
+{ "id": 5043688,
+   "event_date": 1583124527858,
+   "tour_value": 76.5845890197583,
+   "id_driver": 6,
+   "id_passenger": 58
+}
+                
+{ "id": 7588750,
+   "event_date": 1583124527960,
+   "tour_value": 80.43950423853464,
+   "id_driver": 6,
+   "id_passenger": 59
+}
+                
+{ "id": 4928245,
+   "event_date": 1583124528066,
+   "tour_value": 55.78672706034832,
+   "id_driver": 2,
+   "id_passenger": 8
+}
+                
+{ "id": 4741505,
+   "event_date": 1583124528171,
+   "tour_value": 56.191271785977094,
+   "id_driver": 3,
+   "id_passenger": 13
+}
+                
+{ "id": 6227838,
+   "event_date": 1583124528274,
+   "tour_value": 17.867353144372665,
+   "id_driver": 5,
+   "id_passenger": 13
+}
+                
+{ "id": 3933360,
+   "event_date": 1583124528376,
+   "tour_value": 81.21955191492411,
+   "id_driver": 3,
+   "id_passenger": 33
+}
+                
+{ "id": 8385727,
+   "event_date": 1583124528476,
+   "tour_value": 0.8201860051183396,
+   "id_driver": 1,
+   "id_passenger": 85
+}
+                
+{ "id": 8615389,
+   "event_date": 1583124528578,
+   "tour_value": 47.266838868247675,
+   "id_driver": 4,
+   "id_passenger": 90
+}
+                
+{ "id": 1834769,
+   "event_date": 1583124528679,
+   "tour_value": 41.95046422496247,
+   "id_driver": 0,
+   "id_passenger": 34
+}
+                
+{ "id": 3171913,
+   "event_date": 1583124528781,
+   "tour_value": 44.062267512134,
+   "id_driver": 0,
+   "id_passenger": 58
+}
+                
+{ "id": 7186775,
+   "event_date": 1583124528882,
+   "tour_value": 22.686816602344273,
+   "id_driver": 8,
+   "id_passenger": 28
+}
+                
+{ "id": 8211384,
+   "event_date": 1583124528983,
+   "tour_value": 1.5913533642730404,
+   "id_driver": 4,
+   "id_passenger": 83
+}
+                
+{ "id": 6624277,
+   "event_date": 1583124529083,
+   "tour_value": 77.47680706286884,
+   "id_driver": 8,
+   "id_passenger": 33
+}
+                
+{ "id": 4139793,
+   "event_date": 1583124529183,
+   "tour_value": 81.47660090071892,
+   "id_driver": 9,
+   "id_passenger": 25
+}
+                
+{ "id": 4065950,
+   "event_date": 1583124529284,
+   "tour_value": 33.037220212767124,
+   "id_driver": 6,
+   "id_passenger": 31
+}
+                
+{ "id": 7757217,
+   "event_date": 1583124529384,
+   "tour_value": 11.592934050093973,
+   "id_driver": 3,
+   "id_passenger": 77
+}
