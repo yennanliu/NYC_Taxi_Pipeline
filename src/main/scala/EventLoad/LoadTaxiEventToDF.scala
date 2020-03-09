@@ -20,8 +20,6 @@ object LoadTaxiEventToDF {
 
         val sc = new SparkContext("local[*]", "LoadTaxiEventToDF")   
         val ssc = new StreamingContext(sc, Seconds(3))
-
-        //val sqlContext = new org.apache.spark.sql.SQLContext(sc)
         val spark = SparkSession
             .builder
             .appName("LoadTaxiEventToDF")
@@ -51,13 +49,11 @@ object LoadTaxiEventToDF {
 
                 df.show()
 
-                // Convert RDD to DataFrame
-                //val df = rdd.toDF("id", "event_date")
-
                 // Create a temporary view
-                //df.createOrReplaceTempView("event")
+                
+                df.createOrReplaceTempView("event")
 
-                //spark.sql("select * from event").show()
+                spark.sql("select * from event").show()
 
             }
 
