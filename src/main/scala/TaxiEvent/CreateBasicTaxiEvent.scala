@@ -33,12 +33,7 @@ object CreateBasicTaxiEvent {
 
             val payload =
                s"""
-                       |{ "id": $id,
-                       |   "event_date": $event_date,
-                       |   "tour_value": $tour_value,
-                       |   "id_driver": $id_driver,
-                       |   "id_passenger": $id_passenger
-                       |}
+                { "id": $id, "event_date": $event_date, "tour_value": $tour_value, "id_driver": $id_driver, "id_passenger": $id_passenger }
                 """.stripMargin
 
             Thread.sleep(sleepDelayMs)
