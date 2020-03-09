@@ -35,7 +35,7 @@ object SparkStructureStream_demo_LoadCSV {
             .builder
             .appName("JDBCToMysql")
             .master("local[*]")
-            .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+            .config("spark.sql.warehouse.dir", "/temp/") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
             .config("spark.network.timeout", "6000s") // https://stackoverflow.com/questions/48219169/3600-seconds-timeout-that-spark-worker-communicating-with-spark-driver-in-heartb
             .config("spark.executor.heartbeatInterval", "10000s")
             .config("spark.executor.memory", "10g")
@@ -45,14 +45,21 @@ object SparkStructureStream_demo_LoadCSV {
 
         val userSchema = new StructType().add("name", "string").add("age", "integer")
         
-        val csvDF = spark
+        val df = spark
           .readStream
-          .option("sep", ";")
+          //.option("sep", ",")
           .schema(userSchema)
           .csv(inputDirectory)  
 
+        df.printSchema()
 
-        csvDF.writeStream.format("console").option("truncate","false").start()
+        df.writeStream
+          .format("console")
+          .outputMode("append")
+          .start()
+          .awaitTermination()
+
+       //df.writeStream.format("console").option("truncate","false").start()
 
         // val lines = ssc.fileStream[LongWritable, Text, TextInputFormat](inputDirectory).map( x => x.toString )  //.map( (x, y) => (x.toString, y.toString) )
     
