@@ -19,7 +19,7 @@ object LoadTaxiEventToDF {
     def main(args: Array[String]){ 
 
         val sc = new SparkContext("local[*]", "LoadTaxiEventToDF")   
-        val ssc = new StreamingContext(sc, Seconds(10))
+        val ssc = new StreamingContext(sc, Seconds(3))
 
         //val sqlContext = new org.apache.spark.sql.SQLContext(sc)
         val spark = SparkSession
@@ -31,21 +31,33 @@ object LoadTaxiEventToDF {
 
         import spark.implicits._
 
+        // optional : define df schema 
+
+        val schema = new StructType()
+                     .add("id", StringType, true)
+                     .add("event_date", StringType, true)
+                     .add("tour_value", StringType, true)
+                     .add("id_driver", StringType, true)
+                     .add("id_passenger", StringType, true)
+
         // will listen localhost:44444 with stream from TaxiEvent.CreateBasicTaxiEvent script
 
         val lines = ssc.socketTextStream("localhost", 44444)
 
         lines
-            .map(p => p )  //.map(p => ( p(id) , p(event_date) ))
             .foreachRDD { rdd =>
 
+                val df = spark.read.json(rdd.map(x => x))
+
+                df.show()
+
                 // Convert RDD to DataFrame
-                val df = rdd.toDF("id", "event_date")
+                //val df = rdd.toDF("id", "event_date")
 
                 // Create a temporary view
-                df.createOrReplaceTempView("event")
+                //df.createOrReplaceTempView("event")
 
-                spark.sql("select * from event").show()
+                //spark.sql("select * from event").show()
 
             }
 
