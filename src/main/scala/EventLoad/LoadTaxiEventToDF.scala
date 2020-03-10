@@ -47,13 +47,17 @@ object LoadTaxiEventToDF {
 
                 val df = spark.read.json(rdd.map(x => x))
 
-                df.show()
+                //df.show()
 
                 // Create a temporary view
+
+                df.printSchema()
                 
                 df.createOrReplaceTempView("event")
 
-                spark.sql("select * from event").show()
+                spark.sql("SELECT * FROM event").show()
+
+                spark.sql("SELECT count(*) AS event_count FROM event").show()
 
             }
 
