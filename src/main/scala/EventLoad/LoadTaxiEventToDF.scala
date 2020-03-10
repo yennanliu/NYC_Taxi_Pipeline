@@ -13,6 +13,9 @@ import java.util.Calendar
 import org.apache.spark._
 import org.apache.spark.streaming._
 
+/*
+Get the  stream DF via Spark Stream (legacy)
+*/
 
 object LoadTaxiEventToDF { 
 
