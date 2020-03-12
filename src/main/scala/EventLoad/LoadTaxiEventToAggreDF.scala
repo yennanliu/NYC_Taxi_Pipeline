@@ -60,8 +60,10 @@ object LoadTaxiEventToAggreDF {
         //val df = lines.withColumn("value", from_json(col("value").cast("string"), schema))
 
         /***
-        https://stackoverflow.com/questions/54759366/convert-streaming-json-to-dataframe/54760442
+
         json -> df  (spark structure steam)
+        https://stackoverflow.com/questions/54759366/convert-streaming-json-to-dataframe/54760442
+        
         ***/
 
         val df = lines
@@ -72,24 +74,11 @@ object LoadTaxiEventToAggreDF {
 
         df.printSchema
 
+        df.createOrReplaceTempView("event")
 
-        //val df = lines.withColumn("id_driver", from_json(col("id_driver").cast("string"), schema))
+        spark.sql("select * from event")
 
-        //val df = lines.select(from_json(col("value").cast("string"), schema) as payload).select($"payload.*")
-        
-        //df.printSchema
-   
-        // df.createOrReplaceTempView("event")
-
-        // spark.sql("SELECT * FROM event").show()
-
-        // Split the lines into words
-        // val words = lines.as[String].flatMap(_.split(" "))
-
-        // // Generate running word count
-        
-
-        val wordCounts = df.groupBy("id_driver").count()
+        val wordCounts = df.groupBy("id", "id_driver").count()
 
         // Start running the query that prints the running counts to the console
         val query = wordCounts.writeStream
@@ -97,8 +86,15 @@ object LoadTaxiEventToAggreDF {
           .format("console")
           .start()
 
-        query.awaitTermination()
+        spark.sql("SELECT * FROM event WHERE id IS NOT NULL")
+              .writeStream
+              .format("console")
+              .start()
+              .awaitTermination()
 
+        //query.awaitTermination()
+
+        query.awaitTermination()
 
   }
 
