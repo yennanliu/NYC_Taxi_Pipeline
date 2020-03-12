@@ -8,4 +8,6 @@ type=bind,\
 source="$(pwd)"/.,\
 target=/spark_env \
 -i -t spark_env \
-/bin/bash  -c "cd ../spark_env && sbt package"
+/bin/bash  -c "cd ../spark_env && sbt package && spark-submit \
+ --class DataLoad.LoadReferenceData \
+ target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar"
