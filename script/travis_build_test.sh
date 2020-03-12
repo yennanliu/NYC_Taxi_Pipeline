@@ -12,4 +12,8 @@ target=/spark_env \
  --class DataLoad.LoadReferenceData \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar && spark-submit \
  --class DataLoad.LoadGreenTripData \
+ target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar && spark-submit \
+ --class DataTransform.TransformGreenTaxiData \
+ target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar && spark-submit \
+ --class CreateView.CreateMaterializedView \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar"
