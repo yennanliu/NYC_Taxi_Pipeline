@@ -1,0 +1,12 @@
+sudo: required
+
+language: scala
+
+services:
+  - docker
+  
+script:
+  - bash script/travis_build_test.sh
+
+after_success:
+  - echo 'travis process completed!'
