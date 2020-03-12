@@ -57,8 +57,6 @@ object LoadTaxiEventToAggreDF {
         
         lines.printSchema
 
-        //val df = lines.withColumn("value", from_json(col("value").cast("string"), schema))
-
         /***
 
         json -> df  (spark structure steam)
@@ -78,13 +76,22 @@ object LoadTaxiEventToAggreDF {
 
         spark.sql("select * from event")
 
-        val wordCounts = df.groupBy("id", "id_driver").count()
+        //val wordCounts = df.groupBy("id", "id_driver").count()
 
         // Start running the query that prints the running counts to the console
-        val query = wordCounts.writeStream
-          .outputMode("complete")
-          .format("console")
-          .start()
+        val query = df.groupBy("id", "id_driver")
+                      .count()
+                      .writeStream
+                      .outputMode("complete")
+                      .format("console")
+                      .start()
+
+        val query2 = df.groupBy("id_driver")
+                      .count()
+                      .writeStream
+                      .outputMode("complete")
+                      .format("console")
+                      .start()
 
         spark.sql("SELECT * FROM event WHERE id IS NOT NULL")
               .writeStream
@@ -93,8 +100,7 @@ object LoadTaxiEventToAggreDF {
               .awaitTermination()
 
         //query.awaitTermination()
-
-        query.awaitTermination()
+        query2.awaitTermination()
 
   }
 
