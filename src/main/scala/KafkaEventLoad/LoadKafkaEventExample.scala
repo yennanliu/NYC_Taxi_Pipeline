@@ -14,6 +14,7 @@ import java.util.Calendar
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.streaming.{OutputMode, Trigger}
 import org.apache.spark.sql.types.{StringType, StructField, StructType}
+import org.apache.spark.sql.functions.{get_json_object, json_tuple}
 
 /*
  * modify from 
@@ -46,35 +47,45 @@ object LoadKafkaEventExample {
       val df = spark
               .readStream
               .format("kafka")
-              .option("kafka.bootstrap.servers", "host1:port1,host2:port2")
-              .option("subscribe", "topic1")
+              .option("kafka.bootstrap.servers", "127.0.0.1:9092") // local kafka server
+              .option("subscribe", "first_topic")
               .load()
 
       df.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
         .as[(String, String)]
 
+      df.printSchema
+
+      df.createOrReplaceTempView("k_event")
+
+      spark.sql("SELECT * FROM k_event")
+            .writeStream
+            .format("console")
+            .start()
+            .awaitTermination()
+
       // Subscribe to multiple topics
 
-      val df2 = spark
-            .readStream
-            .format("kafka")
-            .option("kafka.bootstrap.servers", "host1:port1,host2:port2")
-            .option("subscribe", "topic1,topic2")
-            .load()
+      // val df2 = spark
+      //       .readStream
+      //       .format("kafka")
+      //       .option("kafka.bootstrap.servers", "host1:port1,host2:port2")
+      //       .option("subscribe", "topic1,topic2")
+      //       .load()
 
-      df2.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
-        .as[(String, String)]
+      // df2.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
+      //   .as[(String, String)]
 
-      // Subscribe to a pattern
-      val df3 = spark
-            .readStream
-            .format("kafka")
-            .option("kafka.bootstrap.servers", "host1:port1,host2:port2")
-            .option("subscribePattern", "topic.*")
-            .load()
+      // // Subscribe to a pattern
+      // val df3 = spark
+      //       .readStream
+      //       .format("kafka")
+      //       .option("kafka.bootstrap.servers", "host1:port1,host2:port2")
+      //       .option("subscribePattern", "topic.*")
+      //       .load()
 
-      df3.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
-        .as[(String, String)]
+      // df3.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
+      //   .as[(String, String)]
 
   }
 
