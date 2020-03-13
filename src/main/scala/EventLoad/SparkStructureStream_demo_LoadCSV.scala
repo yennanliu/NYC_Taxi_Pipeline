@@ -43,31 +43,29 @@ object SparkStructureStream_demo_LoadCSV {
 
         val inputDirectory = "data/test.csv"
 
-        val userSchema = new StructType().add("name", "string").add("age", "integer")
+        val userSchema = new StructType()
+                          .add("name", "string")
+                          .add("age", "integer")
         
         val df = spark
           .readStream
-          //.option("sep", ",")
+          .option("sep", ",")
           .schema(userSchema)
           .csv(inputDirectory)  
 
         df.printSchema()
+        
+        df.isStreaming
 
-        df.writeStream
-          .format("console")
-          .outputMode("append")
-          .start()
-          .awaitTermination()
+        df.createOrReplaceTempView("tmp")
 
-       //df.writeStream.format("console").option("truncate","false").start()
+        spark.sql("select * from tmp")
 
-        // val lines = ssc.fileStream[LongWritable, Text, TextInputFormat](inputDirectory).map( x => x.toString )  //.map( (x, y) => (x.toString, y.toString) )
-    
-        // lines.print()
-
-        // ssc.start()             // Start the computation
-
-        // ssc.awaitTermination()  // Wait for the computation to terminate
+        spark.sql("SELECT * FROM tmp")
+              .writeStream
+              .format("console")
+              .start()
+              .awaitTermination()
 
   }
 
