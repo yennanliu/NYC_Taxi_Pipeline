@@ -62,30 +62,51 @@ object LoadKafkaEventExample {
             .writeStream
             .format("console")
             .start()
-            .awaitTermination()
+            //.awaitTermination()  // <-- should un-comment it if only have df in this script
 
       // Subscribe to multiple topics
 
-      // val df2 = spark
-      //       .readStream
-      //       .format("kafka")
-      //       .option("kafka.bootstrap.servers", "host1:port1,host2:port2")
-      //       .option("subscribe", "topic1,topic2")
-      //       .load()
+      val df2 = spark
+            .readStream
+            .format("kafka")
+            .option("kafka.bootstrap.servers", "127.0.0.1:9092")
+            .option("subscribe", "first_topic,second_topic")
+            .load()
 
-      // df2.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
-      //   .as[(String, String)]
+      df2.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
+        .as[(String, String)]
 
-      // // Subscribe to a pattern
-      // val df3 = spark
-      //       .readStream
-      //       .format("kafka")
-      //       .option("kafka.bootstrap.servers", "host1:port1,host2:port2")
-      //       .option("subscribePattern", "topic.*")
-      //       .load()
+      df2.printSchema
 
-      // df3.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
-      //   .as[(String, String)]
+      df2.createOrReplaceTempView("k_event2")
+
+      spark.sql("SELECT * FROM k_event2")
+            .writeStream
+            .format("console")
+            .start()
+            //.awaitTermination() // <-- should un-comment it if only have df2 in this script
+
+      // Subscribe to a pattern
+
+      val df3 = spark
+            .readStream
+            .format("kafka")
+            .option("kafka.bootstrap.servers", "127.0.0.1:9092")
+            .option("subscribePattern", "my_topic.*")  // receive the kafka stream with pattern "my_topic.*"
+            .load()
+
+      df3.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
+        .as[(String, String)]
+
+      df3.printSchema
+
+      df3.createOrReplaceTempView("k_event3")
+
+      spark.sql("SELECT * FROM k_event3")
+            .writeStream
+            .format("console")
+            .start()
+            .awaitTermination()
 
   }
 
