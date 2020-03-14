@@ -11,8 +11,7 @@ resolvers += Resolver.sonatypeRepo("snapshots")
 libraryDependencies ++= Seq(
   // config
   "com.typesafe" % "config" % "1.2.1", 
-  // spark  
-  "org.apache.spark" %% "spark-core" % "2.3.0",
+  "org.apache.spark" %% "spark-core" % "2.4.3",
   "org.scalactic" %% "scalactic" % "3.0.8",
   "org.scalatest" %% "scalatest" % "3.0.8" % "test",
   "org.apache.spark" %% "spark-sql" % "2.3.0",
