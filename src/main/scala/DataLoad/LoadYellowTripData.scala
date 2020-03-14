@@ -233,8 +233,8 @@ object LoadYellowTripData {
 
       //Process data, save as parquet
 
-      //for (j <- 2009 to 2017)
-      for (j <- 2016 to 2017)
+      for (j <- 2009 to 2017)
+      //for (j <- 2016 to 2017)
       //for (j <- 2017 to 2017)
         { 
           val endMonth = if (j==2017) 6 else 12 
