@@ -286,9 +286,9 @@ object LoadGreenTripData {
       // COMMAND ----------
 
       //Green taxi data starts from 2013/08
-      //for (j <- 2013 to 2017)
+      for (j <- 2013 to 2017)
       //for (j <- 2017 to 2017)
-        for (j <- 2016 to 2017)
+      //for (j <- 2016 to 2017)
         {
           val startMonth = if(j==2013) 8 else 1
           val endMonth = if (j==2017) 6 else 12 
