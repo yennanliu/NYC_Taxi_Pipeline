@@ -2,6 +2,7 @@
 
 # NYC_Taxi_Pipeline
 
+## INTRO
 > Set up the pipelines (batch/stream) from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), via the ETL process :
 E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) -> L (load : Spark -> Mysql), then calculate the `Supply VS Demand ratio` for `Surging price` application. 
 
@@ -38,11 +39,31 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 <details>
 <summary>Prerequisites</summary>
 
-```
-# 1. Install spark, Java 8, zoopkeeper, and kafka, Mysql
-# 2. Set up AWS account and launch S3 service
-# 3. Get AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY 
-```
+- Install 
+	- Spark 2.4.3
+	- Java 1.8.0_11 (java 8)
+	- Scala 2.11.12
+	- sbt 1.3.5
+	- Zoopkeeper
+	- Kafka
+	- Mysql
+	- Elasitic search (optional)
+	- Hive (optional)
+	- Hadoop (optional)
+	- Fluentd (optional)
+	- Python 3  (optional)
+	- Pyspark (optional)
+
+- Set up 
+	- AWS account and get `key_pair` for access below services:
+		- EMR
+		- EC2
+		- S3
+		- DYNAMODB
+		- Kinesis
+- Config
+	- update [config](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/config) with your creds  
+
 </details>
 
 ## Quick start 
