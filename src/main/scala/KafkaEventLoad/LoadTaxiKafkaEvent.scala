@@ -56,7 +56,7 @@ object LoadTaxiKafkaEvent {
               .readStream
               .format("kafka")
               .option("kafka.bootstrap.servers", "127.0.0.1:9092") // local kafka server
-              .option("subscribe", "first_topic")
+              .option("subscribe", "first_topic") // .option("startingOffsets", "earliest") // From starting
               .load()
 
       /*
