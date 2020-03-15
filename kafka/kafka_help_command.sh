@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# start zookeeper, kafka
+brew services start zookeeper
+brew services start kafka
+
+# restart zookeeper, kafka
+brew services restart zookeeper 
+brew services restart kafka
+
 # list topics 
 kafka-topics  --zookeeper  127.0.0.1:2181 --list 
 
