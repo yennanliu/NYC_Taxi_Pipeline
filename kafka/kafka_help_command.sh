@@ -8,6 +8,13 @@ brew services start kafka
 brew services restart zookeeper 
 brew services restart kafka
 
+# stop zookeeper, kafka
+brew services stop zookeeper
+brew services stop kafka
+
+# Clean kafka dara 
+rm /Users/$USER/kafka_data/kafka/*
+
 # list topics 
 kafka-topics  --zookeeper  127.0.0.1:2181 --list 
 
