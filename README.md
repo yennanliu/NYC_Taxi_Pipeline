@@ -133,9 +133,21 @@ spark-submit \
 # check the event
 curl localhost:44444
 
-# STEP 7) Process Taxi event
+# STEP 3) Process Taxi event
 spark-submit \
  --class EventLoad.SparkStream_demo_LoadTaxiEvent \
+ target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
+
+# STEP 4) Send Taxi event to Kafaka
+# start zookeeper, kafka
+brew services start zookeeper
+brew services start kafka
+# curl event to kafka producer
+curl localhost:44444 | kafka-console-producer  --broker-list  127.0.0.1:9092 --topic first_topic
+
+# STEP 5) Spark process kafka stream
+spark-submit \
+ --class KafkaEventLoad.LoadKafkaEventExample \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
 ```
