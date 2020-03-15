@@ -19,3 +19,6 @@ kafka-console-consumer   --bootstrap-server  127.0.0.1:9092 --topic first_topic
 
 # set up cosumer (read from beginning, i.e. read all msg) (NOW, OPEN THE OTHER TERMIANL AND RUN THE BELOW COMMAND )
 kafka-console-consumer   --bootstrap-server  127.0.0.1:9092 --topic first_topic  --from-beginning 
+
+# curl event to kafka producer
+curl localhost:44444 | kafka-console-producer  --broker-list  127.0.0.1:9092 --topic first_topic
