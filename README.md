@@ -1,4 +1,4 @@
-<p align="center"><img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/pic/taxi_logo_V2.svg" width="1000" height="200"></p>
+<p align="center"><img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/pic/taxi_logo_V2.svg" width="2000" height="500"></p>
 
 # NYC_Taxi_Pipeline
 
