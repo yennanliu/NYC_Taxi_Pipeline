@@ -18,7 +18,8 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 * Tech : Spark, Hadoop, Hive, EMR, S3, MySQL, Fluentd, Kinesis, DynamoDB , Scala, Python 
 * Download sample data : [download_sample_data.sh](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/script/download_sample_data.sh)
 * Batch pipeline : [DataLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/DataLoad) -> [DataTransform](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/DataTransform) -> [CreateView](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/CreateView) -> [SaveToDB](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/SaveToDB) -> [SaveToHive](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/SaveToHive)
-* Stream pipeline : [TaxiEvent](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent) -> [EventLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/EventLoad)
+	* Batch data : [Staging transactional-data](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/staging/transactional-data), [Staging reference-data](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/staging/reference-data) 
+* Stream pipeline : [TaxiEvent](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent) -> [EventLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/EventLoad) -> [KafkaEventLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/KafkaEventLoad)
 
 > Please also check [NYC_Taxi_Trip_Duration](https://github.com/yennanliu/NYC_Taxi_Trip_Duration) in case you are interested in the data science projects with similar taxi dataset. 
 
@@ -151,12 +152,22 @@ spark-submit \
 # start zookeeper, kafka
 brew services start zookeeper
 brew services start kafka
+
+# create kafka topic
+kafka-topics --create -zookeeper localhost:2181 --replication-factor 1  --partitions 1 --topic first_topic
+kafka-topics --create -zookeeper localhost:2181 --replication-factor 1  --partitions 1 --topic streams-taxi
+
 # curl event to kafka producer
 curl localhost:44444 | kafka-console-producer  --broker-list  127.0.0.1:9092 --topic first_topic
 
 # STEP 5) Spark process kafka stream
 spark-submit \
  --class KafkaEventLoad.LoadKafkaEventExample \
+ target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
+
+# STEP 6) Spark process kafka stream
+spark-submit \
+ --class KafkaEventLoad.LoadTaxiKafkaEventWriteToKafka \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
 ```
