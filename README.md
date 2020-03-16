@@ -12,9 +12,10 @@
 </p>
 
 ## INTRO
-> Architect `batch/stream` data processing systems from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), via the ETL process :
-E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) -> L (load : Spark -> Mysql) & stream process : Event -> Event digest -> Event storage. The system then can support calculation such as `Supply VS Demand ratio` for `Surging price`, `latest-top-driver`, `current-busy-areas`. 
-> The batch data is from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page); while the stream data is from various sorces : [Taxi-fake-event](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent), `load file as stream`.
+> Architect `batch/stream` data processing systems from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), via the `ETL process`  :
+E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) -> L (load : Spark -> Mysql) & `stream process` : Event -> Event digest -> Event storage. The system then can support calculation such as `Supply VS Demand ratio` for `Surging price`, `latest-top-driver`, `current-busy-areas`.
+
+> Batch data is from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page); while the stream data is from various sorces : [Taxi-fake-event](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent), `load file as stream`.
 
 * Tech : Spark, Hadoop, Hive, EMR, S3, MySQL, Fluentd, Kinesis, DynamoDB , Scala, Python 
 * Download sample data : [download_sample_data.sh](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/script/download_sample_data.sh)
@@ -33,17 +34,18 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 
 ## File structure 
 ```
-├── README.md
-├── batch             : scripts for batch pipeline 
-├── config            : configuration files 
-├── data              : saved NYC nyc-tlc-trip-records-pds data / sample data 
-├── doc               : reference 
-├── kafka             : scripts for kafka 
-├── requirements.txt  : needed python libraries 
-├── script            : help scripts (env/services) 
-├── src               : Main working script (Scala/Python)
-├── stream            : scripts for stream pipeline 
-└── utility           : help scripts (pipeline)
+├── Dockerfile    : Scala spark Dockerfile
+├── build.sbt     : Scala sbt build file
+├── config        : configuration files for DB/Kafka/AWS..
+├── data          : Raw/processed/output data
+├── doc           : All repo reference/doc/pic
+├── fluentd       : Fluentd help scripts
+├── kafka         : Kafka help scripts
+├── pyspark       : Legacy pipeline code (Python)
+├── requirements.txt
+├── script        : Help scripts (env/services) 
+├── src           : Batch/stream process scripts (Scala)
+└── utility       : Help scripts (pipeline)
 ```
 
 ## Prerequisites
