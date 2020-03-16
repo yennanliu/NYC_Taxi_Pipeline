@@ -87,13 +87,20 @@ object LoadTaxiKafkaEventWriteToKafka {
       // Write to kafka 
 
       println(">>> Write to kafka")
+
+      /*
+       * Create a Kafka topic with below setting, so can accept spark structure streaming
+       * -> enable the --config cleanup.policy=compact
+       * https://stackoverflow.com/questions/49098274/kafka-stream-get-corruptrecordexception
+       *
+      */
       
       taxiDF.selectExpr("CAST(id AS STRING) AS key", "to_json(struct(*)) AS value")
          .writeStream
          .format("kafka")
          .outputMode("append")
          .option("kafka.bootstrap.servers", "127.0.0.1:9092")
-         .option("topic", "taxi")
+         .option("topic", "streams-taxi") // https://stackoverflow.com/questions/49098274/kafka-stream-get-corruptrecordexception
          .option("checkpointLocation", "/tmp/vaquarkhan/checkpoint") // <-- checkpoint directory
          .start()
          .awaitTermination()

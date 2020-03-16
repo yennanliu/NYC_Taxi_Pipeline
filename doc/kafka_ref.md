@@ -5,3 +5,6 @@
 
 - Kafka Intro
 	- https://docs.confluent.io/current/kafka/introduction.html
+
+- Run kafka stream demo
+	- https://kafka.apache.org/11/documentation/streams/quickstart

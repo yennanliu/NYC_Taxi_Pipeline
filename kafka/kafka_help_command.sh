@@ -22,6 +22,9 @@ nano /usr/local/etc/kafka/zookeeper.properties
 # Delete Kafka topic 
 kafka-topics  --delete --zookeeper localhost:2181 --topic <your_topic_name>
 
+# Creat a new topic 
+kafka-topics --create -zookeeper localhost:2181 --replication-factor 1  --partitions 1 --topic streams-taxi
+
 # list topics 
 kafka-topics  --zookeeper  127.0.0.1:2181 --list 
 
