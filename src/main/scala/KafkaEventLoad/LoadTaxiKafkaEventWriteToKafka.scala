@@ -40,7 +40,7 @@ object LoadTaxiKafkaEventWriteToKafka {
 
       import spark.implicits._
 
-      // Subscribe to 1 topic
+      // Define df schema
 
       val schema = StructType(
             Array(
@@ -51,6 +51,8 @@ object LoadTaxiKafkaEventWriteToKafka {
               StructField("id_passenger", StringType)
             )
           )
+
+      // Subscribe to 1 topic
 
       val df = spark
               .readStream
@@ -83,6 +85,7 @@ object LoadTaxiKafkaEventWriteToKafka {
             .awaitTermination()  // <-- should un-comment it if only have df in this script
 
       // Write to kafka 
+      
       taxiDF.writeStream
            .format("kafka")
            .outputMode("append")
@@ -90,7 +93,6 @@ object LoadTaxiKafkaEventWriteToKafka {
            .option("topic", "taxi")
            .start()
            .awaitTermination()
-
 
   }
 

@@ -40,7 +40,7 @@ object LoadTaxiKafkaEvent {
 
       import spark.implicits._
 
-      // Subscribe to 1 topic
+      // Define df schena
 
       val schema = StructType(
             Array(
@@ -52,6 +52,8 @@ object LoadTaxiKafkaEvent {
             )
           )
 
+      // Subscribe to 1 topic
+      
       val df = spark
               .readStream
               .format("kafka")
