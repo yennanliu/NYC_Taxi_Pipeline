@@ -1,6 +1,15 @@
 <p align="center"><img src ="https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/doc/pic/taxi_logo_V2.svg" width="2000" height="300"></p>
 
-# NYC_Taxi_Pipeline
+<h1 align="center">NYC Taxi Pipeline</a></h1>
+
+<p align="center">
+<!--- travis -->
+<a href="https://travis-ci.org/yennanliu/NYC_Taxi_Pipeline"><img src="https://travis-ci.org/yennanliu/NYC_Taxi_Pipeline.svg?branch=master"></a>
+<!--- PR -->
+<a href="https://github.com/yennanliu/NYC_Taxi_Pipeline/pulls"><img src="https://img.shields.io/badge/PRs-welcome-6574cd.svg"></a>
+<!--- notebooks mybinder -->
+<a href="https://mybinder.org/v2/gh/yennanliu/NYC_Taxi_Pipeline/master"><img src="https://img.shields.io/badge/launch-Jupyter-5eba00.svg"></a>
+</p>
 
 ## INTRO
 > Set up the pipelines (batch/stream) from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), via the ETL process :
