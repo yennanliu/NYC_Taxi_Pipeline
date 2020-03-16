@@ -15,6 +15,13 @@ brew services stop kafka
 # Clean kafka dara 
 rm /Users/$USER/kafka_data/kafka/*
 
+# Config Kafka and Zoopkeeper
+nano /usr/local/etc/kafka/server.properties
+nano /usr/local/etc/kafka/zookeeper.properties
+
+# Delete Kafka topic 
+kafka-topics  --delete --zookeeper localhost:2181 --topic <your_topic_name>
+
 # list topics 
 kafka-topics  --zookeeper  127.0.0.1:2181 --list 
 
