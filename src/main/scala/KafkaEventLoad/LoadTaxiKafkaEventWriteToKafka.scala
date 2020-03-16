@@ -82,17 +82,21 @@ object LoadTaxiKafkaEventWriteToKafka {
             .writeStream
             .format("console")
             .start()
-            .awaitTermination()  // <-- should un-comment it if only have df in this script
+            //.awaitTermination()  // <-- should un-comment it if only have df in this script
 
       // Write to kafka 
+
+      println(">>> Write to kafka")
       
-      taxiDF.writeStream
-           .format("kafka")
-           .outputMode("append")
-           .option("kafka.bootstrap.servers", "127.0.0.1:9092")
-           .option("topic", "taxi")
-           .start()
-           .awaitTermination()
+      taxiDF.selectExpr("CAST(id AS STRING) AS key", "to_json(struct(*)) AS value")
+         .writeStream
+         .format("kafka")
+         .outputMode("append")
+         .option("kafka.bootstrap.servers", "127.0.0.1:9092")
+         .option("topic", "taxi")
+         .option("checkpointLocation", "/tmp/vaquarkhan/checkpoint") // <-- checkpoint directory
+         .start()
+         .awaitTermination()
 
   }
 

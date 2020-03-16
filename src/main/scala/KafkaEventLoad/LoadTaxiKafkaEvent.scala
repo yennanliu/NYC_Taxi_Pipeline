@@ -40,7 +40,7 @@ object LoadTaxiKafkaEvent {
 
       import spark.implicits._
 
-      // Define df schena
+      // Define df schema
 
       val schema = StructType(
             Array(
