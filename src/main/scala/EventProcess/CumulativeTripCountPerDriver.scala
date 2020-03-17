@@ -66,6 +66,7 @@ object CumulativeTripCountPerDriver {
 
         val df = lines
                 .selectExpr("CAST(value AS STRING)").as[String]
+                .filter( _ != null)
                 .select(from_json($"value",schema)
                 .alias("tmp"))
                 .select("tmp.*")
@@ -74,7 +75,10 @@ object CumulativeTripCountPerDriver {
 
         df.createOrReplaceTempView("event")
 
-        val query = df.groupBy("id_driver")
+        //df.filter(_.signal > 10).map(_.device)    
+
+        val query = df // df.select("id_driver").where("id_driver != null")  // filter out null data
+                  .groupBy("id_driver")
                   .count()
                   .writeStream
                   .outputMode("complete")
