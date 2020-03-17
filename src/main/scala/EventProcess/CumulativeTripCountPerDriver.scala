@@ -21,10 +21,10 @@ object CumulativeTripCountPerDriver {
 
     def main(args: Array[String]){ 
 
-        val sc = new SparkContext("local[*]", "LoadTaxiEventToAggreDF")   
+        val sc = new SparkContext("local[*]", "CumulativeTripCountPerDriver")   
         val spark = SparkSession
             .builder
-            .appName("LoadTaxiEventToAggreDF")
+            .appName("CumulativeTripCountPerDriver")
             .master("local[*]")
             .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
             .getOrCreate()
