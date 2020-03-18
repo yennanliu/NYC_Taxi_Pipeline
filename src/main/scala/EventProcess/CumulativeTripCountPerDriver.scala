@@ -80,6 +80,7 @@ object CumulativeTripCountPerDriver {
         val query = df // df.select("id_driver").where("id_driver != null")  // filter out null data
                   .groupBy("id_driver")
                   .count()
+                  .orderBy(desc("count"))
                   .writeStream
                   .outputMode("complete")
                   .format("console")
