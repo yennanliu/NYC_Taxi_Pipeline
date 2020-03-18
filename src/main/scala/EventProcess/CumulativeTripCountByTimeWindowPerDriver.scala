@@ -38,7 +38,7 @@ object CumulativeTripCountByTimeWindowPerDriver {
 
         val schema = new StructType()
                      .add("id", StringType, true)
-                     .add("event_date", StringType, true)
+                     .add("event_date", TimestampType, true)
                      .add("tour_value", StringType, true)
                      .add("id_driver", StringType, true)
                      .add("id_passenger", StringType, true)
@@ -91,7 +91,7 @@ object CumulativeTripCountByTimeWindowPerDriver {
 
         val windowedCounts = df.groupBy(
             window(
-                  $"event_date", "3 minutes", "1 minutes"),
+                  $"event_date", "5 seconds", "3 seconds"),
                   $"id_driver")
             .count()
             .writeStream
