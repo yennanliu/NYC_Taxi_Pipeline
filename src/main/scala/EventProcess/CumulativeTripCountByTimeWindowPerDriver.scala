@@ -76,30 +76,23 @@ object CumulativeTripCountByTimeWindowPerDriver {
 
         df.printSchema
 
-        df.createOrReplaceTempView("event")
+       /****      
+        Stream df aggregation with time window (spark structure steam)
+        https://databricks.com/blog/2017/05/08/event-time-aggregation-watermarking-apache-sparks-structured-streaming.html        
+        https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#semantic-guarantees-of-aggregation-with-watermarking
+        ****/
 
-        //df.filter(_.signal > 10).map(_.device)    
-
-        // val query = df // df.select("id_driver").where("id_driver != null")  // filter out null data
-        //           .groupBy("id_driver")
-        //           .count()
-        //           .writeStream
-        //           .outputMode("complete")
-        //           .format("console")
-        //           .start()
-        //           .awaitTermination()
-
-        val windowedCounts = df.groupBy(
-            window(
-                  $"event_date", "5 seconds", "3 seconds"),
-                  $"id_driver")
+        val windowedCounts = df.na.drop()
+            .groupBy(
+              $"id_driver",
+              window($"event_date", "3 minute")
+              )
             .count()
             .writeStream
             .outputMode("complete")
             .format("console")
             .start()
             .awaitTermination()
-
   }
 
 }
