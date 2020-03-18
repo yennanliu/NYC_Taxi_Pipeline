@@ -75,9 +75,8 @@ object CumulativeTripCountPerDriver {
 
         df.createOrReplaceTempView("event")
 
-        //df.filter(_.signal > 10).map(_.device)    
 
-        val query = df // df.select("id_driver").where("id_driver != null")  // filter out null data
+        val query = df.na.drop() // drop na drom df :  https://spark.apache.org/docs/2.1.0/api/java/org/apache/spark/sql/DataFrameNaFunctions.html#drop%28
                   .groupBy("id_driver")
                   .count()
                   .orderBy(desc("count"))
