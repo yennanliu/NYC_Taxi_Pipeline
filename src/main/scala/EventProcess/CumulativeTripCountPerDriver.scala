@@ -59,7 +59,7 @@ object CumulativeTripCountPerDriver {
 
         /***
 
-        json -> df  (spark structure steam)
+        json -> df  (spark structure stream)
         https://stackoverflow.com/questions/54759366/convert-streaming-json-to-dataframe/54760442
         
         ***/

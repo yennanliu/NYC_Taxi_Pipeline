@@ -62,7 +62,7 @@ object CumulativeTripCountByTimeWindowPerDriver {
 
         /***
 
-        json -> df  (spark structure steam)
+        json -> df  (spark structure stream)
         https://stackoverflow.com/questions/54759366/convert-streaming-json-to-dataframe/54760442
         
         ***/
@@ -77,7 +77,7 @@ object CumulativeTripCountByTimeWindowPerDriver {
         df.printSchema
 
        /****      
-        Stream df aggregation with time window (spark structure steam)
+        Stream df aggregation with time window (spark structure stream)
         https://databricks.com/blog/2017/05/08/event-time-aggregation-watermarking-apache-sparks-structured-streaming.html        
         https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#semantic-guarantees-of-aggregation-with-watermarking
         ****/
