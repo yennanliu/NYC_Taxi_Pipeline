@@ -71,10 +71,9 @@ object CumulativeTripCountPerDriver {
                 .alias("tmp"))
                 .select("tmp.*")
 
+        df.isStreaming
+
         df.printSchema
-
-        df.createOrReplaceTempView("event")
-
 
         val query = df.na.drop() // drop na from df, https://spark.apache.org/docs/2.1.0/api/java/org/apache/spark/sql/DataFrameNaFunctions.html#drop%28
                   .groupBy("id_driver")
