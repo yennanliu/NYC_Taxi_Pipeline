@@ -76,10 +76,10 @@ object CumulativeTripCountPerDriver {
         df.createOrReplaceTempView("event")
 
 
-        val query = df.na.drop() // drop na drom df :  https://spark.apache.org/docs/2.1.0/api/java/org/apache/spark/sql/DataFrameNaFunctions.html#drop%28
+        val query = df.na.drop() // drop na from df, https://spark.apache.org/docs/2.1.0/api/java/org/apache/spark/sql/DataFrameNaFunctions.html#drop%28
                   .groupBy("id_driver")
                   .count()
-                  .orderBy(desc("count"))
+                  .orderBy(desc("count")) // order by column "count" in descending order
                   .writeStream
                   .outputMode("complete")
                   .format("console")
