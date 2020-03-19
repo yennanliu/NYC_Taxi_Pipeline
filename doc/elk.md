@@ -8,7 +8,7 @@
 - ELK docker hub 
 	- https://hub.docker.com/r/sebp/elk/dockerfile
 
-### Quick start
+### Quick start (docker)
 ```bash
 
 # pull the docker image
@@ -16,4 +16,11 @@ sudo docker pull sebp/elk
 
 # run the image directly
 sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk
+```
+
+### Quick start (docker-compose)
+```bash
+git clone https://github.com/yennanliu/NYC_Taxi_Pipeline.git
+cd NYC_Taxi_Pipeline/elk
+docker-compose up 
 ```
