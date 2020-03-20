@@ -1,6 +1,7 @@
 package DevClass
 
 import java.util.concurrent.TimeUnit
+import java.io.File
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.streaming.{OutputMode, Trigger}
@@ -19,7 +20,11 @@ object LoadUtilsDemo {
 
     println(file_list)
 
-    //FileUtils.getContentFromFileAsString(_)
+    val file = new File("data/test.csv")
+
+    println(FileUtils.getContentFromFileAsString(file))
+
+    println(FileUtils.readConfigurationFile("config/kafka.config"))
 
     //FileUtils.readFileWithHadoop(_,_)
 

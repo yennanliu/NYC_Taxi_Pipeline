@@ -3,6 +3,7 @@ package utils
 import java.io.{BufferedReader, File, FileNotFoundException, InputStreamReader}
 import java.util.stream.Collectors
 
+import org.apache.commons.text.StringSubstitutor
 import org.apache.commons.io.FilenameUtils
 import org.apache.hadoop.fs.Path
 import org.apache.spark.sql.SparkSession
@@ -25,6 +26,12 @@ object FileUtils {
 
   def getContentFromFileAsString(file: File): String = {
     scala.io.Source.fromFile(file).mkString //    //By scala.io. on read spark fail with legit error when path does not exists
+  }
+
+  def readConfigurationFile(path: String): String = {
+    val fileContents = Source.fromFile(path).getLines.mkString("\n")
+    val interpolationMap = System.getProperties().asScala ++= System.getenv().asScala
+    StringSubstitutor.replace(fileContents, interpolationMap.asJava)
   }
 
   def readFileWithHadoop(path: String, sparkSession: SparkSession): String = {
