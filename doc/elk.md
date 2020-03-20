@@ -7,6 +7,12 @@
 	- https://github.com/spujadas/elk-docker
 - ELK docker hub 
 	- https://hub.docker.com/r/sebp/elk/dockerfile
+- ELK tutorial
+	- https://www.guru99.com/elk-stack-tutorial.html
+
+## Logstash 
+	- http plugin
+		- https://www.elastic.co/blog/introducing-logstash-input-http-plugin
 
 ### Quick start (docker)
 ```bash
