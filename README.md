@@ -173,7 +173,6 @@ spark-submit \
  --class KafkaEventLoad.LoadTaxiKafkaEventWriteToKafka \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
-
 # STEP 7) Run elsacsearch, kibana, logstach
 cd ~ 
 kibana-7.6.1-darwin-x86_64/bin/kibana
