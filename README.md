@@ -173,6 +173,21 @@ spark-submit \
  --class KafkaEventLoad.LoadTaxiKafkaEventWriteToKafka \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
+
+ # STEP 7) Run elsacsearch, kibana, logstach
+cd ~ 
+kibana-7.6.1-darwin-x86_64/bin/kibana
+elasticsearch-7.6.1/bin/elasticsearch
+logstash-7.6.1/bin/logstash -f config
+
+# test insert toy data
+nc 127.0.0.1 5000 < data/event_sample.json
+
+# then visit kibana UI : localhost:5601
+# then visit "management" -> "index_patterns" -> "Create index pattern" 
+# create new index : logstash-* (not select timestamp as filter)
+# then visit the "discover" tag and check the data
+
 ```
 </details>
 

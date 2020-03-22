@@ -13,6 +13,8 @@
 ## Logstash 
 	- http plugin
 		- https://www.elastic.co/blog/introducing-logstash-input-http-plugin
+	- Quick start ( Logstash -> kibana)
+		- https://oranwind.org/dv-elk-an-zhuang-ji-she-ding-jiao-xue/
 
 ### Quick start (docker)
 ```bash
