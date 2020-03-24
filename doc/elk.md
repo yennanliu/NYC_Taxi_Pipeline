@@ -16,6 +16,9 @@
 	- Quick start ( Logstash -> kibana)
 		- https://oranwind.org/dv-elk-an-zhuang-ji-she-ding-jiao-xue/
 
+	- grok tutorial
+		- https://blog.johnwu.cc/article/elk-logstash-grok-filter.html
+
 ### Quick start (docker)
 ```bash
 
