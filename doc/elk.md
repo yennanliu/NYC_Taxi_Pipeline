@@ -19,6 +19,9 @@
 	- grok tutorial
 		- https://blog.johnwu.cc/article/elk-logstash-grok-filter.html
 
+	- Logstash input from file and grok tutorial
+		- https://ithelp.ithome.com.tw/articles/10186786
+
 ### Quick start (docker)
 ```bash
 
