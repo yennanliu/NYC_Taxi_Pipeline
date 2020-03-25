@@ -11,16 +11,16 @@
 	- https://www.guru99.com/elk-stack-tutorial.html
 
 ## Logstash 
-	- http plugin
-		- https://www.elastic.co/blog/introducing-logstash-input-http-plugin
-	- Quick start ( Logstash -> kibana)
-		- https://oranwind.org/dv-elk-an-zhuang-ji-she-ding-jiao-xue/
+- http plugin
+	- https://www.elastic.co/blog/introducing-logstash-input-http-plugin
+- Quick start ( Logstash -> kibana)
+	- https://oranwind.org/dv-elk-an-zhuang-ji-she-ding-jiao-xue/
 
-	- grok tutorial
-		- https://blog.johnwu.cc/article/elk-logstash-grok-filter.html
+- grok tutorial
+	- https://blog.johnwu.cc/article/elk-logstash-grok-filter.html
 
-	- Logstash input from file and grok tutorial
-		- https://ithelp.ithome.com.tw/articles/10186786
+- Logstash input from file and grok tutorial
+	- https://ithelp.ithome.com.tw/articles/10186786
 
 ### Quick start (docker)
 ```bash
