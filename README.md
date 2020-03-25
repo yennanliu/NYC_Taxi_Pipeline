@@ -12,8 +12,8 @@
 </p>
 
 ## INTRO
-> Architect `batch/stream` data processing systems from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), via the `ETL process`  :
-E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) -> L (load : Spark -> Mysql) & `stream process` : Event -> Event digest -> Event storage. The system then can support calculation such as `Supply VS Demand ratio` for `Surging price`, `latest-top-driver`, `current-busy-areas`.
+> Architect `batch/stream` data processing systems from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), via the ETL `batch process`  :
+E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) -> L (load : Spark -> Mysql) & `stream process` : Event -> Event digest -> Event storage. The system then can support calculation such as `Top Driver By area`, `Order by time windiw`, `latest-top-driver`, and `Top busy areas`.
 
 > Batch data is from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page); while the stream data is from various sorces : [Taxi-fake-event](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent), `load file as stream`.
 
@@ -52,30 +52,40 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 <details>
 <summary>Prerequisites</summary>
 
-- Install 
+- Install (batch)  
 	- Spark 2.4.3
 	- Java 1.8.0_11 (java 8)
 	- Scala 2.11.12
 	- sbt 1.3.5
-	- Zoopkeeper
-	- Kafka
 	- Mysql
-	- Elasitic search (optional)
 	- Hive (optional)
 	- Hadoop (optional)
-	- Fluentd (optional)
 	- Python 3  (optional)
 	- Pyspark (optional)
 
+- Install (stream)
+	- Zoopkeeper
+	- Kafka
+	- Elasticsearch 7.6.1
+		- https://www.elastic.co/downloads/elasticsearch
+	- Kibana 7.6.1
+		- https://www.elastic.co/downloads/kibana-oss
+	- Logstash 7.6.1
+		- https://www.elastic.co/downloads/logstash
+
 - Set up 
-	- AWS account and get `key_pair` for access below services:
-		- EMR
-		- EC2
-		- S3
-		- DYNAMODB
-		- Kinesis
+	- Run on local:
+		- n/a
+	- Run on cloud :
+		- AWS account and get `key_pair` for access below services:
+			- EMR
+			- EC2
+			- S3
+			- DYNAMODB
+			- Kinesis
 - Config
 	- update [config](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/config) with your creds  
+	- update [elk-config](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/elk) with your use cases
 
 </details>
 
@@ -177,11 +187,12 @@ spark-submit \
 cd ~ 
 kibana-7.6.1-darwin-x86_64/bin/kibana
 elasticsearch-7.6.1/bin/elasticsearch
-logstash-7.6.1/bin/logstash -f config
+logstash-7.6.1/bin/logstash -f /Users/$USER/NYC_Taxi_Pipeline/elk/logstas/logstash_taxi_event_file.conf
 
+curl localhost:44444 >> /Users/$USER/NYC_Taxi_Pipeline/elk/logstas/logstash_taxi_event_file.conf
 # test insert toy data to logstash 
 # (logstash config: elk/logstash.conf)
-nc 127.0.0.1 5000 < data/event_sample.json
+#nc 127.0.0.1 5000 < data/event_sample.json
 
 # then visit kibana UI : localhost:5601
 # then visit "management" -> "index_patterns" -> "Create index pattern" 
@@ -229,7 +240,5 @@ nc 127.0.0.1 5000 < data/event_sample.json
 # 4. Dockerize the project 
 # 5. Tune the spark batch/stream code 
 # 6. Tune the kafka, zoopkeeper cluster setting 
-# 7. Travis CI/CD 
-# 8. Use Airflow to schedule batch pipeline 
 ```
 </details>
