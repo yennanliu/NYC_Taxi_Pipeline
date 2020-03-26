@@ -15,11 +15,12 @@
 > Architect `batch/stream` data processing systems from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), via the ETL `batch process`  :
 E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) -> L (load : Spark -> Mysql) & `stream process` : Event -> Event digest -> Event storage. The system then can support calculation such as `Top Driver By area`, `Order by time windiw`, `latest-top-driver`, and `Top busy areas`.
 
-> Batch data is from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page); while the stream data is from various sorces : [TaxiEvent](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent), `stream from file`.
+> Batch data source [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page);
+> Stream data sorce (various) : [TaxiEvent](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent), `stream from file`.
 
-* Tech : Spark, Hadoop, Hive, EMR, S3, MySQL, Fluentd, Kinesis, DynamoDB , Scala, Python 
-* Download sample data : [download_sample_data.sh](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/script/download_sample_data.sh)
+* Tech : Spark, Hadoop, Hive, EMR, S3, MySQL, Kinesis, DynamoDB , Scala, Python, ELK, Kafka
 * Batch pipeline : [DataLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/DataLoad) -> [DataTransform](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/DataTransform) -> [CreateView](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/CreateView) -> [SaveToDB](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/SaveToDB) -> [SaveToHive](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/SaveToHive)
+	* Download batch data : [download_sample_data.sh](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/script/download_sample_data.sh)
 	* Batch data : [transactional-data](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/staging/transactional-data), [reference-data](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/staging/reference-data) -> [processed-data](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/processed) -> [output-transactions](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/output/transactions) -> [output-materializedview](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/output/materializedview)
 * Stream pipeline : [TaxiEvent](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent) -> [EventLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/EventLoad) -> [KafkaEventLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/KafkaEventLoad)
 	* Stream data : [taxi-event](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/event)
@@ -38,8 +39,9 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 ├── Dockerfile    : Scala spark Dockerfile
 ├── build.sbt     : Scala sbt build file
 ├── config        : configuration files for DB/Kafka/AWS..
-├── data          : Raw/processed/output data
+├── data          : Raw/processed/output data (batch/stream)
 ├── doc           : All repo reference/doc/pic
+├── elk           : ELK (Elasticsearch, Logstash, Kibana) config/scripts 
 ├── fluentd       : Fluentd help scripts
 ├── kafka         : Kafka help scripts
 ├── pyspark       : Legacy pipeline code (Python)
