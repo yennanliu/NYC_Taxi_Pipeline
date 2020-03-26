@@ -15,13 +15,14 @@
 > Architect `batch/stream` data processing systems from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), via the ETL `batch process`  :
 E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) -> L (load : Spark -> Mysql) & `stream process` : Event -> Event digest -> Event storage. The system then can support calculation such as `Top Driver By area`, `Order by time windiw`, `latest-top-driver`, and `Top busy areas`.
 
-> Batch data is from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page); while the stream data is from various sorces : [Taxi-fake-event](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent), `load file as stream`.
+> Batch data is from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page); while the stream data is from various sorces : [TaxiEvent](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent), `stream from file`.
 
 * Tech : Spark, Hadoop, Hive, EMR, S3, MySQL, Fluentd, Kinesis, DynamoDB , Scala, Python 
 * Download sample data : [download_sample_data.sh](https://github.com/yennanliu/NYC_Taxi_Pipeline/blob/master/script/download_sample_data.sh)
 * Batch pipeline : [DataLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/DataLoad) -> [DataTransform](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/DataTransform) -> [CreateView](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/CreateView) -> [SaveToDB](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/SaveToDB) -> [SaveToHive](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/SaveToHive)
 	* Batch data : [transactional-data](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/staging/transactional-data), [reference-data](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/staging/reference-data) -> [processed-data](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/processed) -> [output-transactions](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/output/transactions) -> [output-materializedview](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/output/materializedview)
 * Stream pipeline : [TaxiEvent](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent) -> [EventLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/EventLoad) -> [KafkaEventLoad](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/KafkaEventLoad)
+	* Stream data : [taxi-event](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/data/event)
 
 > Please also check [NYC_Taxi_Trip_Duration](https://github.com/yennanliu/NYC_Taxi_Trip_Duration) in case you are interested in the data science projects with similar taxi dataset. 
 
@@ -145,6 +146,7 @@ spark-submit \
 <summary>Quick-Start-Stream-Pipeline-Manually</summary>
 
 ```bash 
+
 # STEP 1) sbt package 
 sbt package
 
@@ -184,12 +186,12 @@ spark-submit \
  target/scala-2.11/nyc_taxi_pipeline_2.11-1.0.jar
 
 # STEP 7) Run elsacsearch, kibana, logstach
+# make sure curl localhost:44444 can get the taxi event
 cd ~ 
 kibana-7.6.1-darwin-x86_64/bin/kibana
 elasticsearch-7.6.1/bin/elasticsearch
 logstash-7.6.1/bin/logstash -f /Users/$USER/NYC_Taxi_Pipeline/elk/logstas/logstash_taxi_event_file.conf
 
-curl localhost:44444 >> /Users/$USER/NYC_Taxi_Pipeline/elk/logstas/logstash_taxi_event_file.conf
 # test insert toy data to logstash 
 # (logstash config: elk/logstash.conf)
 #nc 127.0.0.1 5000 < data/event_sample.json
