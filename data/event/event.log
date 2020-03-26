@@ -1,1054 +1,164 @@
-                { "id": 8009212, "event_date": 1585151195661, "tour_value": 23.107929009576754, "id_driver": 9, "id_passenger": 71, "long": 40.70968855977058, "lat": 73.99956100827455 }
+                { "id": 5789435, "event_date": 1585188671534, "tour_value": 80.95592232121912, "id_driver": 7, "id_passenger": 45 }
                 
-                { "id": 4983390, "event_date": 1585151195765, "tour_value": 89.24709962699946, "id_driver": 4, "id_passenger": 4, "long": 40.70954822033644, "lat": 73.9995745999217 }
+                { "id": 5016705, "event_date": 1585188671640, "tour_value": 33.9346096861818, "id_driver": 6, "id_passenger": 24 }
                 
-                { "id": 8624389, "event_date": 1585151195869, "tour_value": 90.332671163207, "id_driver": 1, "id_passenger": 40, "long": 40.71026067274809, "lat": 73.9996342791915 }
+                { "id": 7535168, "event_date": 1585188671744, "tour_value": 87.38892657916772, "id_driver": 2, "id_passenger": 7 }
                 
-                { "id": 4430145, "event_date": 1585151195974, "tour_value": 8.662184042490162, "id_driver": 6, "id_passenger": 93, "long": 40.71028786087036, "lat": 73.99953841143846 }
+                { "id": 6030360, "event_date": 1585188671849, "tour_value": 48.45907153668434, "id_driver": 8, "id_passenger": 81 }
                 
-                { "id": 9660551, "event_date": 1585151196077, "tour_value": 1.4202896025747647, "id_driver": 8, "id_passenger": 53, "long": 40.70966713356972, "lat": 73.99965041482449 }
+                { "id": 4083413, "event_date": 1585188671954, "tour_value": 14.709294673774343, "id_driver": 8, "id_passenger": 30 }
                 
-                { "id": 9758540, "event_date": 1585151196182, "tour_value": 42.37442656321622, "id_driver": 1, "id_passenger": 56, "long": 40.70988417053223, "lat": 74.00041410207749 }
+                { "id": 6122927, "event_date": 1585188672058, "tour_value": 90.49109001571661, "id_driver": 8, "id_passenger": 13 }
                 
-                { "id": 3171959, "event_date": 1585151196284, "tour_value": 17.176896461978142, "id_driver": 4, "id_passenger": 94, "long": 40.709919616401194, "lat": 74.00005412107706 }
+                { "id": 523121, "event_date": 1585188672166, "tour_value": 77.75663505597414, "id_driver": 3, "id_passenger": 0 }
                 
-                { "id": 4158193, "event_date": 1585151196389, "tour_value": 35.977202328130254, "id_driver": 1, "id_passenger": 54, "long": 40.70959798783064, "lat": 73.99959247761964 }
+                { "id": 6704222, "event_date": 1585188672271, "tour_value": 13.812635768378122, "id_driver": 2, "id_passenger": 25 }
                 
-                { "id": 5511135, "event_date": 1585151196493, "tour_value": 63.021270670850896, "id_driver": 9, "id_passenger": 32, "long": 40.710397618114946, "lat": 73.99982170557976 }
+                { "id": 9218992, "event_date": 1585188672376, "tour_value": 64.74123077741183, "id_driver": 7, "id_passenger": 67 }
                 
-                { "id": 4159951, "event_date": 1585151196595, "tour_value": 85.43966103458592, "id_driver": 2, "id_passenger": 24, "long": 40.709988465309145, "lat": 73.99989478796721 }
+                { "id": 6431655, "event_date": 1585188672481, "tour_value": 1.3330411952383159, "id_driver": 8, "id_passenger": 5 }
                 
-                { "id": 4644785, "event_date": 1585151196696, "tour_value": 90.19708301458628, "id_driver": 7, "id_passenger": 22, "long": 40.70988923031092, "lat": 73.99982313358784 }
+                { "id": 460737, "event_date": 1585188672584, "tour_value": 41.545925930765705, "id_driver": 2, "id_passenger": 97 }
                 
-                { "id": 9451027, "event_date": 1585151196797, "tour_value": 66.21649049394262, "id_driver": 6, "id_passenger": 83, "long": 40.71027093482017, "lat": 74.00013683068752 }
+                { "id": 1507617, "event_date": 1585188672687, "tour_value": 51.059799891028725, "id_driver": 5, "id_passenger": 34 }
                 
-                { "id": 764736, "event_date": 1585151196900, "tour_value": 16.564975472358544, "id_driver": 7, "id_passenger": 51, "long": 40.710365161716936, "lat": 73.99993848139047 }
+                { "id": 7816563, "event_date": 1585188672792, "tour_value": 36.760618250075815, "id_driver": 0, "id_passenger": 96 }
                 
-                { "id": 7440257, "event_date": 1585151197004, "tour_value": 65.35399092002459, "id_driver": 7, "id_passenger": 80, "long": 40.70955303728581, "lat": 73.99991313314437 }
+                { "id": 5821048, "event_date": 1585188672897, "tour_value": 91.26411588316186, "id_driver": 1, "id_passenger": 14 }
                 
-                { "id": 4577620, "event_date": 1585151197109, "tour_value": 2.0731588250500588, "id_driver": 5, "id_passenger": 68, "long": 40.71016925823689, "lat": 74.00026165151596 }
+                { "id": 2396385, "event_date": 1585188673002, "tour_value": 13.685038662645876, "id_driver": 7, "id_passenger": 81 }
                 
-                { "id": 4348443, "event_date": 1585151197215, "tour_value": 31.474511288918993, "id_driver": 6, "id_passenger": 34, "long": 40.7096094995141, "lat": 73.99974567908049 }
+                { "id": 4441702, "event_date": 1585188673106, "tour_value": 78.32189618938125, "id_driver": 4, "id_passenger": 8 }
                 
-                { "id": 3707745, "event_date": 1585151197318, "tour_value": 60.071953938714316, "id_driver": 6, "id_passenger": 13, "long": 40.709553186059, "lat": 73.99976237869262 }
+                { "id": 4383593, "event_date": 1585188673210, "tour_value": 1.0168453790660226, "id_driver": 4, "id_passenger": 3 }
                 
-                { "id": 3580517, "event_date": 1585151197422, "tour_value": 43.367654503404104, "id_driver": 3, "id_passenger": 63, "long": 40.71027696567774, "lat": 73.99954540485143 }
+                { "id": 8948679, "event_date": 1585188673315, "tour_value": 75.14848778744779, "id_driver": 4, "id_passenger": 94 }
                 
-                { "id": 4275036, "event_date": 1585151197526, "tour_value": 6.287974897631954, "id_driver": 0, "id_passenger": 20, "long": 40.709772222399714, "lat": 74.00011180472374 }
+                { "id": 6863071, "event_date": 1585188673420, "tour_value": 19.107899469430446, "id_driver": 7, "id_passenger": 41 }
                 
-                { "id": 5067084, "event_date": 1585151197631, "tour_value": 76.48145932674201, "id_driver": 7, "id_passenger": 20, "long": 40.70987408572435, "lat": 73.99969674009084 }
+                { "id": 2305314, "event_date": 1585188673523, "tour_value": 5.792146366550499, "id_driver": 8, "id_passenger": 24 }
                 
-                { "id": 39859, "event_date": 1585151197732, "tour_value": 69.01186555069874, "id_driver": 1, "id_passenger": 66, "long": 40.71034890538454, "lat": 73.9995746101141 }
+                { "id": 6786328, "event_date": 1585188673629, "tour_value": 44.01237955989299, "id_driver": 9, "id_passenger": 12 }
                 
-                { "id": 518058, "event_date": 1585151197836, "tour_value": 30.487792903049648, "id_driver": 7, "id_passenger": 5, "long": 40.71017023169995, "lat": 73.9996803765297 }
+                { "id": 8461633, "event_date": 1585188673733, "tour_value": 99.11247342225066, "id_driver": 4, "id_passenger": 94 }
                 
-                { "id": 6921697, "event_date": 1585151197941, "tour_value": 91.82042395229392, "id_driver": 7, "id_passenger": 54, "long": 40.71039166092873, "lat": 73.99954612725973 }
+                { "id": 9994654, "event_date": 1585188673838, "tour_value": 68.30730882087234, "id_driver": 2, "id_passenger": 85 }
                 
-                { "id": 7952752, "event_date": 1585151198046, "tour_value": 43.8285059715365, "id_driver": 7, "id_passenger": 17, "long": 40.709589728713034, "lat": 73.99985365867614 }
+                { "id": 4424938, "event_date": 1585188673943, "tour_value": 88.8016968594592, "id_driver": 8, "id_passenger": 61 }
                 
-                { "id": 1599779, "event_date": 1585151198150, "tour_value": 42.329201390696525, "id_driver": 8, "id_passenger": 95, "long": 40.7098008736372, "lat": 74.00037714594603 }
+                { "id": 1418895, "event_date": 1585188674046, "tour_value": 55.877533226056286, "id_driver": 7, "id_passenger": 69 }
                 
-                { "id": 5496423, "event_date": 1585151198252, "tour_value": 22.205147992401344, "id_driver": 3, "id_passenger": 37, "long": 40.71040770679712, "lat": 74.00008982926607 }
+                { "id": 4096143, "event_date": 1585188674151, "tour_value": 72.81995699253369, "id_driver": 3, "id_passenger": 15 }
                 
-                { "id": 5742033, "event_date": 1585151198356, "tour_value": 33.870924215480834, "id_driver": 5, "id_passenger": 3, "long": 40.70981398040056, "lat": 74.00004027664662 }
+                { "id": 6899279, "event_date": 1585188674255, "tour_value": 18.96728760339729, "id_driver": 4, "id_passenger": 5 }
                 
-                { "id": 7266460, "event_date": 1585151198457, "tour_value": 17.765528883820114, "id_driver": 9, "id_passenger": 73, "long": 40.7103883228302, "lat": 74.00038701677322 }
+                { "id": 9446305, "event_date": 1585188674360, "tour_value": 46.48440333787107, "id_driver": 1, "id_passenger": 40 }
                 
-                { "id": 1558612, "event_date": 1585151198562, "tour_value": 81.872898057925, "id_driver": 6, "id_passenger": 91, "long": 40.710127212345604, "lat": 74.00020463299751 }
+                { "id": 5304006, "event_date": 1585188674464, "tour_value": 36.612597495491514, "id_driver": 3, "id_passenger": 30 }
                 
-                { "id": 942686, "event_date": 1585151198665, "tour_value": 20.612542536071654, "id_driver": 3, "id_passenger": 21, "long": 40.71046527665854, "lat": 74.00016740053893 }
+                { "id": 7217944, "event_date": 1585188674568, "tour_value": 56.91138419079582, "id_driver": 0, "id_passenger": 95 }
                 
-                { "id": 2958008, "event_date": 1585151198769, "tour_value": 61.753899793161416, "id_driver": 8, "id_passenger": 78, "long": 40.710012125313284, "lat": 73.99970199537277 }
+                { "id": 8437435, "event_date": 1585188674672, "tour_value": 34.57881217657768, "id_driver": 3, "id_passenger": 74 }
                 
-                { "id": 473582, "event_date": 1585151198870, "tour_value": 31.499909618091127, "id_driver": 6, "id_passenger": 42, "long": 40.70985672497749, "lat": 73.99984037053585 }
+                { "id": 2709603, "event_date": 1585188674778, "tour_value": 35.23839986454852, "id_driver": 9, "id_passenger": 70 }
                 
-                { "id": 1737446, "event_date": 1585151198974, "tour_value": 42.507009187621314, "id_driver": 2, "id_passenger": 33, "long": 40.70963195800781, "lat": 73.99978615683317 }
+                { "id": 7938007, "event_date": 1585188674882, "tour_value": 7.142193387804263, "id_driver": 4, "id_passenger": 28 }
                 
-                { "id": 5807674, "event_date": 1585151199078, "tour_value": 27.408145359138725, "id_driver": 6, "id_passenger": 86, "long": 40.710239730834964, "lat": 73.99976653587818 }
+                { "id": 3187241, "event_date": 1585188674986, "tour_value": 91.18038498664498, "id_driver": 9, "id_passenger": 8 }
                 
-                { "id": 9427065, "event_date": 1585151199189, "tour_value": 20.345795273916423, "id_driver": 9, "id_passenger": 64, "long": 40.70960243105888, "lat": 74.0001533306837 }
+                { "id": 8261450, "event_date": 1585188675091, "tour_value": 48.21967034740273, "id_driver": 9, "id_passenger": 37 }
                 
-                { "id": 9155534, "event_date": 1585151199291, "tour_value": 74.2726563015754, "id_driver": 9, "id_passenger": 80, "long": 40.70994050812721, "lat": 74.0001698269844 }
+                { "id": 8648980, "event_date": 1585188675195, "tour_value": 83.39716627558472, "id_driver": 5, "id_passenger": 48 }
                 
-                { "id": 6488498, "event_date": 1585151199396, "tour_value": 23.871143989280487, "id_driver": 5, "id_passenger": 75, "long": 40.70966450959444, "lat": 74.00034771001339 }
+                { "id": 2972641, "event_date": 1585188675298, "tour_value": 3.131518103651898, "id_driver": 5, "id_passenger": 48 }
                 
-                { "id": 7323346, "event_date": 1585151199501, "tour_value": 83.56173886737807, "id_driver": 2, "id_passenger": 65, "long": 40.71029252433777, "lat": 73.99986224466562 }
+                { "id": 2021153, "event_date": 1585188675398, "tour_value": 44.85783029702218, "id_driver": 0, "id_passenger": 98 }
                 
-                { "id": 1694867, "event_date": 1585151199605, "tour_value": 58.60611282137834, "id_driver": 1, "id_passenger": 37, "long": 40.709807939350604, "lat": 73.99991176021099 }
+                { "id": 501314, "event_date": 1585188675501, "tour_value": 61.17763245342472, "id_driver": 7, "id_passenger": 55 }
                 
-                { "id": 9990833, "event_date": 1585151199706, "tour_value": 12.710734517720223, "id_driver": 0, "id_passenger": 28, "long": 40.709500989854334, "lat": 74.0001014879942 }
+                { "id": 1276517, "event_date": 1585188675604, "tour_value": 25.251142781055368, "id_driver": 3, "id_passenger": 37 }
                 
-                { "id": 2019340, "event_date": 1585151199810, "tour_value": 80.32563434242643, "id_driver": 2, "id_passenger": 8, "long": 40.70995344305039, "lat": 73.99974173682928 }
+                { "id": 2782817, "event_date": 1585188675708, "tour_value": 16.68660347270805, "id_driver": 3, "id_passenger": 48 }
                 
-                { "id": 6853732, "event_date": 1585151199914, "tour_value": 20.582345624830044, "id_driver": 8, "id_passenger": 25, "long": 40.710264743864535, "lat": 74.00014905577898 }
+                { "id": 62197, "event_date": 1585188675811, "tour_value": 89.94584990955434, "id_driver": 8, "id_passenger": 98 }
                 
-                { "id": 4089053, "event_date": 1585151200019, "tour_value": 57.69278522425464, "id_driver": 4, "id_passenger": 65, "long": 40.710252121150496, "lat": 74.00040825515985 }
+                { "id": 6916521, "event_date": 1585188675915, "tour_value": 48.07450171839703, "id_driver": 8, "id_passenger": 79 }
                 
-                { "id": 9286738, "event_date": 1585151200123, "tour_value": 66.05217833666414, "id_driver": 4, "id_passenger": 82, "long": 40.709639763832094, "lat": 74.00046066325903 }
+                { "id": 2465970, "event_date": 1585188676020, "tour_value": 75.30020937396864, "id_driver": 1, "id_passenger": 14 }
                 
-                { "id": 1279617, "event_date": 1585151200229, "tour_value": 3.0579039042201273, "id_driver": 0, "id_passenger": 50, "long": 40.70956100142002, "lat": 74.00032938420773 }
+                { "id": 7296415, "event_date": 1585188676125, "tour_value": 13.645296642403682, "id_driver": 8, "id_passenger": 18 }
                 
-                { "id": 7936474, "event_date": 1585151200332, "tour_value": 74.36070798832132, "id_driver": 2, "id_passenger": 71, "long": 40.70988658744097, "lat": 74.00016901516915 }
+                { "id": 7743709, "event_date": 1585188676230, "tour_value": 42.20339258173272, "id_driver": 2, "id_passenger": 81 }
                 
-                { "id": 9946314, "event_date": 1585151200434, "tour_value": 12.072212593013132, "id_driver": 0, "id_passenger": 9, "long": 40.70980636483431, "lat": 74.00031644380093 }
+                { "id": 4709190, "event_date": 1585188676334, "tour_value": 42.32301293357323, "id_driver": 6, "id_passenger": 84 }
                 
-                { "id": 9846904, "event_date": 1585151200535, "tour_value": 46.81319917988485, "id_driver": 0, "id_passenger": 32, "long": 40.7103903132081, "lat": 74.0000300718546 }
+                { "id": 7445753, "event_date": 1585188676439, "tour_value": 71.73401491734269, "id_driver": 5, "id_passenger": 25 }
                 
-                { "id": 6394007, "event_date": 1585151200640, "tour_value": 77.64289398104009, "id_driver": 3, "id_passenger": 44, "long": 40.709838356077675, "lat": 74.00012409442664 }
+                { "id": 5904705, "event_date": 1585188676544, "tour_value": 77.94094103365654, "id_driver": 7, "id_passenger": 8 }
                 
-                { "id": 9729161, "event_date": 1585151200745, "tour_value": 95.47030066025017, "id_driver": 8, "id_passenger": 37, "long": 40.70984939450025, "lat": 74.00013876193762 }
+                { "id": 6445469, "event_date": 1585188676648, "tour_value": 8.228439793948061, "id_driver": 2, "id_passenger": 94 }
                 
-                { "id": 4708007, "event_date": 1585151200849, "tour_value": 99.77807788267172, "id_driver": 9, "id_passenger": 48, "long": 40.71033275169134, "lat": 73.99974692326784 }
+                { "id": 5045572, "event_date": 1585188676751, "tour_value": 27.92808861428493, "id_driver": 1, "id_passenger": 58 }
                 
-                { "id": 4258996, "event_date": 1585151200954, "tour_value": 97.31414267985195, "id_driver": 3, "id_passenger": 21, "long": 40.71033038556576, "lat": 73.99999132323265 }
+                { "id": 6819319, "event_date": 1585188676855, "tour_value": 8.257129210112657, "id_driver": 8, "id_passenger": 26 }
                 
-                { "id": 4714512, "event_date": 1585151201058, "tour_value": 41.54177229541559, "id_driver": 2, "id_passenger": 83, "long": 40.71011427551508, "lat": 73.99963193386793 }
+                { "id": 8094336, "event_date": 1585188676956, "tour_value": 26.90996232845294, "id_driver": 2, "id_passenger": 48 }
                 
-                { "id": 1948782, "event_date": 1585151201163, "tour_value": 69.59570700460796, "id_driver": 4, "id_passenger": 76, "long": 40.71012173765898, "lat": 74.0003136650324 }
+                { "id": 4782574, "event_date": 1585188677061, "tour_value": 56.57913656327239, "id_driver": 5, "id_passenger": 78 }
                 
-                { "id": 811097, "event_date": 1585151201267, "tour_value": 22.602079117016316, "id_driver": 9, "id_passenger": 11, "long": 40.7095005556345, "lat": 74.00008439797163 }
+                { "id": 1297011, "event_date": 1585188677164, "tour_value": 81.7196809859796, "id_driver": 0, "id_passenger": 40 }
                 
-                { "id": 3228832, "event_date": 1585151201372, "tour_value": 18.20382995301709, "id_driver": 6, "id_passenger": 84, "long": 40.709591662347314, "lat": 74.0000947894454 }
+                { "id": 9640925, "event_date": 1585188677273, "tour_value": 69.75855576734546, "id_driver": 1, "id_passenger": 73 }
                 
-                { "id": 6762536, "event_date": 1585151201476, "tour_value": 59.0895986670885, "id_driver": 2, "id_passenger": 44, "long": 40.71042112493515, "lat": 73.99959456074238 }
+                { "id": 5599349, "event_date": 1585188677375, "tour_value": 39.49849799281849, "id_driver": 7, "id_passenger": 84 }
                 
-                { "id": 7107952, "event_date": 1585151201579, "tour_value": 38.417315017536616, "id_driver": 5, "id_passenger": 95, "long": 40.71007331591844, "lat": 74.00048969829082 }
+                { "id": 7429004, "event_date": 1585188677479, "tour_value": 57.74264497210052, "id_driver": 9, "id_passenger": 78 }
                 
-                { "id": 9714336, "event_date": 1585151201683, "tour_value": 63.503506194505846, "id_driver": 2, "id_passenger": 97, "long": 40.70991056650877, "lat": 73.99981270736455 }
+                { "id": 949676, "event_date": 1585188677583, "tour_value": 17.713019363482786, "id_driver": 0, "id_passenger": 88 }
                 
-                { "id": 1470497, "event_date": 1585151201788, "tour_value": 97.71948971039784, "id_driver": 9, "id_passenger": 15, "long": 40.709634855806826, "lat": 74.0003875490427 }
+                { "id": 3741745, "event_date": 1585188677686, "tour_value": 45.188341187484724, "id_driver": 8, "id_passenger": 45 }
                 
-                { "id": 8099539, "event_date": 1585151201892, "tour_value": 96.46403128358276, "id_driver": 9, "id_passenger": 20, "long": 40.71035216200352, "lat": 74.0004549908638 }
+                { "id": 3752079, "event_date": 1585188677791, "tour_value": 87.73051464541962, "id_driver": 6, "id_passenger": 46 }
                 
-                { "id": 9499297, "event_date": 1585151201997, "tour_value": 84.81648332014899, "id_driver": 6, "id_passenger": 6, "long": 40.7100213649869, "lat": 74.0001001765132 }
+                { "id": 8583769, "event_date": 1585188677895, "tour_value": 34.35968754247587, "id_driver": 7, "id_passenger": 76 }
                 
-                { "id": 6832983, "event_date": 1585151202101, "tour_value": 96.90361685669147, "id_driver": 6, "id_passenger": 17, "long": 40.709535752296446, "lat": 73.99958393800259 }
+                { "id": 7603665, "event_date": 1585188678000, "tour_value": 46.59304843843691, "id_driver": 1, "id_passenger": 58 }
                 
-                { "id": 9828391, "event_date": 1585151202201, "tour_value": 9.892072839018429, "id_driver": 6, "id_passenger": 33, "long": 40.71001871842146, "lat": 73.99960740464925 }
+                { "id": 8746944, "event_date": 1585188678103, "tour_value": 24.117540269638916, "id_driver": 9, "id_passenger": 45 }
                 
-                { "id": 4924416, "event_date": 1585151202306, "tour_value": 15.943500349265738, "id_driver": 3, "id_passenger": 97, "long": 40.710152879476546, "lat": 73.99982432925701 }
+                { "id": 3983524, "event_date": 1585188678206, "tour_value": 0.4721876297778649, "id_driver": 2, "id_passenger": 23 }
                 
-                { "id": 4365821, "event_date": 1585151202411, "tour_value": 16.67548862984958, "id_driver": 7, "id_passenger": 92, "long": 40.709534025907516, "lat": 74.00031467062234 }
+                { "id": 8864047, "event_date": 1585188678310, "tour_value": 65.8704260763191, "id_driver": 7, "id_passenger": 51 }
                 
-                { "id": 8123570, "event_date": 1585151202515, "tour_value": 97.78456637006416, "id_driver": 9, "id_passenger": 4, "long": 40.709979938447475, "lat": 74.00004269808531 }
+                { "id": 6439407, "event_date": 1585188678414, "tour_value": 0.2861371366108312, "id_driver": 5, "id_passenger": 26 }
                 
-                { "id": 7356136, "event_date": 1585151202620, "tour_value": 56.25448140824895, "id_driver": 3, "id_passenger": 21, "long": 40.71022055178881, "lat": 74.00022304677964 }
+                { "id": 8326463, "event_date": 1585188678516, "tour_value": 32.153509532563895, "id_driver": 3, "id_passenger": 59 }
                 
-                { "id": 4649945, "event_date": 1585151202725, "tour_value": 17.45476853933091, "id_driver": 3, "id_passenger": 31, "long": 40.71037668842077, "lat": 73.99952939403057 }
+                { "id": 1693729, "event_date": 1585188678619, "tour_value": 77.7183052589931, "id_driver": 2, "id_passenger": 63 }
                 
-                { "id": 8221482, "event_date": 1585151202829, "tour_value": 50.83164320304374, "id_driver": 7, "id_passenger": 22, "long": 40.71001359218359, "lat": 73.99959136551618 }
+                { "id": 9601220, "event_date": 1585188678721, "tour_value": 76.15169817156612, "id_driver": 3, "id_passenger": 25 }
                 
-                { "id": 81407, "event_date": 1585151202934, "tour_value": 27.641606142042118, "id_driver": 3, "id_passenger": 52, "long": 40.710268096089365, "lat": 73.99951526480913 }
+                { "id": 8894977, "event_date": 1585188678826, "tour_value": 88.99898740118536, "id_driver": 1, "id_passenger": 9 }
                 
-                { "id": 4867753, "event_date": 1585151203037, "tour_value": 78.8328548754611, "id_driver": 3, "id_passenger": 16, "long": 40.710363653361796, "lat": 73.99956625556946 }
+                { "id": 9636737, "event_date": 1585188678928, "tour_value": 16.555073315529135, "id_driver": 5, "id_passenger": 81 }
                 
-                { "id": 148993, "event_date": 1585151203143, "tour_value": 35.97615225400402, "id_driver": 6, "id_passenger": 69, "long": 40.709881521105764, "lat": 73.99996666455269 }
+                { "id": 1687647, "event_date": 1585188679033, "tour_value": 18.902744439425234, "id_driver": 7, "id_passenger": 87 }
                 
-                { "id": 1406007, "event_date": 1585151203247, "tour_value": 62.905273671062645, "id_driver": 5, "id_passenger": 66, "long": 40.70973977899551, "lat": 74.00027181893587 }
+                { "id": 5660342, "event_date": 1585188679137, "tour_value": 38.31748153320208, "id_driver": 0, "id_passenger": 99 }
                 
-                { "id": 5502183, "event_date": 1585151203350, "tour_value": 29.341191165989443, "id_driver": 4, "id_passenger": 96, "long": 40.70981249731779, "lat": 73.99961569792032 }
+                { "id": 1438545, "event_date": 1585188679242, "tour_value": 68.56944054220322, "id_driver": 9, "id_passenger": 47 }
                 
-                { "id": 3051254, "event_date": 1585151203451, "tour_value": 72.29871192897649, "id_driver": 0, "id_passenger": 0, "long": 40.71047374010086, "lat": 73.99956160312891 }
+                { "id": 3683283, "event_date": 1585188679346, "tour_value": 25.498554224726544, "id_driver": 6, "id_passenger": 73 }
                 
-                { "id": 6089942, "event_date": 1585151203554, "tour_value": 55.80407447262664, "id_driver": 4, "id_passenger": 74, "long": 40.709608974814415, "lat": 74.00047724610567 }
+                { "id": 3707284, "event_date": 1585188679451, "tour_value": 5.975463387081392, "id_driver": 8, "id_passenger": 21 }
                 
-                { "id": 3304542, "event_date": 1585151203658, "tour_value": 29.75622867928166, "id_driver": 6, "id_passenger": 58, "long": 40.70967913764715, "lat": 74.0000385261774 }
+                { "id": 2457526, "event_date": 1585188679555, "tour_value": 86.26715754003976, "id_driver": 3, "id_passenger": 71 }
                 
-                { "id": 8196906, "event_date": 1585151203763, "tour_value": 38.816477185004004, "id_driver": 6, "id_passenger": 25, "long": 40.709848406374455, "lat": 74.00010714644193 }
+                { "id": 6220413, "event_date": 1585188679660, "tour_value": 44.8970586780055, "id_driver": 8, "id_passenger": 88 }
                 
-                { "id": 9380709, "event_date": 1585151203868, "tour_value": 70.1324186008165, "id_driver": 5, "id_passenger": 64, "long": 40.70962174141407, "lat": 74.00021244037151 }
+                { "id": 4293109, "event_date": 1585188679764, "tour_value": 2.5053414575145316, "id_driver": 4, "id_passenger": 7 }
                 
-                { "id": 381741, "event_date": 1585151203971, "tour_value": 27.007062027334317, "id_driver": 6, "id_passenger": 81, "long": 40.710471404254434, "lat": 74.00029054945708 }
+                { "id": 8894051, "event_date": 1585188679869, "tour_value": 62.38428642738808, "id_driver": 6, "id_passenger": 75 }
                 
-                { "id": 1817795, "event_date": 1585151204075, "tour_value": 49.233912769836664, "id_driver": 5, "id_passenger": 91, "long": 40.70996146333218, "lat": 74.0003808889985 }
-                
-                { "id": 2829671, "event_date": 1585151204176, "tour_value": 19.28564247505349, "id_driver": 8, "id_passenger": 3, "long": 40.71000114285946, "lat": 73.99998645687103 }
-                
-                { "id": 9203032, "event_date": 1585151204280, "tour_value": 73.49611071483397, "id_driver": 7, "id_passenger": 30, "long": 40.71001445323229, "lat": 74.00024901968241 }
-                
-                { "id": 6392601, "event_date": 1585151204384, "tour_value": 65.582702415201, "id_driver": 8, "id_passenger": 26, "long": 40.70977491211891, "lat": 74.0002611426115 }
-                
-                { "id": 2220595, "event_date": 1585151204486, "tour_value": 76.67086342925704, "id_driver": 6, "id_passenger": 95, "long": 40.70998752033711, "lat": 73.99963413447142 }
-                
-                { "id": 4898514, "event_date": 1585151204588, "tour_value": 43.307400574306875, "id_driver": 3, "id_passenger": 3, "long": 40.70973326510191, "lat": 73.99973382574319 }
-                
-                { "id": 5909689, "event_date": 1585151204690, "tour_value": 32.2368205457889, "id_driver": 8, "id_passenger": 78, "long": 40.709767398655416, "lat": 74.00018542951345 }
-                
-                { "id": 3893157, "event_date": 1585151204791, "tour_value": 86.89944827678181, "id_driver": 3, "id_passenger": 98, "long": 40.70992747306824, "lat": 74.00014373868704 }
-                
-                { "id": 7835238, "event_date": 1585151204895, "tour_value": 69.23013061530688, "id_driver": 8, "id_passenger": 12, "long": 40.70966463750601, "lat": 73.99966842263937 }
-                
-                { "id": 3702397, "event_date": 1585151204996, "tour_value": 89.49187779930907, "id_driver": 6, "id_passenger": 48, "long": 40.7102262865901, "lat": 73.99998662000894 }
-                
-                { "id": 3096636, "event_date": 1585151205099, "tour_value": 75.03828829308759, "id_driver": 6, "id_passenger": 28, "long": 40.70973584085703, "lat": 74.00046658241749 }
-                
-                { "id": 4226453, "event_date": 1585151205203, "tour_value": 61.94657589375713, "id_driver": 9, "id_passenger": 87, "long": 40.70972146868706, "lat": 73.99951554268598 }
-                
-                { "id": 5024062, "event_date": 1585151205306, "tour_value": 77.75184065564898, "id_driver": 0, "id_passenger": 43, "long": 40.71026770091057, "lat": 73.9999118295908 }
-                
-                { "id": 5223056, "event_date": 1585151205410, "tour_value": 84.06405869691696, "id_driver": 1, "id_passenger": 23, "long": 40.709775752425195, "lat": 73.99955762445927 }
-                
-                { "id": 2184992, "event_date": 1585151205515, "tour_value": 20.21247761578139, "id_driver": 5, "id_passenger": 70, "long": 40.71039024502039, "lat": 74.00041482251882 }
-                
-                { "id": 5376042, "event_date": 1585151205619, "tour_value": 97.73207047909533, "id_driver": 9, "id_passenger": 11, "long": 40.71023869782686, "lat": 73.99966318804026 }
-                
-                { "id": 3983495, "event_date": 1585151205720, "tour_value": 71.154470735652, "id_driver": 8, "id_passenger": 87, "long": 40.70989279943705, "lat": 74.00009108519554 }
-                
-                { "id": 2522641, "event_date": 1585151205821, "tour_value": 2.730809629054376, "id_driver": 9, "id_passenger": 59, "long": 40.710021666765215, "lat": 73.99972285497189 }
-                
-                { "id": 8461167, "event_date": 1585151205922, "tour_value": 79.96962445912912, "id_driver": 4, "id_passenger": 56, "long": 40.710301590383054, "lat": 74.00030778580904 }
-                
-                { "id": 5324508, "event_date": 1585151206027, "tour_value": 26.859496171926434, "id_driver": 2, "id_passenger": 21, "long": 40.710403467178345, "lat": 73.9998032490611 }
-                
-                { "id": 124469, "event_date": 1585151206132, "tour_value": 20.731547125374185, "id_driver": 4, "id_passenger": 60, "long": 40.710409252882, "lat": 73.99986789238453 }
-                
-                { "id": 2702622, "event_date": 1585151206236, "tour_value": 55.431464395656505, "id_driver": 9, "id_passenger": 46, "long": 40.710298176527026, "lat": 74.00005271178485 }
-                
-                { "id": 688314, "event_date": 1585151206340, "tour_value": 99.2281307008883, "id_driver": 8, "id_passenger": 88, "long": 40.71034978121519, "lat": 74.00013496881724 }
-                
-                { "id": 7171614, "event_date": 1585151206443, "tour_value": 46.881438679365395, "id_driver": 3, "id_passenger": 56, "long": 40.71040565425157, "lat": 73.99990082788467 }
-                
-                { "id": 9367337, "event_date": 1585151206548, "tour_value": 10.84463086032381, "id_driver": 8, "id_passenger": 4, "long": 40.710222982645035, "lat": 74.0004363489747 }
-                
-                { "id": 474670, "event_date": 1585151206652, "tour_value": 5.555802616787064, "id_driver": 7, "id_passenger": 70, "long": 40.71006707972288, "lat": 73.99975262850523 }
-                
-                { "id": 2544223, "event_date": 1585151206757, "tour_value": 45.12344825046285, "id_driver": 0, "id_passenger": 12, "long": 40.710285009860996, "lat": 74.00039003020525 }
-                
-                { "id": 5182494, "event_date": 1585151206863, "tour_value": 77.46844235446922, "id_driver": 1, "id_passenger": 36, "long": 40.709630677044395, "lat": 74.00008996677398 }
-                
-                { "id": 2697197, "event_date": 1585151206964, "tour_value": 78.54856580678467, "id_driver": 2, "id_passenger": 62, "long": 40.71004015678167, "lat": 74.00012843835354 }
-                
-                { "id": 41044, "event_date": 1585151207069, "tour_value": 26.09222781779611, "id_driver": 7, "id_passenger": 93, "long": 40.70979914236069, "lat": 73.9995155056715 }
-                
-                { "id": 2990531, "event_date": 1585151207172, "tour_value": 85.34759075198973, "id_driver": 6, "id_passenger": 7, "long": 40.70975727599859, "lat": 73.99965917116404 }
-                
-                { "id": 5953795, "event_date": 1585151207277, "tour_value": 2.7487842854203692, "id_driver": 6, "id_passenger": 31, "long": 40.71036708956957, "lat": 74.00028264951706 }
-                
-                { "id": 7485812, "event_date": 1585151207379, "tour_value": 17.595199823076733, "id_driver": 0, "id_passenger": 34, "long": 40.71016477251053, "lat": 74.00014975130559 }
-                
-                { "id": 5542269, "event_date": 1585151207483, "tour_value": 67.92278062994383, "id_driver": 5, "id_passenger": 83, "long": 40.709785371124745, "lat": 74.00026810050011 }
-                
-                { "id": 6882073, "event_date": 1585151207587, "tour_value": 62.29869972332236, "id_driver": 3, "id_passenger": 25, "long": 40.71038336694241, "lat": 73.99976301050187 }
-                
-                { "id": 9625645, "event_date": 1585151207688, "tour_value": 37.36584330869995, "id_driver": 3, "id_passenger": 90, "long": 40.71041506558657, "lat": 73.99997990959882 }
-                
-                { "id": 6924252, "event_date": 1585151207792, "tour_value": 12.046866951036861, "id_driver": 1, "id_passenger": 23, "long": 40.709677312076096, "lat": 73.99973654550314 }
-                
-                { "id": 6884653, "event_date": 1585151207897, "tour_value": 10.110605726719768, "id_driver": 1, "id_passenger": 7, "long": 40.71019730198383, "lat": 73.9999171770215 }
-                
-                { "id": 311450, "event_date": 1585151207998, "tour_value": 85.74265826602637, "id_driver": 1, "id_passenger": 74, "long": 40.7098434561491, "lat": 73.99980018991232 }
-                
-                { "id": 4326649, "event_date": 1585151208103, "tour_value": 97.86621535717096, "id_driver": 8, "id_passenger": 74, "long": 40.70979031920433, "lat": 73.99956907331944 }
-                
-                { "id": 9785772, "event_date": 1585151208208, "tour_value": 91.39113377035677, "id_driver": 2, "id_passenger": 75, "long": 40.710123836815356, "lat": 74.000287946105 }
-                
-                { "id": 7307591, "event_date": 1585151208311, "tour_value": 78.52933253002843, "id_driver": 3, "id_passenger": 58, "long": 40.710271031856536, "lat": 74.00026860469579 }
-                
-                { "id": 292299, "event_date": 1585151208414, "tour_value": 29.2864460348084, "id_driver": 0, "id_passenger": 16, "long": 40.71039107859135, "lat": 73.99962551635504 }
-                
-                { "id": 4614652, "event_date": 1585151208517, "tour_value": 75.97316973820756, "id_driver": 8, "id_passenger": 32, "long": 40.71000805097818, "lat": 73.99950542217493 }
-                
-                { "id": 2840598, "event_date": 1585151208620, "tour_value": 22.583433764094874, "id_driver": 4, "id_passenger": 97, "long": 40.710095859885215, "lat": 74.00038353431225 }
-                
-                { "id": 2179267, "event_date": 1585151208721, "tour_value": 57.56276328872273, "id_driver": 2, "id_passenger": 57, "long": 40.70976413100958, "lat": 73.99970372414589 }
-                
-                { "id": 5842107, "event_date": 1585151208825, "tour_value": 25.435580673971625, "id_driver": 0, "id_passenger": 3, "long": 40.70952059322596, "lat": 74.00007376801967 }
-                
-                { "id": 3726275, "event_date": 1585151208930, "tour_value": 97.116366914277, "id_driver": 8, "id_passenger": 62, "long": 40.70994029772282, "lat": 73.99973456746339 }
-                
-                { "id": 3325367, "event_date": 1585151209034, "tour_value": 74.85438133771187, "id_driver": 5, "id_passenger": 18, "long": 40.71030106425285, "lat": 74.00004676771164 }
-                
-                { "id": 8913142, "event_date": 1585151209139, "tour_value": 79.85719695756262, "id_driver": 1, "id_passenger": 74, "long": 40.709827741086485, "lat": 73.99995218443871 }
-                
-                { "id": 4126914, "event_date": 1585151209244, "tour_value": 10.355627686200586, "id_driver": 3, "id_passenger": 43, "long": 40.709865343928335, "lat": 73.99961236095429 }
-                
-                { "id": 9349914, "event_date": 1585151209346, "tour_value": 6.280263661811835, "id_driver": 3, "id_passenger": 64, "long": 40.709967602014544, "lat": 73.99951358735561 }
-                
-                { "id": 2785363, "event_date": 1585151209450, "tour_value": 10.403719852307125, "id_driver": 1, "id_passenger": 22, "long": 40.710413410604, "lat": 74.0001586200595 }
-                
-                { "id": 3679438, "event_date": 1585151209552, "tour_value": 61.2375595102422, "id_driver": 8, "id_passenger": 40, "long": 40.710148074865344, "lat": 74.00039908665418 }
-                
-                { "id": 3561284, "event_date": 1585151209656, "tour_value": 72.68043484928953, "id_driver": 9, "id_passenger": 89, "long": 40.70969758188725, "lat": 74.00007189393044 }
-                
-                { "id": 6987458, "event_date": 1585151209756, "tour_value": 53.799964446400104, "id_driver": 3, "id_passenger": 81, "long": 40.710092208087445, "lat": 74.0004344856739 }
-                
-                { "id": 7273114, "event_date": 1585151209857, "tour_value": 68.26301269511833, "id_driver": 6, "id_passenger": 39, "long": 40.71014840441942, "lat": 73.99956352549792 }
-                
-                { "id": 3119507, "event_date": 1585151209958, "tour_value": 51.90247846261787, "id_driver": 1, "id_passenger": 24, "long": 40.709642201125625, "lat": 73.99980665224791 }
-                
-                { "id": 2120044, "event_date": 1585151210062, "tour_value": 10.807409665508327, "id_driver": 8, "id_passenger": 71, "long": 40.70966781538725, "lat": 73.99966315853595 }
-                
-                { "id": 7655738, "event_date": 1585151210167, "tour_value": 56.17472159533009, "id_driver": 7, "id_passenger": 44, "long": 40.70984502786398, "lat": 73.99994278687238 }
-                
-                { "id": 9655142, "event_date": 1585151210267, "tour_value": 19.64430768481903, "id_driver": 2, "id_passenger": 94, "long": 40.7096352699399, "lat": 74.00014115464687 }
-                
-                { "id": 8425512, "event_date": 1585151210371, "tour_value": 0.8922960233358146, "id_driver": 1, "id_passenger": 89, "long": 40.710142408132555, "lat": 74.00011676824093 }
-                
-                { "id": 5606642, "event_date": 1585151210475, "tour_value": 0.09277911382751247, "id_driver": 7, "id_passenger": 89, "long": 40.70965660178661, "lat": 73.9996425229907 }
-                
-                { "id": 642808, "event_date": 1585151210583, "tour_value": 81.28566404853855, "id_driver": 5, "id_passenger": 67, "long": 40.710202412426476, "lat": 73.99997709321975 }
-                
-                { "id": 4871803, "event_date": 1585151210688, "tour_value": 81.00223902708564, "id_driver": 1, "id_passenger": 30, "long": 40.71025250345468, "lat": 73.99994274842739 }
-                
-                { "id": 3745992, "event_date": 1585151210790, "tour_value": 78.57798494611737, "id_driver": 0, "id_passenger": 2, "long": 40.710371607601644, "lat": 74.00013064229488 }
-                
-                { "id": 6159062, "event_date": 1585151210895, "tour_value": 15.207494718462232, "id_driver": 2, "id_passenger": 30, "long": 40.7098159006834, "lat": 73.99973466831446 }
-                
-                { "id": 960580, "event_date": 1585151210999, "tour_value": 59.75463884252753, "id_driver": 2, "id_passenger": 68, "long": 40.70953218430281, "lat": 74.00000711381435 }
-                
-                { "id": 8267468, "event_date": 1585151211103, "tour_value": 26.334396727897623, "id_driver": 2, "id_passenger": 25, "long": 40.71040967822075, "lat": 74.0001392441988 }
-                
-                { "id": 6476133, "event_date": 1585151211207, "tour_value": 29.655747867888227, "id_driver": 5, "id_passenger": 19, "long": 40.710335435926915, "lat": 73.99975040400028 }
-                
-                { "id": 7097289, "event_date": 1585151211310, "tour_value": 95.47516711929632, "id_driver": 1, "id_passenger": 35, "long": 40.709762474119664, "lat": 74.00021436679363 }
-                
-                { "id": 6655965, "event_date": 1585151211411, "tour_value": 6.709407648829968, "id_driver": 6, "id_passenger": 22, "long": 40.709968749463556, "lat": 73.9999538372159 }
-                
-                { "id": 1892388, "event_date": 1585151211514, "tour_value": 18.467954883365767, "id_driver": 8, "id_passenger": 11, "long": 40.70970459789038, "lat": 74.00024635440111 }
-                
-                { "id": 7696044, "event_date": 1585151211618, "tour_value": 13.588277199205557, "id_driver": 6, "id_passenger": 35, "long": 40.70996512413025, "lat": 74.00046801924705 }
-                
-                { "id": 2367036, "event_date": 1585151211722, "tour_value": 11.687543274158829, "id_driver": 0, "id_passenger": 15, "long": 40.7098684245348, "lat": 73.9995356836915 }
-                
-                { "id": 8777016, "event_date": 1585151211826, "tour_value": 67.60749053908049, "id_driver": 5, "id_passenger": 77, "long": 40.70975709986687, "lat": 73.99959916198253 }
-                
-                { "id": 2221502, "event_date": 1585151211929, "tour_value": 71.44311528091775, "id_driver": 8, "id_passenger": 5, "long": 40.710291998147966, "lat": 73.99982360661029 }
-                
-                { "id": 5404205, "event_date": 1585151212030, "tour_value": 59.363598409553795, "id_driver": 0, "id_passenger": 29, "long": 40.70954396539926, "lat": 73.99983452874422 }
-                
-                { "id": 311772, "event_date": 1585151212134, "tour_value": 66.66939274488077, "id_driver": 3, "id_passenger": 66, "long": 40.71024022221565, "lat": 74.00037447649241 }
-                
-                { "id": 6820602, "event_date": 1585151212238, "tour_value": 19.667518689738937, "id_driver": 1, "id_passenger": 54, "long": 40.710050216019155, "lat": 74.00040061694384 }
-                
-                { "id": 5703443, "event_date": 1585151212342, "tour_value": 58.95330237614006, "id_driver": 6, "id_passenger": 43, "long": 40.710105167925356, "lat": 73.99969245815277 }
-                
-                { "id": 7908593, "event_date": 1585151212446, "tour_value": 83.94859995232478, "id_driver": 1, "id_passenger": 78, "long": 40.709665846645834, "lat": 73.9998966320157 }
-                
-                { "id": 8541214, "event_date": 1585151212550, "tour_value": 72.7437959975923, "id_driver": 3, "id_passenger": 83, "long": 40.71037537062168, "lat": 73.99992295694351 }
-                
-                { "id": 6998015, "event_date": 1585151212655, "tour_value": 79.58073610602064, "id_driver": 5, "id_passenger": 13, "long": 40.71003324383497, "lat": 74.00036037564277 }
-                
-                { "id": 4697728, "event_date": 1585151212757, "tour_value": 77.27538352492172, "id_driver": 9, "id_passenger": 85, "long": 40.709930514991285, "lat": 74.00027319335938 }
-                
-                { "id": 8972945, "event_date": 1585151212862, "tour_value": 24.553415897132158, "id_driver": 1, "id_passenger": 54, "long": 40.70961140102148, "lat": 73.99972401583194 }
-                
-                { "id": 1280566, "event_date": 1585151212964, "tour_value": 13.493833825032485, "id_driver": 0, "id_passenger": 9, "long": 40.70963530409336, "lat": 74.00024616128206 }
-                
-                { "id": 2240912, "event_date": 1585151213069, "tour_value": 56.381195247741445, "id_driver": 9, "id_passenger": 10, "long": 40.71039205902815, "lat": 74.00039180773497 }
-                
-                { "id": 219010, "event_date": 1585151213172, "tour_value": 74.12487080247698, "id_driver": 0, "id_passenger": 19, "long": 40.71002789098024, "lat": 73.99982965612412 }
-                
-                { "id": 1310204, "event_date": 1585151213276, "tour_value": 8.602788205267132, "id_driver": 6, "id_passenger": 50, "long": 40.70959718096256, "lat": 73.99991854149103 }
-                
-                { "id": 3634650, "event_date": 1585151213380, "tour_value": 85.18058496072915, "id_driver": 6, "id_passenger": 99, "long": 40.71014921629429, "lat": 73.99996342736483 }
-                
-                { "id": 7179692, "event_date": 1585151213482, "tour_value": 23.84161132216279, "id_driver": 5, "id_passenger": 73, "long": 40.7104827799201, "lat": 73.99964353573323 }
-                
-                { "id": 5432184, "event_date": 1585151213586, "tour_value": 22.0481749183421, "id_driver": 7, "id_passenger": 68, "long": 40.710487013161185, "lat": 74.00005346769095 }
-                
-                { "id": 7485870, "event_date": 1585151213689, "tour_value": 72.04620631124968, "id_driver": 4, "id_passenger": 50, "long": 40.70998729854822, "lat": 73.99990697139502 }
-                
-                { "id": 2876421, "event_date": 1585151213793, "tour_value": 44.433712207330565, "id_driver": 1, "id_passenger": 36, "long": 40.71003105676174, "lat": 74.00017803454399 }
-                
-                { "id": 2591170, "event_date": 1585151213894, "tour_value": 19.75259371991441, "id_driver": 3, "id_passenger": 28, "long": 40.7098671144247, "lat": 73.99976924747229 }
-                
-                { "id": 9620710, "event_date": 1585151213998, "tour_value": 40.60913167586325, "id_driver": 5, "id_passenger": 45, "long": 40.7103952690363, "lat": 74.0000846247077 }
-                
-                { "id": 9972345, "event_date": 1585151214100, "tour_value": 40.24941428887503, "id_driver": 8, "id_passenger": 75, "long": 40.70967783105373, "lat": 74.00020519399644 }
-                
-                { "id": 7768240, "event_date": 1585151214201, "tour_value": 13.591007257011468, "id_driver": 2, "id_passenger": 47, "long": 40.71037023717165, "lat": 74.0004945744872 }
-                
-                { "id": 4319603, "event_date": 1585151214304, "tour_value": 39.30637464840467, "id_driver": 8, "id_passenger": 36, "long": 40.709805185019974, "lat": 73.9996481167078 }
-                
-                { "id": 5789103, "event_date": 1585151214408, "tour_value": 18.209029241743014, "id_driver": 9, "id_passenger": 69, "long": 40.709561136543755, "lat": 74.00048040843009 }
-                
-                { "id": 2748478, "event_date": 1585151214513, "tour_value": 0.2605921020115254, "id_driver": 8, "id_passenger": 73, "long": 40.71008792072535, "lat": 73.99971787983179 }
-                
-                { "id": 6968601, "event_date": 1585151214617, "tour_value": 8.832732315037617, "id_driver": 7, "id_passenger": 59, "long": 40.7095474075079, "lat": 74.0003630362749 }
-                
-                { "id": 7417555, "event_date": 1585151214722, "tour_value": 84.04437251955316, "id_driver": 5, "id_passenger": 30, "long": 40.71006798511743, "lat": 73.99954603636264 }
-                
-                { "id": 1324889, "event_date": 1585151214826, "tour_value": 90.33641063218813, "id_driver": 7, "id_passenger": 81, "long": 40.71030014753342, "lat": 74.00027832752467 }
-                
-                { "id": 3006003, "event_date": 1585151214930, "tour_value": 92.17033643370878, "id_driver": 3, "id_passenger": 45, "long": 40.70975888073445, "lat": 74.00048223084211 }
-                
-                { "id": 9579391, "event_date": 1585151215033, "tour_value": 79.40121390830977, "id_driver": 3, "id_passenger": 98, "long": 40.71011123448611, "lat": 74.00010675406456 }
-                
-                { "id": 8539047, "event_date": 1585151215135, "tour_value": 56.44120545424194, "id_driver": 7, "id_passenger": 57, "long": 40.710045875430104, "lat": 74.00016196894646 }
-                
-                { "id": 5268044, "event_date": 1585151215240, "tour_value": 96.37492982082964, "id_driver": 4, "id_passenger": 12, "long": 40.70964676618576, "lat": 74.00015135467052 }
-                
-                { "id": 3694877, "event_date": 1585151215345, "tour_value": 30.585339340311467, "id_driver": 7, "id_passenger": 62, "long": 40.710473753094675, "lat": 74.0000779594779 }
-                
-                { "id": 6192098, "event_date": 1585151215449, "tour_value": 78.71556963242764, "id_driver": 3, "id_passenger": 84, "long": 40.70973043322563, "lat": 73.99982827693223 }
-                
-                { "id": 178343, "event_date": 1585151215551, "tour_value": 53.18609496353511, "id_driver": 8, "id_passenger": 89, "long": 40.70958753859997, "lat": 74.00042657124996 }
-                
-                { "id": 7913362, "event_date": 1585151215652, "tour_value": 61.80460454788006, "id_driver": 5, "id_passenger": 23, "long": 40.71030575209856, "lat": 73.99972500604392 }
-                
-                { "id": 3527318, "event_date": 1585151215757, "tour_value": 34.911441644309235, "id_driver": 1, "id_passenger": 30, "long": 40.710064645648, "lat": 74.00020786243677 }
-                
-                { "id": 7360966, "event_date": 1585151215860, "tour_value": 30.08608290475405, "id_driver": 7, "id_passenger": 75, "long": 40.709607374310494, "lat": 73.99994288748503 }
-                
-                { "id": 9706812, "event_date": 1585151215964, "tour_value": 7.585832875662324, "id_driver": 8, "id_passenger": 43, "long": 40.710305567979816, "lat": 74.00031185257434 }
-                
-                { "id": 827158, "event_date": 1585151216068, "tour_value": 36.71381803089546, "id_driver": 8, "id_passenger": 1, "long": 40.709700519919394, "lat": 74.00041585308314 }
-                
-                { "id": 5859783, "event_date": 1585151216173, "tour_value": 99.1925255408189, "id_driver": 6, "id_passenger": 24, "long": 40.70967380946875, "lat": 73.99970432889461 }
-                
-                { "id": 4477040, "event_date": 1585151216277, "tour_value": 1.0021995971604358, "id_driver": 3, "id_passenger": 44, "long": 40.7102054091692, "lat": 74.00036390811205 }
-                
-                { "id": 5918273, "event_date": 1585151216382, "tour_value": 63.25178981077308, "id_driver": 7, "id_passenger": 95, "long": 40.71023037338257, "lat": 74.00027097594737 }
-                
-                { "id": 5639527, "event_date": 1585151216486, "tour_value": 64.99645879152341, "id_driver": 0, "id_passenger": 26, "long": 40.709613705575464, "lat": 73.99965984398126 }
-                
-                { "id": 2106669, "event_date": 1585151216591, "tour_value": 68.67748648626572, "id_driver": 3, "id_passenger": 83, "long": 40.71017679959536, "lat": 74.0004368507266 }
-                
-                { "id": 48806, "event_date": 1585151216692, "tour_value": 60.612677901961064, "id_driver": 3, "id_passenger": 67, "long": 40.710201625168324, "lat": 74.0003570984602 }
-                
-                { "id": 4807237, "event_date": 1585151216793, "tour_value": 27.34673751604342, "id_driver": 6, "id_passenger": 31, "long": 40.70968334490061, "lat": 74.00025641393661 }
-                
-                { "id": 3340533, "event_date": 1585151216894, "tour_value": 61.44061248660751, "id_driver": 1, "id_passenger": 98, "long": 40.710146592199806, "lat": 74.00012635093927 }
-                
-                { "id": 774999, "event_date": 1585151216999, "tour_value": 11.088286573889427, "id_driver": 1, "id_passenger": 36, "long": 40.70976219594478, "lat": 74.00028407841921 }
-                
-                { "id": 608881, "event_date": 1585151217103, "tour_value": 65.03596568917332, "id_driver": 3, "id_passenger": 33, "long": 40.71023006498814, "lat": 73.99979336190223 }
-                
-                { "id": 1011654, "event_date": 1585151217208, "tour_value": 52.155504399066956, "id_driver": 9, "id_passenger": 52, "long": 40.710073224365715, "lat": 73.99956252294778 }
-                
-                { "id": 1936210, "event_date": 1585151217311, "tour_value": 36.12228262993264, "id_driver": 2, "id_passenger": 14, "long": 40.710049245476725, "lat": 74.00046015036106 }
-                
-                { "id": 9091876, "event_date": 1585151217415, "tour_value": 75.73793862681353, "id_driver": 4, "id_passenger": 55, "long": 40.71029224318266, "lat": 74.00049119287729 }
-                
-                { "id": 3607260, "event_date": 1585151217516, "tour_value": 94.53337665023265, "id_driver": 1, "id_passenger": 72, "long": 40.71022751218081, "lat": 73.99995964187384 }
-                
-                { "id": 9235829, "event_date": 1585151217620, "tour_value": 28.606798376530197, "id_driver": 1, "id_passenger": 4, "long": 40.70999639058113, "lat": 74.00000520014763 }
-                
-                { "id": 9142640, "event_date": 1585151217724, "tour_value": 27.099585792397797, "id_driver": 1, "id_passenger": 93, "long": 40.7098921533227, "lat": 74.00025857943297 }
-                
-                { "id": 8632840, "event_date": 1585151217827, "tour_value": 23.197956286420595, "id_driver": 9, "id_passenger": 53, "long": 40.71004240167141, "lat": 74.00035933989287 }
-                
-                { "id": 6157109, "event_date": 1585151217928, "tour_value": 55.347226273445635, "id_driver": 4, "id_passenger": 72, "long": 40.71003476703167, "lat": 74.0002373046279 }
-                
-                { "id": 7109239, "event_date": 1585151218030, "tour_value": 44.6117795775066, "id_driver": 8, "id_passenger": 75, "long": 40.70954227370024, "lat": 74.00018663954735 }
-                
-                { "id": 3804264, "event_date": 1585151218133, "tour_value": 83.35997969207453, "id_driver": 1, "id_passenger": 82, "long": 40.710062859356405, "lat": 74.00037490415573 }
-                
-                { "id": 7714247, "event_date": 1585151218234, "tour_value": 82.14066720791769, "id_driver": 2, "id_passenger": 21, "long": 40.709735184013844, "lat": 74.00030860072374 }
-                
-                { "id": 7684042, "event_date": 1585151218334, "tour_value": 57.15052082027338, "id_driver": 4, "id_passenger": 23, "long": 40.710340907096864, "lat": 73.9998254674673 }
-                
-                { "id": 8345121, "event_date": 1585151218435, "tour_value": 64.6982860871036, "id_driver": 2, "id_passenger": 21, "long": 40.71006936991215, "lat": 73.99979730540514 }
-                
-                { "id": 2268720, "event_date": 1585151218538, "tour_value": 80.30502064659936, "id_driver": 2, "id_passenger": 27, "long": 40.71017752593756, "lat": 74.00024147093296 }
-                
-                { "id": 6750007, "event_date": 1585151218642, "tour_value": 48.28253054337718, "id_driver": 4, "id_passenger": 18, "long": 40.71044478535652, "lat": 73.99991944873332 }
-                
-                { "id": 6046508, "event_date": 1585151218742, "tour_value": 84.57447526081648, "id_driver": 3, "id_passenger": 92, "long": 40.71008634549379, "lat": 74.0002736466527 }
-                
-                { "id": 3981626, "event_date": 1585151218845, "tour_value": 25.407865735515543, "id_driver": 8, "id_passenger": 33, "long": 40.70992533826828, "lat": 74.00008009201288 }
-                
-                { "id": 5504866, "event_date": 1585151218947, "tour_value": 49.764279707454584, "id_driver": 1, "id_passenger": 74, "long": 40.71019755738974, "lat": 73.9997275044918 }
-                
-                { "id": 8553984, "event_date": 1585151219049, "tour_value": 83.03037520681255, "id_driver": 7, "id_passenger": 74, "long": 40.70995389699936, "lat": 73.99958986890316 }
-                
-                { "id": 8720623, "event_date": 1585151219154, "tour_value": 98.17447651540861, "id_driver": 3, "id_passenger": 14, "long": 40.71006257265806, "lat": 73.9998937625885 }
-                
-                { "id": 9263932, "event_date": 1585151219259, "tour_value": 13.286048747784063, "id_driver": 2, "id_passenger": 51, "long": 40.70963641619682, "lat": 73.99972324144841 }
-                
-                { "id": 9151354, "event_date": 1585151219362, "tour_value": 65.6119720975632, "id_driver": 1, "id_passenger": 24, "long": 40.710335358679295, "lat": 74.00008645290136 }
-                
-                { "id": 6145118, "event_date": 1585151219463, "tour_value": 96.48329240680683, "id_driver": 7, "id_passenger": 10, "long": 40.71049272698164, "lat": 73.99994629234075 }
-                
-                { "id": 4137958, "event_date": 1585151219567, "tour_value": 26.464821592752983, "id_driver": 3, "id_passenger": 45, "long": 40.70966228568554, "lat": 74.00014595401286 }
-                
-                { "id": 2037905, "event_date": 1585151219670, "tour_value": 99.03460689051401, "id_driver": 1, "id_passenger": 88, "long": 40.70998690074682, "lat": 73.9995589414835 }
-                
-                { "id": 8790807, "event_date": 1585151219776, "tour_value": 44.51700893428131, "id_driver": 1, "id_passenger": 94, "long": 40.709721001565455, "lat": 73.9998065699935 }
-                
-                { "id": 8891612, "event_date": 1585151219878, "tour_value": 10.868644959753937, "id_driver": 6, "id_passenger": 23, "long": 40.710482633888724, "lat": 74.00011622667313 }
-                
-                { "id": 3556457, "event_date": 1585151219983, "tour_value": 46.29697874153528, "id_driver": 7, "id_passenger": 25, "long": 40.709543180286886, "lat": 73.99983581793309 }
-                
-                { "id": 7629400, "event_date": 1585151220085, "tour_value": 42.5077847456589, "id_driver": 6, "id_passenger": 19, "long": 40.7101486980319, "lat": 73.99952362781764 }
-                
-                { "id": 7378616, "event_date": 1585151220186, "tour_value": 99.18904209867517, "id_driver": 1, "id_passenger": 33, "long": 40.709783014714716, "lat": 73.99965596395731 }
-                
-                { "id": 2112793, "event_date": 1585151220290, "tour_value": 96.29149514634176, "id_driver": 4, "id_passenger": 58, "long": 40.70994291192293, "lat": 74.00040893769264 }
-                
-                { "id": 3383697, "event_date": 1585151220394, "tour_value": 93.8756697151272, "id_driver": 7, "id_passenger": 45, "long": 40.71037200164795, "lat": 74.00042260408401 }
-                
-                { "id": 699424, "event_date": 1585151220496, "tour_value": 58.72281735069724, "id_driver": 9, "id_passenger": 37, "long": 40.709603953778746, "lat": 74.00038386648893 }
-                
-                { "id": 7906943, "event_date": 1585151220599, "tour_value": 18.690329452449628, "id_driver": 8, "id_passenger": 12, "long": 40.71037170869112, "lat": 73.99990963160991 }
-                
-                { "id": 6231045, "event_date": 1585151220704, "tour_value": 50.85246988738532, "id_driver": 2, "id_passenger": 66, "long": 40.70959914988279, "lat": 73.99985776537656 }
-                
-                { "id": 8356985, "event_date": 1585151220806, "tour_value": 3.10164390937967, "id_driver": 1, "id_passenger": 60, "long": 40.709812519133095, "lat": 73.99991855943203 }
-                
-                { "id": 1003691, "event_date": 1585151220910, "tour_value": 44.91826450339653, "id_driver": 0, "id_passenger": 82, "long": 40.710030532956125, "lat": 73.99974829399585 }
-                
-                { "id": 9310192, "event_date": 1585151221015, "tour_value": 46.96502519800553, "id_driver": 2, "id_passenger": 80, "long": 40.709822394549846, "lat": 73.9996610340476 }
-                
-                { "id": 7496483, "event_date": 1585151221119, "tour_value": 61.73994948376262, "id_driver": 5, "id_passenger": 72, "long": 40.71045521765947, "lat": 74.0004536331892 }
-                
-                { "id": 1829373, "event_date": 1585151221220, "tour_value": 31.699504673350308, "id_driver": 3, "id_passenger": 36, "long": 40.70951191103458, "lat": 73.99975902974606 }
-                
-                { "id": 6953003, "event_date": 1585151221324, "tour_value": 12.932065248920932, "id_driver": 8, "id_passenger": 66, "long": 40.709590626120566, "lat": 73.99987144368887 }
-                
-                { "id": 8722481, "event_date": 1585151221424, "tour_value": 86.69477356078636, "id_driver": 8, "id_passenger": 28, "long": 40.71041854727268, "lat": 74.00025456184149 }
-                
-                { "id": 3066568, "event_date": 1585151221528, "tour_value": 32.82813540183659, "id_driver": 5, "id_passenger": 89, "long": 40.70965831744671, "lat": 73.99974403721095 }
-                
-                { "id": 3031038, "event_date": 1585151221632, "tour_value": 8.733491602798383, "id_driver": 8, "id_passenger": 6, "long": 40.71002461642027, "lat": 73.9996410907507 }
-                
-                { "id": 9611270, "event_date": 1585151221737, "tour_value": 49.784387329297864, "id_driver": 8, "id_passenger": 8, "long": 40.710177017867565, "lat": 73.9997093884945 }
-                
-                { "id": 3251530, "event_date": 1585151221841, "tour_value": 70.92130990282683, "id_driver": 6, "id_passenger": 6, "long": 40.71007141196728, "lat": 74.0002277738452 }
-                
-                { "id": 1062745, "event_date": 1585151221946, "tour_value": 97.61343784265159, "id_driver": 3, "id_passenger": 53, "long": 40.709897671163084, "lat": 73.99978527712823 }
-                
-                { "id": 89755, "event_date": 1585151222052, "tour_value": 19.633657521535074, "id_driver": 1, "id_passenger": 27, "long": 40.710391029834746, "lat": 73.9996653957963 }
-                
-                { "id": 6456213, "event_date": 1585151222156, "tour_value": 42.338729932498744, "id_driver": 6, "id_passenger": 50, "long": 40.71012955898047, "lat": 73.99960998296737 }
-                
-                { "id": 8163300, "event_date": 1585151222260, "tour_value": 19.583971416102663, "id_driver": 3, "id_passenger": 82, "long": 40.71048274695873, "lat": 73.99972358489036 }
-                
-                { "id": 3797263, "event_date": 1585151222361, "tour_value": 53.997355561569435, "id_driver": 7, "id_passenger": 0, "long": 40.71033229446411, "lat": 74.00021791774034 }
-                
-                { "id": 7454711, "event_date": 1585151222466, "tour_value": 36.74940513623805, "id_driver": 8, "id_passenger": 95, "long": 40.71046048671007, "lat": 74.00017158937455 }
-                
-                { "id": 7263327, "event_date": 1585151222568, "tour_value": 49.2779435201866, "id_driver": 2, "id_passenger": 3, "long": 40.70973614394665, "lat": 73.99991208738089 }
-                
-                { "id": 9305997, "event_date": 1585151222671, "tour_value": 32.20191020095181, "id_driver": 8, "id_passenger": 16, "long": 40.709601340830325, "lat": 74.00012261629105 }
-                
-                { "id": 446773, "event_date": 1585151222775, "tour_value": 59.47478039902748, "id_driver": 7, "id_passenger": 71, "long": 40.710141945898535, "lat": 74.00048644769191 }
-                
-                { "id": 410360, "event_date": 1585151222879, "tour_value": 4.716897308564604, "id_driver": 3, "id_passenger": 7, "long": 40.71001380622387, "lat": 74.0004320513606 }
-                
-                { "id": 3136993, "event_date": 1585151222981, "tour_value": 85.37017821450443, "id_driver": 4, "id_passenger": 27, "long": 40.710478001594545, "lat": 73.99958850890398 }
-                
-                { "id": 4270833, "event_date": 1585151223083, "tour_value": 61.38795105261832, "id_driver": 2, "id_passenger": 73, "long": 40.709821638286115, "lat": 73.99965471076965 }
-                
-                { "id": 6596071, "event_date": 1585151223187, "tour_value": 11.712509827636254, "id_driver": 0, "id_passenger": 42, "long": 40.710237717032435, "lat": 73.99994382619857 }
-                
-                { "id": 5663876, "event_date": 1585151223292, "tour_value": 0.5713475481741725, "id_driver": 9, "id_passenger": 14, "long": 40.71030022966862, "lat": 73.99986190092564 }
-                
-                { "id": 7370311, "event_date": 1585151223394, "tour_value": 99.11295671131766, "id_driver": 9, "id_passenger": 75, "long": 40.71046836513281, "lat": 73.99989649736881 }
-                
-                { "id": 6281505, "event_date": 1585151223495, "tour_value": 64.71298719221107, "id_driver": 4, "id_passenger": 52, "long": 40.71010425293446, "lat": 73.99997615462541 }
-                
-                { "id": 8787924, "event_date": 1585151223595, "tour_value": 10.303455587422306, "id_driver": 0, "id_passenger": 71, "long": 40.71045486706495, "lat": 73.99977008754016 }
-                
-                { "id": 1585605, "event_date": 1585151223699, "tour_value": 8.554761841583215, "id_driver": 9, "id_passenger": 30, "long": 40.70975691181421, "lat": 73.99961510145664 }
-                
-                { "id": 427826, "event_date": 1585151223803, "tour_value": 75.33198831120251, "id_driver": 6, "id_passenger": 27, "long": 40.70986659526825, "lat": 73.99979748290777 }
-                
-                { "id": 7059150, "event_date": 1585151223904, "tour_value": 44.646864960877444, "id_driver": 0, "id_passenger": 26, "long": 40.710023342430596, "lat": 74.00014543771744 }
-                
-                { "id": 7918459, "event_date": 1585151224007, "tour_value": 50.657864880683, "id_driver": 1, "id_passenger": 76, "long": 40.709680384516716, "lat": 74.00029139792919 }
-                
-                { "id": 8270437, "event_date": 1585151224111, "tour_value": 78.96424839754152, "id_driver": 3, "id_passenger": 82, "long": 40.71042619431019, "lat": 74.00036717450618 }
-                
-                { "id": 5095028, "event_date": 1585151224215, "tour_value": 79.17446991908324, "id_driver": 3, "id_passenger": 1, "long": 40.710226589143275, "lat": 73.99967434591055 }
-                
-                { "id": 513421, "event_date": 1585151224320, "tour_value": 57.88375989893834, "id_driver": 7, "id_passenger": 84, "long": 40.7096647644639, "lat": 74.00009542012215 }
-                
-                { "id": 2907120, "event_date": 1585151224425, "tour_value": 40.54364977718197, "id_driver": 1, "id_passenger": 87, "long": 40.70984139376879, "lat": 74.00041193687916 }
-                
-                { "id": 8881874, "event_date": 1585151224528, "tour_value": 79.1554697644972, "id_driver": 8, "id_passenger": 30, "long": 40.709926708877084, "lat": 73.99973444229364 }
-                
-                { "id": 9243726, "event_date": 1585151224630, "tour_value": 77.17503741393536, "id_driver": 6, "id_passenger": 65, "long": 40.70975881332159, "lat": 73.9996098602414 }
-                
-                { "id": 6689556, "event_date": 1585151224731, "tour_value": 6.3170395010557545, "id_driver": 6, "id_passenger": 34, "long": 40.71031162959337, "lat": 73.99958356636763 }
-                
-                { "id": 970774, "event_date": 1585151224836, "tour_value": 53.71366385032391, "id_driver": 9, "id_passenger": 68, "long": 40.71049790608883, "lat": 74.00046570163965 }
-                
-                { "id": 7908217, "event_date": 1585151224940, "tour_value": 92.96043537944695, "id_driver": 9, "id_passenger": 20, "long": 40.709768929421905, "lat": 74.00014788389205 }
-                
-                { "id": 4485303, "event_date": 1585151225045, "tour_value": 24.685685288424075, "id_driver": 7, "id_passenger": 43, "long": 40.71034955954552, "lat": 74.00019405299425 }
-                
-                { "id": 4467322, "event_date": 1585151225150, "tour_value": 12.260665953840766, "id_driver": 8, "id_passenger": 81, "long": 40.709960310578346, "lat": 73.99970444333553 }
-                
-                { "id": 8664677, "event_date": 1585151225254, "tour_value": 43.35860375572184, "id_driver": 1, "id_passenger": 43, "long": 40.70994454717636, "lat": 73.99985880887509 }
-                
-                { "id": 1683597, "event_date": 1585151225359, "tour_value": 82.29831348601438, "id_driver": 5, "id_passenger": 35, "long": 40.71033411300182, "lat": 74.00008660393954 }
-                
-                { "id": 6742678, "event_date": 1585151225463, "tour_value": 96.9493824651492, "id_driver": 1, "id_passenger": 73, "long": 40.709889027476315, "lat": 73.99950107485056 }
-                
-                { "id": 294393, "event_date": 1585151225566, "tour_value": 30.22121697599822, "id_driver": 3, "id_passenger": 98, "long": 40.70991016423702, "lat": 74.00036996966601 }
-                
-                { "id": 6852516, "event_date": 1585151225670, "tour_value": 30.79994481941877, "id_driver": 0, "id_passenger": 94, "long": 40.71023077762127, "lat": 74.0004050962925 }
-                
-                { "id": 9254464, "event_date": 1585151225775, "tour_value": 91.65244938619709, "id_driver": 7, "id_passenger": 50, "long": 40.709957637786864, "lat": 74.00038157689572 }
-                
-                { "id": 740229, "event_date": 1585151225879, "tour_value": 63.460280012532635, "id_driver": 9, "id_passenger": 12, "long": 40.710011597871784, "lat": 73.99951777774096 }
-                
-                { "id": 6816429, "event_date": 1585151225985, "tour_value": 56.606639196626, "id_driver": 1, "id_passenger": 96, "long": 40.70996416640282, "lat": 73.99970294338465 }
-                
-                { "id": 2445102, "event_date": 1585151226090, "tour_value": 61.88812849834551, "id_driver": 5, "id_passenger": 56, "long": 40.710357753276824, "lat": 74.00025880110263 }
-                
-                { "id": 1752582, "event_date": 1585151226195, "tour_value": 52.356392631145354, "id_driver": 6, "id_passenger": 40, "long": 40.710273569345475, "lat": 73.99982474315166 }
-                
-                { "id": 7497615, "event_date": 1585151226299, "tour_value": 61.99176275287361, "id_driver": 1, "id_passenger": 27, "long": 40.70974716764689, "lat": 73.99991654646396 }
-                
-                { "id": 7842005, "event_date": 1585151226403, "tour_value": 67.21485162115857, "id_driver": 4, "id_passenger": 41, "long": 40.71016535651684, "lat": 74.00004816156626 }
-                
-                { "id": 3826864, "event_date": 1585151226508, "tour_value": 84.99698213075133, "id_driver": 4, "id_passenger": 49, "long": 40.71010235744715, "lat": 73.99981782072783 }
-                
-                { "id": 2240088, "event_date": 1585151226613, "tour_value": 29.27615651800879, "id_driver": 3, "id_passenger": 36, "long": 40.7102868540287, "lat": 73.99956169837714 }
-                
-                { "id": 2053105, "event_date": 1585151226718, "tour_value": 19.786833023671512, "id_driver": 6, "id_passenger": 77, "long": 40.70982167387009, "lat": 73.99964403432608 }
-                
-                { "id": 5926160, "event_date": 1585151226822, "tour_value": 40.177404365840296, "id_driver": 4, "id_passenger": 75, "long": 40.710475433409215, "lat": 74.00028298777342 }
-                
-                { "id": 3116520, "event_date": 1585151226927, "tour_value": 50.30617201746084, "id_driver": 4, "id_passenger": 91, "long": 40.71045506858826, "lat": 73.99990953677893 }
-                
-                { "id": 6371182, "event_date": 1585151227031, "tour_value": 47.49557041436022, "id_driver": 7, "id_passenger": 14, "long": 40.70954286128283, "lat": 73.99970813149214 }
-                
-                { "id": 4794972, "event_date": 1585151227131, "tour_value": 94.89363377676924, "id_driver": 2, "id_passenger": 26, "long": 40.71042794519663, "lat": 74.00034530323744 }
-                
-                { "id": 1985568, "event_date": 1585151227234, "tour_value": 9.240355413811486, "id_driver": 9, "id_passenger": 31, "long": 40.71037703847885, "lat": 74.00030550938844 }
-                
-                { "id": 4593766, "event_date": 1585151227337, "tour_value": 60.239198202536606, "id_driver": 0, "id_passenger": 29, "long": 40.70953820949793, "lat": 73.99997840982675 }
-                
-                { "id": 8572930, "event_date": 1585151227443, "tour_value": 41.006024726699216, "id_driver": 7, "id_passenger": 2, "long": 40.71026106411219, "lat": 74.0003108291626 }
-                
-                { "id": 5515567, "event_date": 1585151227547, "tour_value": 70.49217225670662, "id_driver": 9, "id_passenger": 37, "long": 40.710214773476125, "lat": 74.00015947002173 }
-                
-                { "id": 9666089, "event_date": 1585151227652, "tour_value": 38.84663729083795, "id_driver": 8, "id_passenger": 41, "long": 40.71005020993948, "lat": 73.99999346780777 }
-                
-                { "id": 7414733, "event_date": 1585151227757, "tour_value": 15.475312005975638, "id_driver": 3, "id_passenger": 85, "long": 40.71009475839138, "lat": 73.99987052965164 }
-                
-                { "id": 2739730, "event_date": 1585151227861, "tour_value": 79.17152229407837, "id_driver": 2, "id_passenger": 42, "long": 40.71039047056436, "lat": 74.0001734816432 }
-                
-                { "id": 7299904, "event_date": 1585151227966, "tour_value": 29.29658856720696, "id_driver": 8, "id_passenger": 77, "long": 40.71001260799169, "lat": 73.99990831393004 }
-                
-                { "id": 6094961, "event_date": 1585151228071, "tour_value": 18.441145272954007, "id_driver": 8, "id_passenger": 36, "long": 40.70953618347645, "lat": 73.99956093281507 }
-                
-                { "id": 5532817, "event_date": 1585151228176, "tour_value": 99.87944608577806, "id_driver": 7, "id_passenger": 34, "long": 40.71020528322458, "lat": 74.00015503138303 }
-                
-                { "id": 6641565, "event_date": 1585151228292, "tour_value": 49.884415266788274, "id_driver": 4, "id_passenger": 91, "long": 40.71022898566723, "lat": 74.00018568539619 }
-                
-                { "id": 2424467, "event_date": 1585151228396, "tour_value": 63.730594220514206, "id_driver": 7, "id_passenger": 79, "long": 40.71042853307724, "lat": 74.00015339964628 }
-                
-                { "id": 7027360, "event_date": 1585151228497, "tour_value": 38.75187810434942, "id_driver": 8, "id_passenger": 4, "long": 40.71015816438198, "lat": 74.0000922318697 }
-                
-                { "id": 6645177, "event_date": 1585151228598, "tour_value": 30.99505085230072, "id_driver": 6, "id_passenger": 13, "long": 40.70980169534683, "lat": 73.99973576575518 }
-                
-                { "id": 6738787, "event_date": 1585151228703, "tour_value": 10.846764522091457, "id_driver": 5, "id_passenger": 42, "long": 40.70952720737457, "lat": 73.99963045555353 }
-                
-                { "id": 5257631, "event_date": 1585151228805, "tour_value": 40.562040892764095, "id_driver": 0, "id_passenger": 37, "long": 40.70990119546652, "lat": 74.00002012336255 }
-                
-                { "id": 6836096, "event_date": 1585151228910, "tour_value": 37.507403198486564, "id_driver": 4, "id_passenger": 14, "long": 40.71041888773441, "lat": 74.00010393315554 }
-                
-                { "id": 4179229, "event_date": 1585151229013, "tour_value": 70.42053505681858, "id_driver": 9, "id_passenger": 50, "long": 40.709801398754124, "lat": 73.9997888367176 }
-                
-                { "id": 1051305, "event_date": 1585151229115, "tour_value": 62.30680655620032, "id_driver": 9, "id_passenger": 87, "long": 40.709869227290156, "lat": 73.99950122183562 }
-                
-                { "id": 8897678, "event_date": 1585151229215, "tour_value": 36.04573811171261, "id_driver": 8, "id_passenger": 47, "long": 40.71010810816288, "lat": 74.00007869046927 }
-                
-                { "id": 9693875, "event_date": 1585151229319, "tour_value": 11.904821556810564, "id_driver": 7, "id_passenger": 1, "long": 40.71027572196722, "lat": 74.00041953587532 }
-                
-                { "id": 8458878, "event_date": 1585151229420, "tour_value": 74.61347554397577, "id_driver": 9, "id_passenger": 43, "long": 40.70981259697676, "lat": 73.99950111329555 }
-                
-                { "id": 4610804, "event_date": 1585151229524, "tour_value": 53.93496161264938, "id_driver": 0, "id_passenger": 36, "long": 40.710133698880675, "lat": 73.99993768942356 }
-                
-                { "id": 9035773, "event_date": 1585151229629, "tour_value": 35.67625743483779, "id_driver": 4, "id_passenger": 80, "long": 40.709932384729385, "lat": 74.00021568024158 }
-                
-                { "id": 6329538, "event_date": 1585151229734, "tour_value": 70.55890052051737, "id_driver": 5, "id_passenger": 3, "long": 40.70999979734421, "lat": 73.9995129866004 }
-                
-                { "id": 8035707, "event_date": 1585151229838, "tour_value": 62.393884081081055, "id_driver": 2, "id_passenger": 66, "long": 40.70979641962052, "lat": 73.99970161855221 }
-                
-                { "id": 554910, "event_date": 1585151229943, "tour_value": 44.94166471021062, "id_driver": 7, "id_passenger": 69, "long": 40.71045118314028, "lat": 74.00013350999356 }
-                
-                { "id": 5199224, "event_date": 1585151230047, "tour_value": 58.729279240073865, "id_driver": 4, "id_passenger": 49, "long": 40.710492590665815, "lat": 74.00022133344412 }
-                
-                { "id": 5838030, "event_date": 1585151230153, "tour_value": 75.06982108068502, "id_driver": 1, "id_passenger": 20, "long": 40.710125956118105, "lat": 73.99957815927267 }
-                
-                { "id": 6885554, "event_date": 1585151230253, "tour_value": 67.50996132621879, "id_driver": 6, "id_passenger": 14, "long": 40.710203038334846, "lat": 74.00013161700964 }
-                
-                { "id": 8629498, "event_date": 1585151230358, "tour_value": 12.686534190420574, "id_driver": 1, "id_passenger": 64, "long": 40.70983374488354, "lat": 73.99996746629476 }
-                
-                { "id": 6591180, "event_date": 1585151230461, "tour_value": 77.94950680033648, "id_driver": 0, "id_passenger": 75, "long": 40.71021788269282, "lat": 74.00047468668222 }
-                
-                { "id": 643034, "event_date": 1585151230566, "tour_value": 34.61679599154345, "id_driver": 3, "id_passenger": 5, "long": 40.71022581988573, "lat": 74.00015030103921 }
-                
-                { "id": 2766355, "event_date": 1585151230669, "tour_value": 45.07115801442154, "id_driver": 9, "id_passenger": 29, "long": 40.70961647683382, "lat": 73.99990155225993 }
-                
-                { "id": 1700498, "event_date": 1585151230772, "tour_value": 0.10373836095630695, "id_driver": 7, "id_passenger": 48, "long": 40.71005244630575, "lat": 74.00048286384344 }
-                
-                { "id": 2039524, "event_date": 1585151230874, "tour_value": 39.98591929126315, "id_driver": 0, "id_passenger": 57, "long": 40.70986109524966, "lat": 73.99968004912138 }
-                
-                { "id": 9183140, "event_date": 1585151230978, "tour_value": 22.4690317481252, "id_driver": 1, "id_passenger": 95, "long": 40.70986470037699, "lat": 74.0000560759306 }
-                
-                { "id": 9621814, "event_date": 1585151231082, "tour_value": 45.21102422780909, "id_driver": 8, "id_passenger": 56, "long": 40.709533564925195, "lat": 74.00006983107329 }
-                
-                { "id": 9138823, "event_date": 1585151231187, "tour_value": 62.49102919803262, "id_driver": 8, "id_passenger": 82, "long": 40.70985913157463, "lat": 73.99960413450003 }
-                
-                { "id": 8012088, "event_date": 1585151231290, "tour_value": 42.283886646430545, "id_driver": 7, "id_passenger": 74, "long": 40.70950364089012, "lat": 73.9999563472867 }
-                
-                { "id": 9450849, "event_date": 1585151231394, "tour_value": 78.99216610458882, "id_driver": 8, "id_passenger": 11, "long": 40.70975338625908, "lat": 74.00040422588587 }
-                
-                { "id": 775712, "event_date": 1585151231499, "tour_value": 75.5542118136694, "id_driver": 1, "id_passenger": 94, "long": 40.7098717636466, "lat": 74.00041615003347 }
-                
-                { "id": 8379094, "event_date": 1585151231604, "tour_value": 42.308825827917396, "id_driver": 5, "id_passenger": 94, "long": 40.709690498650076, "lat": 74.00022570204735 }
-                
-                { "id": 6217737, "event_date": 1585151231706, "tour_value": 92.88307285607722, "id_driver": 8, "id_passenger": 1, "long": 40.709860443770886, "lat": 73.99959949088097 }
-                
-                { "id": 4188676, "event_date": 1585151231806, "tour_value": 95.08616165880268, "id_driver": 1, "id_passenger": 94, "long": 40.71025467514992, "lat": 74.00037379908562 }
-                
-                { "id": 4244606, "event_date": 1585151231908, "tour_value": 73.63993048856248, "id_driver": 0, "id_passenger": 24, "long": 40.71032950031758, "lat": 73.99964763557911 }
-                
-                { "id": 1501333, "event_date": 1585151232011, "tour_value": 97.13871963831117, "id_driver": 6, "id_passenger": 41, "long": 40.70953207629919, "lat": 73.99971247351169 }
-                
-                { "id": 1604896, "event_date": 1585151232116, "tour_value": 30.402214696444474, "id_driver": 7, "id_passenger": 55, "long": 40.71001170802116, "lat": 74.00016809999943 }
-                
-                { "id": 5684344, "event_date": 1585151232220, "tour_value": 5.324058322734981, "id_driver": 0, "id_passenger": 58, "long": 40.709540762484075, "lat": 74.00015428352356 }
-                
-                { "id": 7868777, "event_date": 1585151232323, "tour_value": 72.59958488195876, "id_driver": 4, "id_passenger": 32, "long": 40.70976743906736, "lat": 74.00034941101075 }
-                
-                { "id": 2881588, "event_date": 1585151232428, "tour_value": 52.30715399937436, "id_driver": 4, "id_passenger": 30, "long": 40.71029339462519, "lat": 73.99993045645952 }
-                
-                { "id": 2765587, "event_date": 1585151232533, "tour_value": 18.416663710443494, "id_driver": 1, "id_passenger": 92, "long": 40.70985934269428, "lat": 74.00005821293593 }
-                
-                { "id": 2243809, "event_date": 1585151232636, "tour_value": 10.00244372092709, "id_driver": 9, "id_passenger": 12, "long": 40.70973763859272, "lat": 74.00025624459983 }
-                
-                { "id": 356001, "event_date": 1585151232741, "tour_value": 41.92148630967266, "id_driver": 1, "id_passenger": 31, "long": 40.7102800912857, "lat": 74.00009765195847 }
-                
-                { "id": 9561149, "event_date": 1585151232841, "tour_value": 63.05890069497334, "id_driver": 7, "id_passenger": 74, "long": 40.710070050776004, "lat": 74.00008713400364 }
-                
-                { "id": 8743936, "event_date": 1585151232946, "tour_value": 12.907351106405784, "id_driver": 0, "id_passenger": 95, "long": 40.70971621507406, "lat": 74.00026091301442 }
-                
-                { "id": 2331616, "event_date": 1585151233050, "tour_value": 7.130784440818106, "id_driver": 7, "id_passenger": 33, "long": 40.709651433706284, "lat": 74.00011907088756 }
-                
-                { "id": 4274386, "event_date": 1585151233155, "tour_value": 80.54567813711579, "id_driver": 7, "id_passenger": 11, "long": 40.709596893787385, "lat": 74.00035338538885 }
-                
-                { "id": 4811156, "event_date": 1585151233255, "tour_value": 6.418906009061476, "id_driver": 2, "id_passenger": 60, "long": 40.71041153550148, "lat": 74.00016611397267 }
-                
-                { "id": 4639696, "event_date": 1585151233358, "tour_value": 32.80735241756504, "id_driver": 8, "id_passenger": 82, "long": 40.709515506982804, "lat": 74.00011888498068 }
-                
-                { "id": 5856717, "event_date": 1585151233461, "tour_value": 49.078339005280114, "id_driver": 2, "id_passenger": 9, "long": 40.71014919108153, "lat": 74.0004941918254 }
-                
-                { "id": 4859859, "event_date": 1585151233566, "tour_value": 31.817062527145602, "id_driver": 6, "id_passenger": 81, "long": 40.70989036256075, "lat": 74.00004923278094 }
-                
-                { "id": 6927544, "event_date": 1585151233668, "tour_value": 80.009942106773, "id_driver": 7, "id_passenger": 86, "long": 40.710175601243975, "lat": 73.99958919912577 }
-                
-                { "id": 1358070, "event_date": 1585151233771, "tour_value": 41.8950053607125, "id_driver": 7, "id_passenger": 88, "long": 40.710175299465654, "lat": 73.99961372977495 }
-                
-                { "id": 4201851, "event_date": 1585151233876, "tour_value": 44.16360767972076, "id_driver": 6, "id_passenger": 68, "long": 40.70996283549071, "lat": 74.00047763818502 }
-                
-                { "id": 134882, "event_date": 1585151233980, "tour_value": 78.98520791004657, "id_driver": 5, "id_passenger": 45, "long": 40.709976154387, "lat": 74.00016899460554 }
-                
-                { "id": 2816257, "event_date": 1585151234085, "tour_value": 64.09744674825886, "id_driver": 5, "id_passenger": 58, "long": 40.709730615317824, "lat": 73.9999314110279 }
-                
-                { "id": 9839919, "event_date": 1585151234190, "tour_value": 75.38009649123948, "id_driver": 8, "id_passenger": 31, "long": 40.70967011386156, "lat": 74.00002543872594 }
-                
-                { "id": 1703672, "event_date": 1585151234290, "tour_value": 0.9128129640214477, "id_driver": 3, "id_passenger": 48, "long": 40.70960014510155, "lat": 74.00030507296324 }
-                
-                { "id": 3660010, "event_date": 1585151234391, "tour_value": 65.97431357326442, "id_driver": 0, "id_passenger": 2, "long": 40.71026584464312, "lat": 74.00010141670704 }
-                
-                { "id": 4029921, "event_date": 1585151234494, "tour_value": 4.011790641830304, "id_driver": 3, "id_passenger": 34, "long": 40.71016675657034, "lat": 74.00005062943697 }
-                
-                { "id": 4385466, "event_date": 1585151234599, "tour_value": 29.774277719347875, "id_driver": 1, "id_passenger": 69, "long": 40.70970874673128, "lat": 73.99999419659376 }
-                
-                { "id": 2088914, "event_date": 1585151234704, "tour_value": 21.512636160821675, "id_driver": 9, "id_passenger": 30, "long": 40.71010543090105, "lat": 74.00046484774352 }
-                
-                { "id": 5938248, "event_date": 1585151234808, "tour_value": 21.778467521321687, "id_driver": 3, "id_passenger": 1, "long": 40.710124676108364, "lat": 74.00006501412392 }
-                
-                { "id": 3985429, "event_date": 1585151234912, "tour_value": 88.67834372587109, "id_driver": 3, "id_passenger": 28, "long": 40.70987339580059, "lat": 73.99983977168799 }
-                
-                { "id": 5956344, "event_date": 1585151235017, "tour_value": 59.283389976858416, "id_driver": 3, "id_passenger": 12, "long": 40.71022815620899, "lat": 73.99989609664678 }
-                
-                { "id": 8340153, "event_date": 1585151235121, "tour_value": 61.20971708562275, "id_driver": 4, "id_passenger": 29, "long": 40.70973605936766, "lat": 73.99979664558172 }
-                
-                { "id": 7267903, "event_date": 1585151235225, "tour_value": 41.852342396370865, "id_driver": 2, "id_passenger": 24, "long": 40.71004706794024, "lat": 73.99980102187395 }
-                
-                { "id": 6625076, "event_date": 1585151235330, "tour_value": 43.55640093611959, "id_driver": 1, "id_passenger": 28, "long": 40.71030205923319, "lat": 74.0002040361166 }
-                
-                { "id": 3691386, "event_date": 1585151235439, "tour_value": 91.38666626071789, "id_driver": 1, "id_passenger": 33, "long": 40.71018424189091, "lat": 73.99982775551081 }
-                
-                { "id": 933862, "event_date": 1585151235541, "tour_value": 88.16070403508071, "id_driver": 4, "id_passenger": 9, "long": 40.70959276336431, "lat": 74.00036219209433 }
-                
-                { "id": 5681469, "event_date": 1585151235645, "tour_value": 87.22924235065109, "id_driver": 6, "id_passenger": 37, "long": 40.70979207164049, "lat": 74.0000091366768 }
-                
-                { "id": 2328376, "event_date": 1585151235752, "tour_value": 34.905364127701546, "id_driver": 0, "id_passenger": 60, "long": 40.71027582675219, "lat": 74.00033603924513 }
-                
-                { "id": 9111359, "event_date": 1585151235855, "tour_value": 88.98402701591097, "id_driver": 2, "id_passenger": 4, "long": 40.70974841862917, "lat": 74.00042752802372 }
-                
-                { "id": 4111196, "event_date": 1585151235957, "tour_value": 12.53837148245407, "id_driver": 2, "id_passenger": 19, "long": 40.70990241479874, "lat": 74.0004034936428 }
-                
-                { "id": 4308202, "event_date": 1585151236062, "tour_value": 90.73400416599983, "id_driver": 8, "id_passenger": 75, "long": 40.70957241821289, "lat": 73.9997906497717 }
-                
-                { "id": 6308136, "event_date": 1585151236166, "tour_value": 51.32375730673333, "id_driver": 1, "id_passenger": 75, "long": 40.709929414510725, "lat": 73.9999304881692 }
-                
-                { "id": 557447, "event_date": 1585151236271, "tour_value": 36.38002832340145, "id_driver": 7, "id_passenger": 0, "long": 40.7102016736269, "lat": 74.00038759160041 }
-                
-                { "id": 9020308, "event_date": 1585151236375, "tour_value": 31.193689874641382, "id_driver": 8, "id_passenger": 12, "long": 40.710463792979716, "lat": 73.99993766516447 }
-                
-                { "id": 3966607, "event_date": 1585151236479, "tour_value": 2.0669942774398042, "id_driver": 4, "id_passenger": 10, "long": 40.710247977793216, "lat": 74.0004903153181 }
-                
-                { "id": 7445596, "event_date": 1585151236584, "tour_value": 10.424848359677286, "id_driver": 7, "id_passenger": 96, "long": 40.71004787617922, "lat": 74.00046731668711 }
-                
-                { "id": 5440790, "event_date": 1585151236689, "tour_value": 36.5686668778069, "id_driver": 4, "id_passenger": 36, "long": 40.70964483481646, "lat": 73.99974543005229 }
-                
-                { "id": 5714231, "event_date": 1585151236793, "tour_value": 57.75714398423422, "id_driver": 6, "id_passenger": 70, "long": 40.710104082763195, "lat": 73.99956259053945 }
-                
-                { "id": 9522521, "event_date": 1585151236897, "tour_value": 79.71272605498689, "id_driver": 3, "id_passenger": 91, "long": 40.7095062301755, "lat": 73.99960679191351 }
-                
-                { "id": 2306494, "event_date": 1585151237002, "tour_value": 87.02821568404171, "id_driver": 3, "id_passenger": 69, "long": 40.70961481994391, "lat": 74.00031331717967 }
-                
-                { "id": 9209328, "event_date": 1585151237106, "tour_value": 30.275400401213982, "id_driver": 5, "id_passenger": 86, "long": 40.70951376837492, "lat": 73.99986909681559 }
-                
-                { "id": 3066721, "event_date": 1585151237211, "tour_value": 63.61397120890655, "id_driver": 6, "id_passenger": 15, "long": 40.71026396328211, "lat": 74.00044253021478 }
-                
-                { "id": 2822166, "event_date": 1585151237315, "tour_value": 53.27968633631255, "id_driver": 5, "id_passenger": 37, "long": 40.7096417773366, "lat": 74.0003380113244 }
-                
-                { "id": 6498700, "event_date": 1585151237420, "tour_value": 91.73170965985446, "id_driver": 4, "id_passenger": 88, "long": 40.710193608105186, "lat": 74.00035270380974 }
-                
-                { "id": 256669, "event_date": 1585151237524, "tour_value": 39.49993370592434, "id_driver": 4, "id_passenger": 65, "long": 40.70959246760607, "lat": 74.00030981224775 }
-                
-                { "id": 8711263, "event_date": 1585151237629, "tour_value": 81.1540137599271, "id_driver": 0, "id_passenger": 11, "long": 40.71011347788573, "lat": 74.00032813930511 }
-                
-                { "id": 2340342, "event_date": 1585151237733, "tour_value": 11.602846426222923, "id_driver": 4, "id_passenger": 36, "long": 40.70994280177355, "lat": 74.0000136399269 }
-                
-                { "id": 8583315, "event_date": 1585151237838, "tour_value": 40.96187957217927, "id_driver": 8, "id_passenger": 99, "long": 40.710167264163495, "lat": 73.99971640104056 }
-                
-                { "id": 6800101, "event_date": 1585151237941, "tour_value": 8.322790507860311, "id_driver": 0, "id_passenger": 89, "long": 40.709870315849784, "lat": 74.00040736138821 }
-                
-                { "id": 3430128, "event_date": 1585151238043, "tour_value": 21.185279188892338, "id_driver": 3, "id_passenger": 48, "long": 40.71043388557434, "lat": 73.99976320767402 }
-                
-                { "id": 8720202, "event_date": 1585151238148, "tour_value": 34.14724080475381, "id_driver": 9, "id_passenger": 33, "long": 40.71001757049561, "lat": 73.99961309057474 }
-                
-                { "id": 5378931, "event_date": 1585151238252, "tour_value": 64.77662268851499, "id_driver": 2, "id_passenger": 94, "long": 40.71049269843102, "lat": 74.00033707773686 }
-                
-                { "id": 1496595, "event_date": 1585151238353, "tour_value": 93.13332372991859, "id_driver": 1, "id_passenger": 60, "long": 40.70983687746525, "lat": 73.99996442443133 }
-                
-                { "id": 5016966, "event_date": 1585151238457, "tour_value": 91.26350672213698, "id_driver": 6, "id_passenger": 68, "long": 40.710177449405194, "lat": 73.99989703780413 }
-                
-                { "id": 6458183, "event_date": 1585151238560, "tour_value": 4.833166652859644, "id_driver": 2, "id_passenger": 10, "long": 40.70981302893162, "lat": 73.99973257756233 }
-                
-                { "id": 9484129, "event_date": 1585151238662, "tour_value": 88.24468897678648, "id_driver": 2, "id_passenger": 27, "long": 40.709598492264746, "lat": 73.9996829237938 }
-                
-                { "id": 4535861, "event_date": 1585151238762, "tour_value": 43.20622797077988, "id_driver": 2, "id_passenger": 38, "long": 40.7096483899951, "lat": 74.00045538538694 }
-                
-                { "id": 5900421, "event_date": 1585151238862, "tour_value": 70.9283136068189, "id_driver": 5, "id_passenger": 53, "long": 40.71013762694597, "lat": 73.99955672669411 }
-                
-                { "id": 6871618, "event_date": 1585151238967, "tour_value": 28.36047194290203, "id_driver": 5, "id_passenger": 17, "long": 40.709590224564074, "lat": 73.99974850082397 }
-                
-                { "id": 871262, "event_date": 1585151239072, "tour_value": 96.15236989077103, "id_driver": 5, "id_passenger": 67, "long": 40.71037286686897, "lat": 74.00011789226532 }
-                
-                { "id": 1996761, "event_date": 1585151239177, "tour_value": 10.698255574515903, "id_driver": 0, "id_passenger": 96, "long": 40.710034701228146, "lat": 74.00010332846641 }
-                
-                { "id": 9198593, "event_date": 1585151239277, "tour_value": 3.4498580423275915, "id_driver": 0, "id_passenger": 82, "long": 40.70952638596297, "lat": 74.00043771958352 }
-                
-                { "id": 6731508, "event_date": 1585151239382, "tour_value": 9.441492874209633, "id_driver": 9, "id_passenger": 44, "long": 40.70972774654627, "lat": 73.99952698040009 }
-                
-                { "id": 5587076, "event_date": 1585151239485, "tour_value": 49.088533125173264, "id_driver": 5, "id_passenger": 6, "long": 40.70984959405661, "lat": 73.99989960777759 }
-                
-                { "id": 7187964, "event_date": 1585151239586, "tour_value": 50.666697361256055, "id_driver": 7, "id_passenger": 57, "long": 40.70974584650993, "lat": 73.99957823830843 }
-                
-                { "id": 6037503, "event_date": 1585151239690, "tour_value": 37.14777712640477, "id_driver": 5, "id_passenger": 22, "long": 40.7104438546896, "lat": 74.00048574572801 }
-                
-                { "id": 2387757, "event_date": 1585151239790, "tour_value": 76.20007044649444, "id_driver": 5, "id_passenger": 90, "long": 40.70985065472126, "lat": 74.00007888233662 }
-                
-                { "id": 3600175, "event_date": 1585151239895, "tour_value": 43.47671463403688, "id_driver": 8, "id_passenger": 36, "long": 40.70985836660862, "lat": 74.00004780399799 }
-                
-                { "id": 3309122, "event_date": 1585151239999, "tour_value": 11.664620269095083, "id_driver": 3, "id_passenger": 65, "long": 40.7097159486413, "lat": 74.00027022606135 }
-                
-                { "id": 4977339, "event_date": 1585151240103, "tour_value": 55.03695093327886, "id_driver": 4, "id_passenger": 44, "long": 40.71034972065687, "lat": 74.00037699949742 }
-                
-                { "id": 6933297, "event_date": 1585151240206, "tour_value": 85.13591186787104, "id_driver": 7, "id_passenger": 27, "long": 40.7097738929987, "lat": 74.00039558523893 }
-                
-                { "id": 7425668, "event_date": 1585151240311, "tour_value": 16.832220633564965, "id_driver": 1, "id_passenger": 83, "long": 40.71030163246393, "lat": 73.9996666406393 }
-                
-                { "id": 8796953, "event_date": 1585151240415, "tour_value": 86.32734668338261, "id_driver": 9, "id_passenger": 43, "long": 40.709988769352435, "lat": 74.00035936504602 }
-                
-                { "id": 4744025, "event_date": 1585151240520, "tour_value": 91.67349448295744, "id_driver": 3, "id_passenger": 51, "long": 40.710068498790264, "lat": 73.99981617075206 }
-                
-                { "id": 7519859, "event_date": 1585151240625, "tour_value": 61.74468021429973, "id_driver": 9, "id_passenger": 26, "long": 40.71037636214495, "lat": 73.9998888887763 }
-                
-                { "id": 4302138, "event_date": 1585151240729, "tour_value": 66.12149593641459, "id_driver": 7, "id_passenger": 24, "long": 40.70965815722943, "lat": 73.99961252492666 }
-                
-                { "id": 8940904, "event_date": 1585151240833, "tour_value": 34.35154622487686, "id_driver": 0, "id_passenger": 52, "long": 40.70958794522286, "lat": 73.99987034380436 }
-                
-                { "id": 7039042, "event_date": 1585151240940, "tour_value": 85.08465597367999, "id_driver": 1, "id_passenger": 27, "long": 40.7098875643611, "lat": 74.00007659059763 }
-                
-                { "id": 1142218, "event_date": 1585151241044, "tour_value": 90.15049210391064, "id_driver": 8, "id_passenger": 2, "long": 40.70986242747307, "lat": 73.99976076722145 }
-                
-                { "id": 6073512, "event_date": 1585151241148, "tour_value": 60.45189402378249, "id_driver": 0, "id_passenger": 16, "long": 40.70981433260441, "lat": 73.99953512650728 }
-                
-                { "id": 4170154, "event_date": 1585151241251, "tour_value": 91.56798944018738, "id_driver": 3, "id_passenger": 52, "long": 40.70970743888617, "lat": 73.99958067083358 }
-                
-                { "id": 9417577, "event_date": 1585151241359, "tour_value": 29.79188324181008, "id_driver": 4, "id_passenger": 69, "long": 40.710081973016266, "lat": 74.00011386024951 }
-                
-                { "id": 8966795, "event_date": 1585151241463, "tour_value": 82.70493012027109, "id_driver": 1, "id_passenger": 51, "long": 40.70965015560389, "lat": 74.00008500611781 }
-                
-                { "id": 3057036, "event_date": 1585151241566, "tour_value": 42.15795612861768, "id_driver": 6, "id_passenger": 16, "long": 40.71000260603428, "lat": 74.00039953416587 }
-                
-                { "id": 6774074, "event_date": 1585151241669, "tour_value": 68.69292127936504, "id_driver": 0, "id_passenger": 48, "long": 40.71018525439501, "lat": 74.00012668919564 }
-                
-                { "id": 6747018, "event_date": 1585151241774, "tour_value": 77.3105844542746, "id_driver": 0, "id_passenger": 70, "long": 40.710332559108735, "lat": 74.00031260567904 }
-                
-                { "id": 9934659, "event_date": 1585151241878, "tour_value": 78.33486054880078, "id_driver": 7, "id_passenger": 74, "long": 40.71000872671604, "lat": 73.99959674066305 }
-                
-                { "id": 9991633, "event_date": 1585151241980, "tour_value": 56.055273809289055, "id_driver": 3, "id_passenger": 58, "long": 40.71047776973248, "lat": 74.00001519310474 }
-                
-                { "id": 1279624, "event_date": 1585151242080, "tour_value": 52.09750656684692, "id_driver": 4, "id_passenger": 58, "long": 40.70986490261555, "lat": 74.0003249887228 }
-                
-                { "id": 6357484, "event_date": 1585151242182, "tour_value": 27.677835890217985, "id_driver": 7, "id_passenger": 54, "long": 40.71036072522402, "lat": 74.0003696423173 }
-                
-                { "id": 4637944, "event_date": 1585151242287, "tour_value": 55.992745700211955, "id_driver": 9, "id_passenger": 2, "long": 40.70993685257435, "lat": 73.99992888265848 }
-                
-                { "id": 8021193, "event_date": 1585151242388, "tour_value": 66.36381213643662, "id_driver": 0, "id_passenger": 20, "long": 40.71006165903807, "lat": 73.99990259325504 }
-                
-                { "id": 9115106, "event_date": 1585151242490, "tour_value": 73.99951191216302, "id_driver": 4, "id_passenger": 93, "long": 40.709998638153074, "lat": 74.00032576328516 }
-                
-                { "id": 5513120, "event_date": 1585151242590, "tour_value": 23.674875889960013, "id_driver": 7, "id_passenger": 21, "long": 40.71014610272646, "lat": 73.99993034154177 }
-                
-                { "id": 3698541, "event_date": 1585151242693, "tour_value": 18.94369045653207, "id_driver": 9, "id_passenger": 98, "long": 40.710327336370945, "lat": 73.99979333126545 }
-                
-                { "id": 371700, "event_date": 1585151242795, "tour_value": 56.21953560698134, "id_driver": 8, "id_passenger": 19, "long": 40.70995027178526, "lat": 73.99989818924665 }
-                
-                { "id": 2603181, "event_date": 1585151242900, "tour_value": 64.11033520677034, "id_driver": 6, "id_passenger": 71, "long": 40.71018340468407, "lat": 74.00043829113245 }
-                
-                { "id": 3721408, "event_date": 1585151243005, "tour_value": 25.13392073766334, "id_driver": 5, "id_passenger": 94, "long": 40.710016116678716, "lat": 73.9996858099103 }
-                
-                { "id": 6290395, "event_date": 1585151243110, "tour_value": 98.68988076033997, "id_driver": 5, "id_passenger": 8, "long": 40.71003419804573, "lat": 74.00037536817788 }
-                
-                { "id": 1743544, "event_date": 1585151243213, "tour_value": 81.35329649501638, "id_driver": 5, "id_passenger": 74, "long": 40.709959549367426, "lat": 73.99966073125601 }
-                
-                { "id": 9524138, "event_date": 1585151243318, "tour_value": 61.274331542031355, "id_driver": 8, "id_passenger": 4, "long": 40.710376088619235, "lat": 74.00003610217571 }
-                
-                { "id": 1902002, "event_date": 1585151243423, "tour_value": 53.31648589830029, "id_driver": 8, "id_passenger": 63, "long": 40.709788086354735, "lat": 74.00032306188345 }
-                
-                { "id": 9654073, "event_date": 1585151243526, "tour_value": 92.27447844421705, "id_driver": 4, "id_passenger": 21, "long": 40.71024882948399, "lat": 73.99982389885187 }
-                
-                { "id": 2637224, "event_date": 1585151243627, "tour_value": 23.05113386526442, "id_driver": 1, "id_passenger": 57, "long": 40.709637032806874, "lat": 74.00009862852096 }
-                
-                { "id": 1851442, "event_date": 1585151243727, "tour_value": 52.0163440286966, "id_driver": 2, "id_passenger": 59, "long": 40.71030909585953, "lat": 73.99986052596569 }
-                
-                { "id": 3498083, "event_date": 1585151243831, "tour_value": 54.82306915536462, "id_driver": 2, "id_passenger": 87, "long": 40.710004849255085, "lat": 73.99999868863821 }
-                
-                { "id": 4190838, "event_date": 1585151243935, "tour_value": 83.5234544168267, "id_driver": 8, "id_passenger": 3, "long": 40.70960043185949, "lat": 74.00017820644379 }
-                
-                { "id": 8653502, "event_date": 1585151244039, "tour_value": 55.92026872143888, "id_driver": 8, "id_passenger": 44, "long": 40.71038633811474, "lat": 73.99968816363811 }
-                
-                { "id": 2778874, "event_date": 1585151244144, "tour_value": 13.167252276466234, "id_driver": 5, "id_passenger": 1, "long": 40.71012042981386, "lat": 74.00029619926214 }
-                
-                { "id": 3349005, "event_date": 1585151244248, "tour_value": 40.84164797529045, "id_driver": 8, "id_passenger": 61, "long": 40.71013399267197, "lat": 73.9998785943389 }
-                
-                { "id": 3544378, "event_date": 1585151244353, "tour_value": 7.475221610654581, "id_driver": 1, "id_passenger": 19, "long": 40.70962352699041, "lat": 74.0003736437559 }
-                
-                { "id": 2597153, "event_date": 1585151244456, "tour_value": 13.270247205464436, "id_driver": 3, "id_passenger": 2, "long": 40.709939867973326, "lat": 73.99969632178545 }
-                
-                { "id": 6794192, "event_date": 1585151244560, "tour_value": 67.86623000561654, "id_driver": 9, "id_passenger": 44, "long": 40.71022436338663, "lat": 73.99979074275494 }
-                
-                { "id": 2181234, "event_date": 1585151244663, "tour_value": 10.76518984548278, "id_driver": 4, "id_passenger": 43, "long": 40.71039863300324, "lat": 73.99975219267607 }
-                
-                { "id": 4131113, "event_date": 1585151244766, "tour_value": 97.81436860193482, "id_driver": 1, "id_passenger": 29, "long": 40.70968162363768, "lat": 74.00011419779062 }
-                
-                { "id": 2104288, "event_date": 1585151244870, "tour_value": 97.07883172037494, "id_driver": 8, "id_passenger": 42, "long": 40.71017240649462, "lat": 74.00045969265699 }
-                
-                { "id": 790109, "event_date": 1585151244974, "tour_value": 18.242318996160524, "id_driver": 1, "id_passenger": 19, "long": 40.710379461348055, "lat": 73.9995332018733 }
-                
-                { "id": 6868895, "event_date": 1585151245079, "tour_value": 69.3059569807325, "id_driver": 2, "id_passenger": 68, "long": 40.70967428147793, "lat": 73.99978902584314 }
-                
-                { "id": 2491169, "event_date": 1585151245184, "tour_value": 9.567173736244538, "id_driver": 1, "id_passenger": 80, "long": 40.71010115838051, "lat": 74.00038911670447 }
-                
-                { "id": 9957942, "event_date": 1585151245289, "tour_value": 40.547409552952985, "id_driver": 2, "id_passenger": 86, "long": 40.71037421709299, "lat": 74.00010234987735 }
-                
-                { "id": 2001634, "event_date": 1585151245392, "tour_value": 93.95686443240567, "id_driver": 8, "id_passenger": 28, "long": 40.70956012398005, "lat": 73.99979197657109 }
-                
-                { "id": 7041578, "event_date": 1585151245493, "tour_value": 93.20706643790274, "id_driver": 1, "id_passenger": 59, "long": 40.70962168812752, "lat": 74.00015908914804 }
-                
-                { "id": 6930551, "event_date": 1585151245595, "tour_value": 33.633000751687625, "id_driver": 5, "id_passenger": 56, "long": 40.71015362006426, "lat": 74.00024379891157 }
-                
-                { "id": 2895300, "event_date": 1585151245700, "tour_value": 89.16082339739033, "id_driver": 3, "id_passenger": 96, "long": 40.709696994006634, "lat": 74.00040080714226 }
-                
-                { "id": 5036539, "event_date": 1585151245804, "tour_value": 53.542201933136624, "id_driver": 2, "id_passenger": 65, "long": 40.70960598659516, "lat": 73.99994285023213 }
-                
-                { "id": 5509493, "event_date": 1585151245909, "tour_value": 97.49944348335323, "id_driver": 4, "id_passenger": 63, "long": 40.709929656744, "lat": 74.00048521471024 }
-                
-                { "id": 4234686, "event_date": 1585151246013, "tour_value": 15.917073230277868, "id_driver": 9, "id_passenger": 17, "long": 40.709626306056975, "lat": 74.00009190118313 }
-                
-                { "id": 778587, "event_date": 1585151246116, "tour_value": 20.951713065052036, "id_driver": 9, "id_passenger": 68, "long": 40.709549490273, "lat": 73.9999230952859 }
-                
-                { "id": 128480, "event_date": 1585151246220, "tour_value": 95.10094927635758, "id_driver": 9, "id_passenger": 76, "long": 40.70971042376757, "lat": 74.00019135928154 }
-                
-                { "id": 4019434, "event_date": 1585151246325, "tour_value": 91.97492488732028, "id_driver": 2, "id_passenger": 33, "long": 40.71021467536688, "lat": 73.9999366877079 }
-                
-                { "id": 5043585, "event_date": 1585151246429, "tour_value": 61.8965548416053, "id_driver": 7, "id_passenger": 83, "long": 40.71004344713688, "lat": 74.00037612974644 }
-                
-                { "id": 5159216, "event_date": 1585151246534, "tour_value": 78.32958084911023, "id_driver": 7, "id_passenger": 49, "long": 40.710251875400544, "lat": 74.00008170104027 }
-                
-                { "id": 4265631, "event_date": 1585151246639, "tour_value": 74.43414082736672, "id_driver": 6, "id_passenger": 88, "long": 40.70961507076025, "lat": 74.00031112796069 }
-                
-                { "id": 3651901, "event_date": 1585151246744, "tour_value": 6.14396974530389, "id_driver": 2, "id_passenger": 85, "long": 40.709765808582304, "lat": 74.0002078384757 }
-                
-                { "id": 1415941, "event_date": 1585151246847, "tour_value": 47.39321053218204, "id_driver": 6, "id_passenger": 37, "long": 40.710139477074144, "lat": 73.99974943721294 }
-                
-                { "id": 4349862, "event_date": 1585151246952, "tour_value": 32.369976685897605, "id_driver": 8, "id_passenger": 64, "long": 40.71025884968042, "lat": 74.00034655189515 }
-                
-                { "id": 2010852, "event_date": 1585151247057, "tour_value": 92.04533638664034, "id_driver": 6, "id_passenger": 86, "long": 40.70990168970823, "lat": 74.00038092660904 }
-                
-                { "id": 8072878, "event_date": 1585151247161, "tour_value": 95.41903516415138, "id_driver": 8, "id_passenger": 10, "long": 40.70993364840746, "lat": 73.99965367609262 }
-                
-                { "id": 7565833, "event_date": 1585151247266, "tour_value": 68.14243344794652, "id_driver": 8, "id_passenger": 34, "long": 40.70994501233101, "lat": 74.00015635579824 }
-                
-                { "id": 9984905, "event_date": 1585151247366, "tour_value": 45.86934059930421, "id_driver": 7, "id_passenger": 72, "long": 40.70973127049208, "lat": 73.99956442880631 }
-                
-                { "id": 6933554, "event_date": 1585151247466, "tour_value": 95.72175945119935, "id_driver": 6, "id_passenger": 13, "long": 40.71001587098837, "lat": 73.99950809276103 }
-                
-                { "id": 6489668, "event_date": 1585151247570, "tour_value": 22.612385786571377, "id_driver": 8, "id_passenger": 62, "long": 40.709541224300864, "lat": 74.0004766960144 }
-                
-                { "id": 123910, "event_date": 1585151247673, "tour_value": 44.4396955952505, "id_driver": 1, "id_passenger": 77, "long": 40.70982364594936, "lat": 74.00024595421553 }
-                
-                { "id": 9889485, "event_date": 1585151247778, "tour_value": 43.75621194609256, "id_driver": 1, "id_passenger": 49, "long": 40.710174521148204, "lat": 74.00012513113022 }
-                
-                { "id": 7814952, "event_date": 1585151247883, "tour_value": 52.52242802633571, "id_driver": 5, "id_passenger": 91, "long": 40.7096189750433, "lat": 73.99987458956241 }
-                
-                { "id": 5614996, "event_date": 1585151247985, "tour_value": 37.05973743728423, "id_driver": 0, "id_passenger": 19, "long": 40.71024262160063, "lat": 74.00007481878995 }
-                
-                { "id": 4646127, "event_date": 1585151248090, "tour_value": 52.712010275699726, "id_driver": 6, "id_passenger": 73, "long": 40.70999394911528, "lat": 74.0004434146881 }
-                
-                { "id": 1698003, "event_date": 1585151248194, "tour_value": 38.609634252135216, "id_driver": 8, "id_passenger": 41, "long": 40.7102690808177, "lat": 73.99960241699219 }
-                
-                { "id": 3192893, "event_date": 1585151248299, "tour_value": 73.00712221285922, "id_driver": 5, "id_passenger": 63, "long": 40.70954538357258, "lat": 74.00013435608149 }
-                
-                { "id": 988280, "event_date": 1585151248403, "tour_value": 48.77876960341828, "id_driver": 2, "id_passenger": 50, "long": 40.710271661877634, "lat": 74.00046998286247 }
-                
-                { "id": 5107570, "event_date": 1585151248508, "tour_value": 83.30332519693272, "id_driver": 6, "id_passenger": 7, "long": 40.71048611259461, "lat": 73.99974648338556 }
-                
-                { "id": 4596389, "event_date": 1585151248612, "tour_value": 95.07080144401054, "id_driver": 8, "id_passenger": 51, "long": 40.709894729137424, "lat": 74.00047918355465 }
-                
-                { "id": 3183876, "event_date": 1585151248717, "tour_value": 21.41898517605184, "id_driver": 9, "id_passenger": 73, "long": 40.71004154354334, "lat": 74.00022673946619 }
-                
-                { "id": 969817, "event_date": 1585151248821, "tour_value": 17.044259477365596, "id_driver": 2, "id_passenger": 75, "long": 40.70950834786892, "lat": 74.00014023858309 }
-                
-                { "id": 6274102, "event_date": 1585151248926, "tour_value": 23.079179986865384, "id_driver": 6, "id_passenger": 91, "long": 40.71011644923687, "lat": 73.99989605587722 }
-                
-                { "id": 8330294, "event_date": 1585151249030, "tour_value": 49.844079539479345, "id_driver": 3, "id_passenger": 88, "long": 40.70969454675913, "lat": 73.99964155066013 }
-                
-                { "id": 9970026, "event_date": 1585151249131, "tour_value": 18.28740343270049, "id_driver": 8, "id_passenger": 73, "long": 40.71008145081997, "lat": 74.00005068027973 }
-                
-                { "id": 7006695, "event_date": 1585151249235, "tour_value": 41.60915645376894, "id_driver": 9, "id_passenger": 38, "long": 40.71024487990141, "lat": 73.99957525837421 }
-                
-                { "id": 4486428, "event_date": 1585151249339, "tour_value": 32.64741591961986, "id_driver": 7, "id_passenger": 19, "long": 40.709915518939496, "lat": 73.99999691689014 }
-                
-                { "id": 7426596, "event_date": 1585151249441, "tour_value": 33.76874770361351, "id_driver": 9, "id_passenger": 21, "long": 40.71033834928274, "lat": 74.00049545437098 }
-                
-                { "id": 1461492, "event_date": 1585151249544, "tour_value": 36.546762817827506, "id_driver": 2, "id_passenger": 69, "long": 40.71039013540745, "lat": 74.0001679547429 }
-                
-                { "id": 680156, "event_date": 1585151249646, "tour_value": 60.523689401609424, "id_driver": 2, "id_passenger": 66, "long": 40.71045589911938, "lat": 74.00046599918603 }
-                
-                { "id": 9996415, "event_date": 1585151249751, "tour_value": 31.058055084519097, "id_driver": 3, "id_passenger": 64, "long": 40.70951692456007, "lat": 73.99993516159057 }
-                
-                { "id": 7327094, "event_date": 1585151249851, "tour_value": 69.10293134896625, "id_driver": 4, "id_passenger": 36, "long": 40.709927418470386, "lat": 73.9998220527172 }
-                
-                { "id": 2257538, "event_date": 1585151249953, "tour_value": 8.770567080512837, "id_driver": 5, "id_passenger": 95, "long": 40.71036237239838, "lat": 73.99977116245032 }
-                
-                { "id": 9689533, "event_date": 1585151250054, "tour_value": 21.102111831039096, "id_driver": 7, "id_passenger": 98, "long": 40.70976921743154, "lat": 73.99962382382155 }
-                
-                { "id": 5330164, "event_date": 1585151250158, "tour_value": 15.786957097460895, "id_driver": 9, "id_passenger": 67, "long": 40.71030386793613, "lat": 74.00005308306217 }
-              
+                { "id": 7685330, "event_date": 1585188679973, "tour_value": 70.46539813107161, "id_driver": 0, "id_passenger": 90 }
+ 

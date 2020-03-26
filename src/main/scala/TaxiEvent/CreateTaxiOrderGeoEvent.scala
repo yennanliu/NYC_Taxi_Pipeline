@@ -34,9 +34,15 @@ object CreateTaxiOrderGeoEvent {
             var lat = 74.00 + (r.nextFloat - 0.5) * 0.001 // generate random long 
 
             val payload =
-               s"""
-                { "id": $id, "event_date": $event_date, "tour_value": $tour_value, "id_driver": $id_driver, "id_passenger": $id_passenger, "long": $long, "lat": $lat }
-                """.stripMargin
+              s"""
+                 |{ "id": $id,
+                 |  "event_date": $event_date,
+                 |  "tour_value": $tour_value,
+                 |  "id_driver": $id_driver,
+                 |  "id_passenger": $id_passenger,
+                 |  "long" : $long,
+                 |  "lat" : $lat}
+              """.stripMargin
 
             Thread.sleep(sleepDelayMs)
             out.write(payload)
