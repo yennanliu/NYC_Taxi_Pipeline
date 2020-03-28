@@ -59,7 +59,17 @@ object StreamFileToKafkaExample {
 
       println(">>> Stream to Kafaka")
 
-      fileStreamDf.selectExpr("CAST(transactionId AS STRING)", "CAST(customerId AS STRING)")
+      /*
+       * in order to stream to kafka  
+       *  1. df has a value column
+       *  2. StringType or BinaryType
+       * 
+       * https://stackoverflow.com/questions/48788612/pyspark-structured-streaming-output-sink-as-kafka-giving-error
+       * https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka
+      */
+
+      //fileStreamDf.selectExpr("CAST(value AS STRING)")  //fileStreamDf.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
+      fileStreamDf.select(to_json(struct(fileStreamDf.columns map col: _*)).alias("value"))
         .writeStream
         .format("kafka")
         .option("kafka.bootstrap.servers", "127.0.0.1:9092")  // local kafka server
