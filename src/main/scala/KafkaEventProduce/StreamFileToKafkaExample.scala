@@ -22,15 +22,15 @@ import org.apache.spark.sql.functions.{get_json_object, json_tuple}
  *
 */
 
-object StreamToKafkaExample {
+object StreamFileToKafkaExample {
 
   def main(args: Array[String]): Unit = {
 
-      val sc = new SparkContext("local[*]", "StreamToKafkaExample")   
+      val sc = new SparkContext("local[*]", "StreamFileToKafkaExample")   
       val sqlContext = new org.apache.spark.sql.SQLContext(sc)
       val spark = SparkSession
           .builder
-          .appName("StreamToKafkaExample")
+          .appName("StreamFileToKafkaExample")
           .master("local[*]")
           .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
           .getOrCreate()
@@ -57,12 +57,21 @@ object StreamToKafkaExample {
 
       // write to kafka topic : spark-stream
 
-      fileStreamDf.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
-        .write
+      println(">>> Stream to Kafaka")
+
+      fileStreamDf.selectExpr("CAST(transactionId AS STRING)", "CAST(customerId AS STRING)")
+        .writeStream
         .format("kafka")
         .option("kafka.bootstrap.servers", "127.0.0.1:9092")  // local kafka server
         .option("topic", "spark-stream")
-        .save()
+        .option("checkpointLocation", "/tmp/checkpoint")
+        .start()
+
+      fileStreamDf.writeStream
+        .format("console")
+        .option("truncate","false")
+        .start()
+        .awaitTermination()
 
   }
 
