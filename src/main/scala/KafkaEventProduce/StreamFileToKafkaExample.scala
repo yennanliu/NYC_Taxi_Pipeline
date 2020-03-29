@@ -68,7 +68,10 @@ object StreamFileToKafkaExample {
        * https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka
       */
 
-      //fileStreamDf.selectExpr("CAST(value AS STRING)")  //fileStreamDf.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
+
+      // plz clean kafka meta data if want to send the same file data to the kafka topic multiple times 
+      // sudo rm -fr /tmp/checkpoint
+
       fileStreamDf.select(to_json(struct(fileStreamDf.columns map col: _*)).alias("value"))
         .writeStream
         .format("kafka")
