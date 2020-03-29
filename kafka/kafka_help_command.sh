@@ -20,6 +20,8 @@ nano /usr/local/etc/kafka/server.properties
 nano /usr/local/etc/kafka/zookeeper.properties
 
 # Delete Kafka topic 
+# modify /usr/local/etc/kafka/server.properties 
+# and make delete.topic.enable=true
 kafka-topics  --delete --zookeeper localhost:2181 --topic <your_topic_name>
 
 # Creat a new topic 
