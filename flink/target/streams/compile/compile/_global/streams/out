@@ -3,54 +3,17 @@
 [0m[[0m[33mwarn[0m] [0m[0mClass org.joda.convert.ToString not found - continuing with a stub.[0m
 [0m[[0m[33mwarn[0m] [0m[0mClass org.joda.convert.FromString not found - continuing with a stub.[0m
 [0m[[0m[33mwarn[0m] [0m[0mClass org.joda.convert.ToString not found - continuing with a stub.[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sources/TaxiRideSource.scala:24:8: object EventTimeSourceFunction is not a member of package org.apache.flink.streaming.api.functions.source[0m
-[0m[[0m[31merror[0m] [0m[0mimport org.apache.flink.streaming.api.functions.source.{EventTimeSourceFunction}[0m
-[0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sources/TaxiRideSource.scala:54:11: not found: type EventTimeSourceFunction[0m
-[0m[[0m[31merror[0m] [0m[0m  extends EventTimeSourceFunction[TaxiRide] {[0m
-[0m[[0m[31merror[0m] [0m[0m          ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/flink/TotalArrivalCount.scala:63:43: overloaded method value addSource with alternatives:[0m
-[0m[[0m[31merror[0m] [0m[0m  [OUT](x$1: org.apache.flink.streaming.api.functions.source.SourceFunction[OUT], x$2: String, x$3: org.apache.flink.api.common.typeinfo.TypeInformation[OUT])org.apache.flink.streaming.api.datastream.DataStreamSource[OUT] <and>[0m
-[0m[[0m[31merror[0m] [0m[0m  [OUT](x$1: org.apache.flink.streaming.api.functions.source.SourceFunction[OUT], x$2: org.apache.flink.api.common.typeinfo.TypeInformation[OUT])org.apache.flink.streaming.api.datastream.DataStreamSource[OUT] <and>[0m
-[0m[[0m[31merror[0m] [0m[0m  [OUT](x$1: org.apache.flink.streaming.api.functions.source.SourceFunction[OUT], x$2: String)org.apache.flink.streaming.api.datastream.DataStreamSource[OUT] <and>[0m
-[0m[[0m[31merror[0m] [0m[0m  [OUT](x$1: org.apache.flink.streaming.api.functions.source.SourceFunction[OUT])org.apache.flink.streaming.api.datastream.DataStreamSource[OUT][0m
-[0m[[0m[31merror[0m] [0m[0m cannot be applied to (sources.TaxiRideSource)[0m
-[0m[[0m[31merror[0m] [0m[0m    val rides: DataStream[TaxiRide] = env.addSource(new TaxiRideSource([0m
-[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/utils/NycGeoUtils.scala:19:12: object dataartisans is not a member of package com[0m
-[0m[[0m[31merror[0m] [0m[0mimport com.dataartisans.flink_demo.datatypes.GeoPoint[0m
-[0m[[0m[31merror[0m] [0m[0m           ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/utils/NycGeoUtils.scala:48:22: not found: type GeoPoint[0m
-[0m[[0m[31merror[0m] [0m[0m  def isInNYC(point: GeoPoint): Boolean = {[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/utils/NycGeoUtils.scala:65:28: not found: type GeoPoint[0m
-[0m[[0m[31merror[0m] [0m[0m  def mapToGridCell(point: GeoPoint): Int = {[0m
-[0m[[0m[31merror[0m] [0m[0m                           ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/flink/TotalArrivalCount.scala:82:12: missing argument list for method fold in class KeyedStream[0m
-[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
-[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `fold _` or `fold(_)(_)(_)` instead of `fold`.[0m
-[0m[[0m[31merror[0m] [0m[0m      .fold((0, 0L, 0), (s: (Int, Long, Int), r: (Int, Long, Short)) =>[0m
-[0m[[0m[31merror[0m] [0m[0m           ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/utils/NycGeoUtils.scala:78:43: not found: type GeoPoint[0m
-[0m[[0m[31merror[0m] [0m[0m  def getGridCellCenter(gridCellId: Int): GeoPoint = {[0m
-[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:26:8: object ImmutableSettings is not a member of package org.elasticsearch.common.settings[0m
-[0m[[0m[31merror[0m] [0m[0mimport org.elasticsearch.common.settings.ImmutableSettings[0m
-[0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:27:8: object InetSocketTransportAddress is not a member of package org.elasticsearch.common.transport[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:32:8: object InetSocketTransportAddress is not a member of package org.elasticsearch.common.transport[0m
 [0m[[0m[31merror[0m] [0m[0mimport org.elasticsearch.common.transport.InetSocketTransportAddress[0m
 [0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:60:20: not found: value ImmutableSettings[0m
-[0m[[0m[31merror[0m] [0m[0m    val settings = ImmutableSettings.settingsBuilder()[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:63:14: class TransportClient is abstract; cannot be instantiated[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:65:29: value settingsBuilder is not a member of object org.elasticsearch.common.settings.Settings[0m
+[0m[[0m[31merror[0m] [0m[0m    val settings = Settings.settingsBuilder()[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:68:14: class TransportClient is abstract; cannot be instantiated[0m
 [0m[[0m[31merror[0m] [0m[0m    client = new TransportClient(settings)[0m
 [0m[[0m[31merror[0m] [0m[0m             ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:64:32: not found: type InetSocketTransportAddress[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/sinks/ElasticsearchUpsertSink.scala:69:32: not found: type InetSocketTransportAddress[0m
 [0m[[0m[31merror[0m] [0m[0m      .addTransportAddress(new InetSocketTransportAddress(host, port))[0m
 [0m[[0m[31merror[0m] [0m[0m                               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/utils/NycGeoUtils.scala:85:9: not found: type GeoPoint[0m
-[0m[[0m[31merror[0m] [0m[0m    new GeoPoint(lon, lat)[0m
-[0m[[0m[31merror[0m] [0m[0m        ^[0m
 [0m[[0m[33mwarn[0m] [0m[0m5 warnings found[0m
-[0m[[0m[31merror[0m] [0m[0m14 errors found[0m
+[0m[[0m[31merror[0m] [0m[0mfour errors found[0m

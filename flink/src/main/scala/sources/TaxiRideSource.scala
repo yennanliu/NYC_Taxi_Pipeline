@@ -21,7 +21,11 @@ import java.util.{Calendar, Random}
 import java.util.zip.GZIPInputStream
 
 import datatypes.TaxiRide
-import org.apache.flink.streaming.api.functions.source.{EventTimeSourceFunction}
+
+// https://stackoverflow.com/questions/39370419/what-is-replacement-of-eventtimesourcefunction-flink-0-10-x-in-flink-1-x
+//import org.apache.flink.streaming.api.functions.source.EventTimeSourceFunction
+import org.apache.flink.streaming.api.functions.source.SourceFunction
+
 import org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext
 import org.apache.flink.streaming.api.watermark.Watermark
 import org.joda.time.DateTime
@@ -51,7 +55,7 @@ import scala.collection.mutable
  * @param servingSpeed The relative serving speed. Can be used to fast-forward the stream.
  */
 class TaxiRideSource(dataFilePath: String, maxDelaySecs: Int, servingSpeed: Float)
-  extends EventTimeSourceFunction[TaxiRide] {
+  extends SourceFunction[TaxiRide] {
 
   private val maxDelayMsecs = maxDelaySecs * 1000
   private val watermarkDelayMSecs = if (maxDelayMsecs < 10000) 10000 else maxDelayMsecs

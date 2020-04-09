@@ -23,7 +23,12 @@ import org.apache.flink.streaming.api.functions.sink.RichSinkFunction
 import org.elasticsearch.action.index.IndexRequest
 import org.elasticsearch.action.update.UpdateRequest
 import org.elasticsearch.client.transport.TransportClient
-import org.elasticsearch.common.settings.ImmutableSettings
+
+//https://stackoverflow.com/questions/33115504/is-immutablesettings-removed-in-elastic-search
+//import org.elasticsearch.common.settings.ImmutableSettings
+import org.elasticsearch.common.settings.Settings
+import org.elasticsearch.common.settings
+
 import org.elasticsearch.common.transport.InetSocketTransportAddress
 
 import scala.collection.JavaConversions._
@@ -57,7 +62,7 @@ abstract class ElasticsearchUpsertSink[T](host: String, port: Int, cluster: Stri
     config.put("bulk.flush.max.actions", "1")
     config.put("cluster.name", cluster)
 
-    val settings = ImmutableSettings.settingsBuilder()
+    val settings = Settings.settingsBuilder()
       .put(config)
       .build()
     client = new TransportClient(settings)
