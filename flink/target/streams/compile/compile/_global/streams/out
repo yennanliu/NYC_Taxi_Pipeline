@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/yennanliu/NYC_Taxi_Pipeline/flink/src/main/scala/flink/RunFlinkTest.scala:54:1: Missing closing brace `}' assumed here[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

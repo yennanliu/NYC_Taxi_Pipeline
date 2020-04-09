@@ -1,0 +1,11 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/yennanliu/NYC_Taxi_Pipeline/flink/target/scala-2.11/flink_2.11-1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/yennanliu/NYC_Taxi_Pipeline/flink/target/scala-2.11/classes[0m
+[0m[[0m[0mdebug[0m] [0m[0m	flink[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/yennanliu/NYC_Taxi_Pipeline/flink/target/scala-2.11/classes/flink[0m
+[0m[[0m[0mdebug[0m] [0m[0m	flink/RunFlinkTest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/yennanliu/NYC_Taxi_Pipeline/flink/target/scala-2.11/classes/flink/RunFlinkTest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	flink/RunFlinkTest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/yennanliu/NYC_Taxi_Pipeline/flink/target/scala-2.11/classes/flink/RunFlinkTest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
