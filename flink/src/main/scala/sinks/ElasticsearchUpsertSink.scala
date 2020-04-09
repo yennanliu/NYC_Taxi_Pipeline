@@ -29,7 +29,9 @@ import org.elasticsearch.client.transport.TransportClient
 import org.elasticsearch.common.settings.Settings
 import org.elasticsearch.common.settings
 
-import org.elasticsearch.common.transport.InetSocketTransportAddress
+// https://stackoverflow.com/questions/50986095/org-elasticsearch-common-transport-inetsockettransportaddress-not-found-on-elast
+//import org.elasticsearch.common.transport.InetSocketTransportAddress
+import org.elasticsearch.common.transport.TransportAddress
 
 import scala.collection.JavaConversions._
 
@@ -62,11 +64,12 @@ abstract class ElasticsearchUpsertSink[T](host: String, port: Int, cluster: Stri
     config.put("bulk.flush.max.actions", "1")
     config.put("cluster.name", cluster)
 
-    val settings = Settings.settingsBuilder()
+    //val settings = Settings.settingsBuilder()
+    val settings = Settings.builder()
       .put(config)
       .build()
     client = new TransportClient(settings)
-      .addTransportAddress(new InetSocketTransportAddress(host, port))
+      .addTransportAddress(new TransportAddress(host, port))
   }
 
   @throws[Exception]
