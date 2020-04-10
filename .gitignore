@@ -27,3 +27,4 @@ metastore_db/
 output/*
 output/raw-rides/*
 flink/target/streams/*
+flink/project/target/config-classes/*
