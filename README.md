@@ -193,7 +193,7 @@ spark-submit \
 cd ~ 
 kibana-7.6.1-darwin-x86_64/bin/kibana
 elasticsearch-7.6.1/bin/elasticsearch
-logstash-7.6.1/bin/logstash -f /Users/$USER/NYC_Taxi_Pipeline/elk/logstas/logstash_taxi_event_file.conf
+logstash-7.6.1/bin/logstash -f /Users/$USER/NYC_Taxi_Pipeline/elk/logstash/logstash_taxi_event_file.conf
 
 # test insert toy data to logstash 
 # (logstash config: elk/logstash.conf)
