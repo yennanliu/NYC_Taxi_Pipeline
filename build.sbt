@@ -32,6 +32,9 @@ libraryDependencies ++= Seq(
   // "org.apache.bahir" %% "spark-streaming-twitter" % "2.3.1",
   // "com.danielasfregola" %% "twitter4s" % "6.1"
 
+  // ES 
+  "org.elasticsearch" % "elasticsearch-hadoop" % "7.6.1",
+
   // others 
   "org.apache.commons" % "commons-text" % "1.8"
 

@@ -33,6 +33,7 @@ object StreamToESExample {
           .appName("StreamFileToKafkaExample")
           .master("local[*]")
           .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+          .config("es.index.auto.create", "true")
           .getOrCreate()
 
       val sparkSession = SparkSession.builder
@@ -40,49 +41,28 @@ object StreamToESExample {
         .appName("example")
         .getOrCreate()
 
-      val schema = StructType(
-          Array(StructField("transactionId", StringType),
-                StructField("customerId", StringType),
-                StructField("itemId", StringType),
-                StructField("amountPaid", StringType)))
-
       import spark.implicits._
 
-      //create stream from folder
-      
-      val fileStreamDf = sparkSession.readStream
-        .option("header", "true")
-        .schema(schema)
-        .csv("data/tmp") /* <--- BE AWARE TO LOAD FILE IN THIS WAY */
+      val jsonSchema = StructType(
+          Seq(
+            StructField("transactionId", StringType, true),
+            StructField("customerId", StringType, true),
+            StructField("itemId", StringType, true),
+            StructField("amountPaid", StringType, true)
+          )
+        )
 
-      // write to kafka topic : spark-stream
+      val streamingDF = sparkSession
+        .readStream
+        .schema(jsonSchema)
+        .json("data/tmp/")
 
-      println(">>> Stream to Kafaka")
+      println(">>> Stream to ES")
 
-      /*
-       * in order to stream to kafka  
-       *  1. df has a value column
-       *  2. StringType or BinaryType
-       * 
-       * https://stackoverflow.com/questions/48788612/pyspark-structured-streaming-output-sink-as-kafka-giving-error
-       * https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka
-      */
-
-
-      // plz clean kafka meta data if want to send the same file data to the kafka topic multiple times 
-      // sudo rm -fr /tmp/checkpoint
-
-      fileStreamDf.select(to_json(struct(fileStreamDf.columns map col: _*)).alias("value"))
+      streamingDF
         .writeStream
-        .format("kafka")
-        .option("kafka.bootstrap.servers", "127.0.0.1:9092")  // local kafka server
-        .option("topic", "spark-stream")
-        .option("checkpointLocation", "/tmp/checkpoint")
-        .start()
-
-      fileStreamDf.writeStream
-        .format("console")
         .option("truncate","false")
+        .format("console")
         .start()
         .awaitTermination()
 
