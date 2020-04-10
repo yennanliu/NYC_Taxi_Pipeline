@@ -18,7 +18,7 @@ import org.apache.spark.sql.functions.{get_json_object, json_tuple}
 
 /*
  * modify from 
- * https://spark.apache.org/docs/2.2.0/structured-streaming-kafka-integration.html
+ * https://blog.knoldus.com/spark-structured-streaming-with-elasticsearch/
  *
 */
 
@@ -37,8 +37,10 @@ object StreamToESExample {
           .getOrCreate()
 
       val sparkSession = SparkSession.builder
-        .master("local")
-        .appName("example")
+        .config("es_nodes", "127.0.0.1") //.config(ES_NODES, "127.0.0.1")
+        .config("es_port", "9200") //.config(ES_PORT, "9200")
+        .master("local[*]")
+        .appName("StreamToESExample")
         .getOrCreate()
 
       import spark.implicits._
@@ -64,8 +66,15 @@ object StreamToESExample {
         .option("truncate","false")
         .format("console")
         .start()
-        .awaitTermination()
 
+      streamingDF
+        .writeStream
+        .outputMode("append")
+        .format("org.elasticsearch.spark.sql")
+        .option("checkpointLocation", "path-to-checkpointing")
+        .start("index-name/doc-type")
+        .awaitTermination()
+  
   }
 
 }
