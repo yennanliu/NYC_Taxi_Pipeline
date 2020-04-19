@@ -13,18 +13,16 @@ import org.scalatest.FunSuite
 import collection.mutable.Stack
 import org.scalatest._
 
-import datatypes.GeoPoint
+import utils.NycGeoUtils
 
-// http://www.scalatest.org/user_guide/writing_your_first_test
+class TestNycGeoUtils extends FunSuite {
 
-class TestTaxiRide extends FunSuite {
+  test("NycGeoUtils OP should work as below") {
+  
+  val myGeoPoint = datatypes.GeoPoint(20, 10)
 
-  test("TaxiRide OP should work as below") {
-
-  // case class GeoPoint(lon: Double, lat: Double)
-  val myGeoPoint = GeoPoint(123, 321)
-  assert(myGeoPoint.lon == 123)
-  assert(myGeoPoint.lat == 321)
+  assert(NycGeoUtils.isInNYC(myGeoPoint) == true )
+  assert(NycGeoUtils.mapToGridCell(myGeoPoint) == 6238607 )
 
   }
 
