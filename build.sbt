@@ -13,7 +13,6 @@ libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.2.1", 
   "org.apache.spark" %% "spark-core" % "2.4.3",
   "org.scalactic" %% "scalactic" % "3.1.0",
-  "org.scalatest" %% "scalatest" % "3.1.1" % "test", 
   "org.apache.spark" %% "spark-sql" % "2.4.3",
   "org.apache.spark" %% "spark-mllib" % "2.4.3" % "runtime",
   "com.databricks" %% "spark-csv" % "1.4.0",
@@ -36,7 +35,10 @@ libraryDependencies ++= Seq(
   "org.elasticsearch" % "elasticsearch-hadoop" % "7.6.1",
 
   // others 
-  "org.apache.commons" % "commons-text" % "1.8"
+  "org.apache.commons" % "commons-text" % "1.8",
+
+  // test
+  "org.scalatest" %% "scalatest" % "3.1.1" % "test"
 
 )
 
