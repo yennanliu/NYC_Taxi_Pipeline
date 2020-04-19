@@ -21,8 +21,11 @@ class TestNycGeoUtils extends FunSuite {
   
   val myGeoPoint = datatypes.GeoPoint(20, 10)
 
+  assert(myGeoPoint.lon == 20)
+  assert(myGeoPoint.lat == 10)
   assert(NycGeoUtils.isInNYC(myGeoPoint) == true )
   assert(NycGeoUtils.mapToGridCell(myGeoPoint) == 6238607 )
+  assert(NycGeoUtils.getGridCellCenter(10) ==  datatypes.GeoPoint(-74.0353012084961,40.99937438964844) )
 
   }
 
