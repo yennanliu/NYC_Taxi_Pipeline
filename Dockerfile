@@ -16,14 +16,11 @@ ENV SPARK_VERSION 2.1.0
 
 # spark
 RUN wget --no-check-certificate https://archive.apache.org/dist/spark/spark-2.1.0/spark-$SPARK_VERSION-bin-hadoop2.7.tgz 
-RUN tar -xzvf spark-$SPARK_VERSION-bin-hadoop2.7.tgz 
-RUN cd spark-$SPARK_VERSION-bin-hadoop2.7 && ln -s ./spark-$SPARK_VERSION-bin-hadoop2.7 spark
+RUN tar -xf spark-2.1.0-bin-hadoop2.7.tgz  -C /opt
+RUN cd /opt && ln -s ./spark-$SPARK_VERSION-bin-hadoop2.7 spark
 
-#RUN wget --no-check-certificate https://archive.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop2.7.tgz | tar -xz -C /opt
-#RUN cd /opt && ln -s ./spark-$SPARK_VERSION-bin-hadoop2.7 spark
-
-#ENV SPARK_HOME /opt/spark
-ENV SPARK_HOME  spark-$SPARK_VERSION-bin-hadoop2.7
+ENV SPARK_HOME /opt/spark
+#ENV SPARK_HOME  spark-$SPARK_VERSION-bin-hadoop2.7
 ENV PATH $SPARK_HOME/bin:$PATH
 
 CMD ["bash"]
