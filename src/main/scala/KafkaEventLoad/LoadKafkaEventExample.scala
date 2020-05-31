@@ -16,6 +16,8 @@ import org.apache.spark.sql.streaming.{OutputMode, Trigger}
 import org.apache.spark.sql.types.{StringType, StructField, StructType}
 import org.apache.spark.sql.functions.{get_json_object, json_tuple}
 
+import com.typesafe.config.ConfigFactory
+
 /*
  * modify from 
  * https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html
@@ -25,6 +27,8 @@ import org.apache.spark.sql.functions.{get_json_object, json_tuple}
 object LoadKafkaEventExample {
 
   def main(args: Array[String]): Unit = {
+
+      // spark config 
 
       val sc = new SparkContext("local[*]", "LoadKafkaEventExample")   
       val sqlContext = new org.apache.spark.sql.SQLContext(sc)
@@ -41,6 +45,12 @@ object LoadKafkaEventExample {
         .getOrCreate()
 
       import spark.implicits._
+
+      // kafka config
+
+      val kafkaconfig = ConfigFactory.load().getConfig("kafka")
+      val bootstrapservers:String = kafkaconfig.getString("BOOTSTRAP_SERVERS")
+      val topic:String = kafkaconfig.getString("TOPIC")
 
       // Subscribe to 1 topic
 
