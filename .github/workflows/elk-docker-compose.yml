@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: elk Docker Image CI
 
 on:
   push:
@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker-compose -f elk/docker-compose.yml config
+      run:  docker-compose -f elk/docker-compose.yml config

@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: spark Docker Image CI
 
 on:
   push:
