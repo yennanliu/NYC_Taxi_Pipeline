@@ -141,18 +141,6 @@ object TransformGreenTaxiData {
           .partitionBy("_pickup_year","_pickup_month")
           .save(destDataDirRoot)   
 
-        // COMMAND ----------
-
-        // MAGIC %sql
-        // MAGIC use taxi_db;
-        // MAGIC 
-        // MAGIC DROP TABLE IF EXISTS green_taxi_trips_curated;
-        // MAGIC CREATE TABLE green_taxi_trips_curated
-        // MAGIC USING DELTA
-        // MAGIC LOCATION '/mnt/workshop/curated/nyctaxi/transactions/green-taxi';
-
-        // COMMAND ----------
-
   }
 
 }

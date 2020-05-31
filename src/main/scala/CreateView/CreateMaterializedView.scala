@@ -114,23 +114,9 @@ object CreateMaterializedView {
       //Register temporary view
       yellowTaxiDFHomogenized.createOrReplaceTempView("yellow_taxi_trips_unionable")
 
-      //Approximately 2 minutes
-
-      // COMMAND ----------
 
       yellowTaxiDFHomogenized.printSchema
 
-      // COMMAND ----------
-
-      // MAGIC %md
-      // MAGIC ### 3.  Create materialized view
-
-      // COMMAND ----------
-
-      //Delete any residual data from prior executions for an idempotent run
-      //dbutils.fs.rm(destDataDirRoot,recurse=true)
-
-      // COMMAND ----------
 
       val matViewDF = spark.sql("""
         SELECT DISTINCT  
@@ -251,33 +237,6 @@ object CreateMaterializedView {
           .partitionBy("_pickup_year","_pickup_month") //.partitionBy("_taxi_type","_pickup_year","_pick_month")
           .save(destDataDirRoot)  
  
-      // COMMAND ----------
-
-      // MAGIC %md
-      // MAGIC ### 4.  Create external table
-
-      // COMMAND ----------
-
-      // MAGIC %sql
-      // MAGIC use taxi_db;
-      // MAGIC 
-      // MAGIC DROP TABLE IF EXISTS taxi_trips_mat_view;
-      // MAGIC CREATE TABLE taxi_trips_mat_view
-      // MAGIC USING DELTA
-      // MAGIC LOCATION '/mnt/workshop/curated/nyctaxi/materialized-view';
-
-      // COMMAND ----------
-
-      // MAGIC %sql
-      // MAGIC select taxi_type,count(*) as trip_count from taxi_db.taxi_trips_mat_view group by taxi_type
-
-      // COMMAND ----------
-
-      // MAGIC %sql
-      // MAGIC select * from taxi_db.taxi_trips_mat_view where pickup_year=2017
-
-      // COMMAND ----------
-
   }
 
 }

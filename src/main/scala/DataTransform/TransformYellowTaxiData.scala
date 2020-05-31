@@ -193,12 +193,6 @@ object TransformYellowTaxiData {
           .partitionBy("_pickup_year","_pickup_month")
           .save(destDataDirRoot)   
 
-      // COMMAND ----------
 
-      //Cluster conf: 3 autoscale to 6 workers - DS4v2 (with DS13vs driver) - 8 cores, 28 GB of RAM/worker | Yellow + green running together with 128 MB raw delta files | Coalesce 15 | 1 hr 45 mins
-      //Cluster conf: 3 autoscale to 6 workers - DS4v2 (with DS13vs driver) - 8 cores, 28 GB of RAM/worker | Yellow + green running together with 128 MB raw delta files | Coalesce 25 | 1 hr 45 mins
-      //2016-2017 data, coalesce 10: 
-
-      // COMMAND ----------
     }
 }
