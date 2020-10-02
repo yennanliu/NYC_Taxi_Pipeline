@@ -101,8 +101,9 @@ E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) ->
 # STEP 1) Download the dataset
 bash script/download_sample_data.sh
 
-# STEP 2) sbt package 
-sbt package
+# STEP 2) sbt build
+sbt compile
+sbt assembly
 
 # STEP 3) Load data 
 spark-submit \
@@ -150,8 +151,9 @@ spark-submit \
 
 ```bash 
 
-# STEP 1) sbt package 
-sbt package
+# STEP 1) sbt build
+abt compile
+sbt assembly
 
 # STEP 2) Create Taxi event
 spark-submit \
