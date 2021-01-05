@@ -1,5 +1,10 @@
 package KafkaEventLoad
 
+/*
+ * modify from 
+ * https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html
+ */
+
 import java.util.concurrent.TimeUnit
 
 import org.apache.spark.sql.DataFrame
@@ -14,11 +19,6 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.streaming.{OutputMode, Trigger}
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions.from_json
-/*
- * modify from 
- * https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html
- *
-*/
 
 object LoadTaxiKafkaEventWriteToKafka {
 
@@ -41,7 +41,6 @@ object LoadTaxiKafkaEventWriteToKafka {
       import spark.implicits._
 
       // Define df schema
-
       val schema = StructType(
             Array(
               StructField("id", StringType),
@@ -53,7 +52,6 @@ object LoadTaxiKafkaEventWriteToKafka {
           )
 
       // Subscribe to 1 topic
-
       val df = spark
               .readStream
               .format("kafka")
@@ -63,10 +61,8 @@ object LoadTaxiKafkaEventWriteToKafka {
 
       /*
        * spark-streaming-from-kafka-topic
-       * https://sparkbyexamples.com/spark/spark-streaming-from-kafka-topic/
-       *
-      */
-
+       * https://sparkbyexamples.com/spark/spark-streaming-from-kafka-topic/  
+       */
       val df_ = df.selectExpr("CAST(value AS STRING)")
 
       df.printSchema
@@ -85,15 +81,13 @@ object LoadTaxiKafkaEventWriteToKafka {
             //.awaitTermination()  // <-- should un-comment it if only have df in this script
 
       // Write to kafka 
-
       println(">>> Write to kafka")
 
       /*
        * Create a Kafka topic with below setting, so can accept spark structure streaming
        * -> enable the --config cleanup.policy=compact
        * https://stackoverflow.com/questions/49098274/kafka-stream-get-corruptrecordexception
-       *
-      */
+       */
       
       taxiDF.selectExpr("CAST(id AS STRING) AS key", "to_json(struct(*)) AS value")
          .writeStream
@@ -104,7 +98,5 @@ object LoadTaxiKafkaEventWriteToKafka {
          .option("checkpointLocation", "/tmp/vaquarkhan/checkpoint") // <-- checkpoint directory
          .start()
          .awaitTermination()
-
   }
-
 }
