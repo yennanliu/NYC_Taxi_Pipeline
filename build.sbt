@@ -14,7 +14,6 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "2.4.3",
   "org.scalactic" %% "scalactic" % "3.1.0",
   "org.apache.spark" %% "spark-sql" % "2.4.3",
-  "org.apache.spark" %% "spark-mllib" % "2.4.3" % "runtime",
   "com.databricks" %% "spark-csv" % "1.4.0",
   "com.amazonaws" % "aws-java-sdk" % "1.11.636",
   "org.apache.hadoop" % "hadoop-aws" % "2.7.6",
@@ -31,15 +30,11 @@ libraryDependencies ++= Seq(
   // "org.apache.bahir" %% "spark-streaming-twitter" % "2.3.1",
   // "com.danielasfregola" %% "twitter4s" % "6.1"
 
-  // ES 
-  "org.elasticsearch" % "elasticsearch-hadoop" % "7.6.1",
-
   // others 
   "org.apache.commons" % "commons-text" % "1.8",
 
   // test
   "org.scalatest" %% "scalatest" % "3.1.1" % "test"
-
 )
 
 conflictManager := ConflictManager.latestRevision
