@@ -25,21 +25,22 @@ import org.apache.log4j.Logger
 import org.apache.log4j.Level
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType,LongType,FloatType,DoubleType, TimestampType}
+import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, LongType, FloatType, DoubleType, TimestampType}
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
 import java.util.Calendar
 import java.util.Properties
-import java.sql.{Connection,DriverManager}
+import java.sql.{Connection, DriverManager}
 import org.apache.spark.sql.SaveMode
 
-import org.apache.hadoop.fs.{ FileSystem, Path }
+import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.hadoop.conf.Configuration
 
 object SparkHiveExample {
 
   // $example on:spark_hive$
   case class Record(key: Int, value: String)
+
   // $example off:spark_hive$
 
   def main(args: Array[String]): Unit = {
@@ -53,18 +54,18 @@ object SparkHiveExample {
 
     // $example on:spark_hive$
     // warehouseLocation points to the default location for managed databases and tables
-    val sc = new SparkContext("local[*]", "SparkHiveExample")   
+    val sc = new SparkContext("local[*]", "SparkHiveExample")
     val sqlContext = new org.apache.spark.sql.SQLContext(sc)
     val spark = SparkSession
-        .builder
-        .appName("SparkHiveExample")
-        .master("local[*]")
-        .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
-        .config("spark.network.timeout", "6000s") // https://stackoverflow.com/questions/48219169/3600-seconds-timeout-that-spark-worker-communicating-with-spark-driver-in-heartb
-        .config("spark.executor.heartbeatInterval", "10000s")
-        .config("spark.executor.memory", "10g")
-        .enableHiveSupport()
-        .getOrCreate()
+      .builder
+      .appName("SparkHiveExample")
+      .master("local[*]")
+      .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+      .config("spark.network.timeout", "6000s") // https://stackoverflow.com/questions/48219169/3600-seconds-timeout-that-spark-worker-communicating-with-spark-driver-in-heartb
+      .config("spark.executor.heartbeatInterval", "10000s")
+      .config("spark.executor.memory", "10g")
+      .enableHiveSupport()
+      .getOrCreate()
 
     val warehouseLocation = new File("spark-warehouse").getAbsolutePath
 

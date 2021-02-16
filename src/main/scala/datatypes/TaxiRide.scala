@@ -28,20 +28,20 @@ import org.joda.time.format.{DateTimeFormat, DateTimeFormatter}
  * There are two types of events, a taxi ride start event and a taxi ride end event.
  * The isStart flag specifies the type of the event.
  *
- * @param rideId The id of the ride. There are two events for each id. A start and an end event.
- * @param time The time at which the event occured
- * @param isStart Flag indicating the type of the event (start or end)
- * @param location The location at which the event occurred. Either pick-up or drop-off location.
+ * @param rideId       The id of the ride. There are two events for each id. A start and an end event.
+ * @param time         The time at which the event occured
+ * @param isStart      Flag indicating the type of the event (start or end)
+ * @param location     The location at which the event occurred. Either pick-up or drop-off location.
  * @param passengerCnt The number of passengers on the taxi ride
- * @param travelDist The total traveled distance for end events, -1 for start events.
+ * @param travelDist   The total traveled distance for end events, -1 for start events.
  */
 class TaxiRide(
-               var rideId: Long,
-               var time: DateTime,
-               var isStart: Boolean,
-               var location: GeoPoint,
-               var passengerCnt: Short,
-               var travelDist: Float) {
+                var rideId: Long,
+                var time: DateTime,
+                var isStart: Boolean,
+                var location: GeoPoint,
+                var passengerCnt: Short,
+                var travelDist: Float) {
 
   def this() {
     this(0, new DateTime(0), false, new GeoPoint(0.0, 0.0), 0, 0.0f)

@@ -24,79 +24,79 @@ object LoadTaxiKafkaEventWriteToKafka {
 
   def main(args: Array[String]): Unit = {
 
-      val sc = new SparkContext("local[*]", "LoadTaxiKafkaEventWriteToKafka")   
-      val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-      val spark = SparkSession
-          .builder
-          .appName("LoadTaxiKafkaEventWriteToKafka")
-          .master("local[*]")
-          .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
-          .getOrCreate()
+    val sc = new SparkContext("local[*]", "LoadTaxiKafkaEventWriteToKafka")
+    val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+    val spark = SparkSession
+      .builder
+      .appName("LoadTaxiKafkaEventWriteToKafka")
+      .master("local[*]")
+      .config("spark.sql.warehouse.dir", "/temp") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+      .getOrCreate()
 
-      val sparkSession = SparkSession.builder
-        .master("local")
-        .appName("example")
-        .getOrCreate()
+    val sparkSession = SparkSession.builder
+      .master("local")
+      .appName("example")
+      .getOrCreate()
 
-      import spark.implicits._
+    import spark.implicits._
 
-      // Define df schema
-      val schema = StructType(
-            Array(
-              StructField("id", StringType),
-              StructField("event_date", StringType),
-              StructField("tour_value", StringType),
-              StructField("id_driver", StringType),
-              StructField("id_passenger", StringType)
-            )
-          )
+    // Define df schema
+    val schema = StructType(
+      Array(
+        StructField("id", StringType),
+        StructField("event_date", StringType),
+        StructField("tour_value", StringType),
+        StructField("id_driver", StringType),
+        StructField("id_passenger", StringType)
+      )
+    )
 
-      // Subscribe to 1 topic
-      val df = spark
-              .readStream
-              .format("kafka")
-              .option("kafka.bootstrap.servers", "127.0.0.1:9092") // local kafka server
-              .option("subscribe", "first_topic") // .option("startingOffsets", "earliest") // From starting
-              .load()
+    // Subscribe to 1 topic
+    val df = spark
+      .readStream
+      .format("kafka")
+      .option("kafka.bootstrap.servers", "127.0.0.1:9092") // local kafka server
+      .option("subscribe", "first_topic") // .option("startingOffsets", "earliest") // From starting
+      .load()
 
-      /*
-       * spark-streaming-from-kafka-topic
-       * https://sparkbyexamples.com/spark/spark-streaming-from-kafka-topic/  
-       */
-      val df_ = df.selectExpr("CAST(value AS STRING)")
+    /*
+     * spark-streaming-from-kafka-topic
+     * https://sparkbyexamples.com/spark/spark-streaming-from-kafka-topic/
+     */
+    val df_ = df.selectExpr("CAST(value AS STRING)")
 
-      df.printSchema
+    df.printSchema
 
-      val taxiDF = df_.select(from_json(col("value"), schema).as("data"))
-                      .select("data.*")
+    val taxiDF = df_.select(from_json(col("value"), schema).as("data"))
+      .select("data.*")
 
-      taxiDF.printSchema
+    taxiDF.printSchema
 
-      taxiDF.createOrReplaceTempView("k_event")
+    taxiDF.createOrReplaceTempView("k_event")
 
-      spark.sql("SELECT * FROM k_event WHERE event_date IS NOT null")
-            .writeStream
-            .format("console")
-            .start()
-            //.awaitTermination()  // <-- should un-comment it if only have df in this script
+    spark.sql("SELECT * FROM k_event WHERE event_date IS NOT null")
+      .writeStream
+      .format("console")
+      .start()
+    //.awaitTermination()  // <-- should un-comment it if only have df in this script
 
-      // Write to kafka 
-      println(">>> Write to kafka")
+    // Write to kafka
+    println(">>> Write to kafka")
 
-      /*
-       * Create a Kafka topic with below setting, so can accept spark structure streaming
-       * -> enable the --config cleanup.policy=compact
-       * https://stackoverflow.com/questions/49098274/kafka-stream-get-corruptrecordexception
-       */
-      
-      taxiDF.selectExpr("CAST(id AS STRING) AS key", "to_json(struct(*)) AS value")
-         .writeStream
-         .format("kafka")
-         .outputMode("append")
-         .option("kafka.bootstrap.servers", "127.0.0.1:9092")
-         .option("topic", "streams-taxi") // https://stackoverflow.com/questions/49098274/kafka-stream-get-corruptrecordexception
-         .option("checkpointLocation", "/tmp/vaquarkhan/checkpoint") // <-- checkpoint directory
-         .start()
-         .awaitTermination()
+    /*
+     * Create a Kafka topic with below setting, so can accept spark structure streaming
+     * -> enable the --config cleanup.policy=compact
+     * https://stackoverflow.com/questions/49098274/kafka-stream-get-corruptrecordexception
+     */
+
+    taxiDF.selectExpr("CAST(id AS STRING) AS key", "to_json(struct(*)) AS value")
+      .writeStream
+      .format("kafka")
+      .outputMode("append")
+      .option("kafka.bootstrap.servers", "127.0.0.1:9092")
+      .option("topic", "streams-taxi") // https://stackoverflow.com/questions/49098274/kafka-stream-get-corruptrecordexception
+      .option("checkpointLocation", "/tmp/vaquarkhan/checkpoint") // <-- checkpoint directory
+      .start()
+      .awaitTermination()
   }
 }

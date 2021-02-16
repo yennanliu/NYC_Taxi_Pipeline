@@ -6,134 +6,134 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 
 object CollectValueZones {
-    private val logger = Logger.getLogger(this.getClass)
+  private val logger = Logger.getLogger(this.getClass)
 
-    def main(args: Array[String]) {
+  def main(args: Array[String]) {
 
-      // check arguments
-      // if (args.length != 4)
-      //   throw new IllegalArgumentException(
-      //     "Parameters : "+
-      //     "<yellowSource> <greenSource> <zonesSource> <targetBucket> "+
-      //     "(multiple source paths can be provided in the same string, separated by a coma"
-      //   )
+    // check arguments
+    // if (args.length != 4)
+    //   throw new IllegalArgumentException(
+    //     "Parameters : "+
+    //     "<yellowSource> <greenSource> <zonesSource> <targetBucket> "+
+    //     "(multiple source paths can be provided in the same string, separated by a coma"
+    //   )
 
-      logger.setLevel(Level.INFO)
-      lazy val session =
-          SparkSession.builder
-            .appName("nyctaxi-value-zones")
-            .config("spark.master", "local")
-            .getOrCreate()
+    logger.setLevel(Level.INFO)
+    lazy val session =
+      SparkSession.builder
+        .appName("nyctaxi-value-zones")
+        .config("spark.master", "local")
+        .getOrCreate()
 
-      try {
-        // runJob(sparkSession = session,
-        //       yellow = args(0).split(",").toList,
-        //       green = args(1).split(",").toList,
-        //       zones = args(2).split(",").toList,
-        //       target = args(3)
-        //       )
-        runJob(sparkSession = session )
-        session.stop()
-        } catch {
-            case ex: Exception =>
-              logger.error(ex.getMessage)
-              logger.error(ex.getStackTrace.toString)
-        }
+    try {
+      // runJob(sparkSession = session,
+      //       yellow = args(0).split(",").toList,
+      //       green = args(1).split(",").toList,
+      //       zones = args(2).split(",").toList,
+      //       target = args(3)
+      //       )
+      runJob(sparkSession = session)
+      session.stop()
+    } catch {
+      case ex: Exception =>
+        logger.error(ex.getMessage)
+        logger.error(ex.getStackTrace.toString)
     }
+  }
 
-    def runJob(sparkSession :SparkSession) = {
+  def runJob(sparkSession: SparkSession) = {
 
-        logger.info("Execution started")
+    logger.info("Execution started")
 
-        import sparkSession.implicits._
+    import sparkSession.implicits._
 
-        sparkSession.conf.set("spark.sql.session.timeZone", "America/New_York")
+    sparkSession.conf.set("spark.sql.session.timeZone", "America/New_York")
 
-        val yellowEvents = sparkSession.read
-          .option("header","true")
-          .option("inferSchema", "true")
-          .option("enforceSchema", "false")
-          .option("timeStampFormat", "yyyy-MM-dd HH:mm:ss")
-          .option("columnNameOfCorruptRecord", "error")
-          .csv("data/yellow_tripdata_sample.csv")  //.csv(yellow: _*)
-          .filter(col("tpep_pickup_datetime").gt("2017"))
-          .filter(col("tpep_pickup_datetime").lt("2019"))
-          .withColumn("duration", unix_timestamp($"tpep_dropoff_datetime").minus(unix_timestamp($"tpep_pickup_datetime")))
-          .withColumn("minute_rate",$"total_amount".divide($"duration") * 60)
-          .withColumnRenamed("tpep_pickup_datetime","pickup_datetime")
-          .select("pickup_datetime","minute_rate","PULocationID","total_amount")
-          .withColumn("taxiColor",lit("yellow"))
+    val yellowEvents = sparkSession.read
+      .option("header", "true")
+      .option("inferSchema", "true")
+      .option("enforceSchema", "false")
+      .option("timeStampFormat", "yyyy-MM-dd HH:mm:ss")
+      .option("columnNameOfCorruptRecord", "error")
+      .csv("data/yellow_tripdata_sample.csv") //.csv(yellow: _*)
+      .filter(col("tpep_pickup_datetime").gt("2017"))
+      .filter(col("tpep_pickup_datetime").lt("2019"))
+      .withColumn("duration", unix_timestamp($"tpep_dropoff_datetime").minus(unix_timestamp($"tpep_pickup_datetime")))
+      .withColumn("minute_rate", $"total_amount".divide($"duration") * 60)
+      .withColumnRenamed("tpep_pickup_datetime", "pickup_datetime")
+      .select("pickup_datetime", "minute_rate", "PULocationID", "total_amount")
+      .withColumn("taxiColor", lit("yellow"))
 
-        // val greenEvents = sparkSession.read
-        //   .option("header","true")
-        //   .option("inferSchema", "true")
-        //   .option("enforceSchema", "false")
-        //   .option("timeStampFormat", "yyyy-MM-dd HH:mm:ss")
-        //   .option("columnNameOfCorruptRecord", "error")
-        //   .csv("data/yellow_tripdata_sample.csv") //.csv(green: _*)
-        //   .filter(col("lpep_pickup_datetime").gt("2017"))
-        //   .filter(col("lpep_pickup_datetime").lt("2019"))          .withColumn("duration", unix_timestamp($"lpep_dropoff_datetime").minus(unix_timestamp($"lpep_pickup_datetime")))
-        //   .withColumn("minute_rate",$"total_amount".divide($"duration") * 60)
-        //   .withColumnRenamed("lpep_pickup_datetime","pickup_datetime")
-        //   .select("pickup_datetime","minute_rate","PULocationID","total_amount")
-        //   .withColumn("taxiColor",lit("green"))
+    // val greenEvents = sparkSession.read
+    //   .option("header","true")
+    //   .option("inferSchema", "true")
+    //   .option("enforceSchema", "false")
+    //   .option("timeStampFormat", "yyyy-MM-dd HH:mm:ss")
+    //   .option("columnNameOfCorruptRecord", "error")
+    //   .csv("data/yellow_tripdata_sample.csv") //.csv(green: _*)
+    //   .filter(col("lpep_pickup_datetime").gt("2017"))
+    //   .filter(col("lpep_pickup_datetime").lt("2019"))          .withColumn("duration", unix_timestamp($"lpep_dropoff_datetime").minus(unix_timestamp($"lpep_pickup_datetime")))
+    //   .withColumn("minute_rate",$"total_amount".divide($"duration") * 60)
+    //   .withColumnRenamed("lpep_pickup_datetime","pickup_datetime")
+    //   .select("pickup_datetime","minute_rate","PULocationID","total_amount")
+    //   .withColumn("taxiColor",lit("green"))
 
-        val greenEvents = sparkSession.read
-          .option("header","true")
-          .option("inferSchema", "true")
-          .option("enforceSchema", "false")
-          .option("timeStampFormat", "yyyy-MM-dd HH:mm:ss")
-          .option("columnNameOfCorruptRecord", "error")
-          .csv("data/yellow_tripdata_sample.csv")  //.csv(yellow: _*)
-          .filter(col("tpep_pickup_datetime").gt("2017"))
-          .filter(col("tpep_pickup_datetime").lt("2019"))
-          .withColumn("duration", unix_timestamp($"tpep_dropoff_datetime").minus(unix_timestamp($"tpep_pickup_datetime")))
-          .withColumn("minute_rate",$"total_amount".divide($"duration") * 60)
-          .withColumnRenamed("tpep_pickup_datetime","pickup_datetime")
-          .select("pickup_datetime","minute_rate","PULocationID","total_amount")
-          .withColumn("taxiColor",lit("yellow"))
+    val greenEvents = sparkSession.read
+      .option("header", "true")
+      .option("inferSchema", "true")
+      .option("enforceSchema", "false")
+      .option("timeStampFormat", "yyyy-MM-dd HH:mm:ss")
+      .option("columnNameOfCorruptRecord", "error")
+      .csv("data/yellow_tripdata_sample.csv") //.csv(yellow: _*)
+      .filter(col("tpep_pickup_datetime").gt("2017"))
+      .filter(col("tpep_pickup_datetime").lt("2019"))
+      .withColumn("duration", unix_timestamp($"tpep_dropoff_datetime").minus(unix_timestamp($"tpep_pickup_datetime")))
+      .withColumn("minute_rate", $"total_amount".divide($"duration") * 60)
+      .withColumnRenamed("tpep_pickup_datetime", "pickup_datetime")
+      .select("pickup_datetime", "minute_rate", "PULocationID", "total_amount")
+      .withColumn("taxiColor", lit("yellow"))
 
-        val zonesInfo = sparkSession.read
-            .option("header","true")
-            .option("inferSchema", "true")
-            .option("enforceSchema", "false")
-            .option("columnNameOfCorruptRecord", "error")
-            .csv("data/taxi+_zone_lookup.csv") //.csv(zones: _*)
+    val zonesInfo = sparkSession.read
+      .option("header", "true")
+      .option("inferSchema", "true")
+      .option("enforceSchema", "false")
+      .option("columnNameOfCorruptRecord", "error")
+      .csv("data/taxi+_zone_lookup.csv") //.csv(zones: _*)
 
-        val allEventsWithZone = greenEvents
-          .union(yellowEvents)
-          .join(zonesInfo,$"PULocationID" === $"LocationID")
-          .select("pickup_datetime","minute_rate","taxiColor","LocationID","Borough", "Zone")
+    val allEventsWithZone = greenEvents
+      .union(yellowEvents)
+      .join(zonesInfo, $"PULocationID" === $"LocationID")
+      .select("pickup_datetime", "minute_rate", "taxiColor", "LocationID", "Borough", "Zone")
 
-        allEventsWithZone.cache
+    allEventsWithZone.cache
 
-        val zoneAttractiveness = allEventsWithZone
-          .groupBy($"LocationID", date_trunc("hour",$"pickup_datetime") as "pickup_hour")
-          .pivot("taxiColor",Seq("yellow", "green"))
-          .agg("minute_rate" -> "avg", "minute_rate" -> "count")
-          .withColumnRenamed("yellow_avg(minute_rate)","yellow_avg_minute_rate")
-          .withColumnRenamed("yellow_count(minute_rate)","yellow_count")
-          .withColumnRenamed("green_avg(minute_rate)","green_avg_minute_rate")
-          .withColumnRenamed("green_count(minute_rate)","green_count")
+    val zoneAttractiveness = allEventsWithZone
+      .groupBy($"LocationID", date_trunc("hour", $"pickup_datetime") as "pickup_hour")
+      .pivot("taxiColor", Seq("yellow", "green"))
+      .agg("minute_rate" -> "avg", "minute_rate" -> "count")
+      .withColumnRenamed("yellow_avg(minute_rate)", "yellow_avg_minute_rate")
+      .withColumnRenamed("yellow_count(minute_rate)", "yellow_count")
+      .withColumnRenamed("green_avg(minute_rate)", "green_avg_minute_rate")
+      .withColumnRenamed("green_count(minute_rate)", "green_count")
 
-        print (">>>>>>>>>> SAVE OUTPUT  (parquet)")
-        val rawQuery = allEventsWithZone
-          .withColumn("year", year($"pickup_datetime"))
-          .withColumn("month", month($"pickup_datetime"))
-          .withColumn("day", dayofmonth($"pickup_datetime"))
-          .repartition($"year",$"month")
-          .sortWithinPartitions("day")
-          .write
-          .mode("OVERWRITE")
-          .partitionBy("year","month")
-          .parquet("output/raw-rides")
+    print(">>>>>>>>>> SAVE OUTPUT  (parquet)")
+    val rawQuery = allEventsWithZone
+      .withColumn("year", year($"pickup_datetime"))
+      .withColumn("month", month($"pickup_datetime"))
+      .withColumn("day", dayofmonth($"pickup_datetime"))
+      .repartition($"year", $"month")
+      .sortWithinPartitions("day")
+      .write
+      .mode("OVERWRITE")
+      .partitionBy("year", "month")
+      .parquet("output/raw-rides")
 
-        val aggregateQuery = zoneAttractiveness
-          .repartition(1)
-          .sortWithinPartitions($"pickup_hour")
-          .write
-          .mode("OVERWRITE")
-          .parquet("output/raw-rides")
-    }
-  
+    val aggregateQuery = zoneAttractiveness
+      .repartition(1)
+      .sortWithinPartitions($"pickup_hour")
+      .write
+      .mode("OVERWRITE")
+      .parquet("output/raw-rides")
+  }
+
 }

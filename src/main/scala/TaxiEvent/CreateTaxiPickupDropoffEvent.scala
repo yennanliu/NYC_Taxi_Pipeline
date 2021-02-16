@@ -5,11 +5,11 @@ import java.net.ServerSocket
 import java.util.Random
 
 object CreateTaxiPickupDropoffEvent {
-  
+
   def main(args: Array[String]) {
 
     val port = 44444
-    val viewsPerSecond = 10 
+    val viewsPerSecond = 10
     val sleepDelayMs = (1000.0 / viewsPerSecond).toInt
     val listener = new ServerSocket(port)
     println(s"Listening on port: $port")
@@ -32,7 +32,7 @@ object CreateTaxiPickupDropoffEvent {
             val lon = 40.71 + (r.nextFloat - 0.5) * 0.001 // generate random long 
             var lat = -74.00 + (r.nextFloat - 0.5) * 0.001 // generate random long 
             val passengerCnt = r.nextInt(10)
-            val travelDist = r.nextFloat 
+            val travelDist = r.nextFloat
 
             /* Expected event form : 
              * rideId: Long // unique id for each ride

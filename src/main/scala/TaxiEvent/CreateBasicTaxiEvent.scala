@@ -5,11 +5,11 @@ import java.net.ServerSocket
 import java.util.Random
 
 object CreateBasicTaxiEvent {
-  
+
   def main(args: Array[String]) {
 
     val port = 44444
-    val viewsPerSecond = 10 
+    val viewsPerSecond = 10
     val sleepDelayMs = (1000.0 / viewsPerSecond).toInt
     val listener = new ServerSocket(port)
     println(s"Listening on port: $port")
@@ -32,7 +32,7 @@ object CreateBasicTaxiEvent {
             val event_date = System.currentTimeMillis
 
             val payload =
-               s"""
+              s"""
                 { "id": $id, "event_date": $event_date, "tour_value": $tour_value, "id_driver": $id_driver, "id_passenger": $id_passenger }
                 """.stripMargin
 

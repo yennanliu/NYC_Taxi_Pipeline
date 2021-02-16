@@ -22,9 +22,9 @@ object FileStreamExample {
 
     val schema = StructType(
       Array(StructField("transactionId", StringType),
-            StructField("customerId", StringType),
-            StructField("itemId", StringType),
-            StructField("amountPaid", StringType)))
+        StructField("customerId", StringType),
+        StructField("itemId", StringType),
+        StructField("amountPaid", StringType)))
 
     //create stream from folder
     val fileStreamDf = sparkSession.readStream
@@ -36,7 +36,7 @@ object FileStreamExample {
       .format("console")
       .outputMode(OutputMode.Append()).start()
 
-      query.awaitTermination()
+    query.awaitTermination()
 
   }
 

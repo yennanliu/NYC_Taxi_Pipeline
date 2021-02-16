@@ -19,7 +19,6 @@ object ImportUserDefinedClassTest {
     println(datatypes.TaxiRide)
 
     println(datatypes.GeoPoint)
-    
 
   }
 
