@@ -15,6 +15,9 @@
 > Architect `batch/stream` data processing systems from [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), via the ETL `batch process`  :
 E (extract : tlc-trip-record-data.page -> S3 ) -> T (transform : S3 -> Spark) -> L (load : Spark -> Mysql) & `stream process` : Event -> Event digest -> Event storage. The system then can support calculation such as `Top Driver By area`, `Order by time windiw`, `latest-top-driver`, and `Top busy areas`.
 
+
+> [Blog Intro](https://yennj12.js.org/yennj12_blog_V4/posts/nyc-taxi-big-data-pipeline-spark-kafka-streaming/)
+
 > Batch data : [nyc-tlc-trip-records-data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 > Stream data : [TaxiEvent](https://github.com/yennanliu/NYC_Taxi_Pipeline/tree/master/src/main/scala/TaxiEvent), `stream from file`.
