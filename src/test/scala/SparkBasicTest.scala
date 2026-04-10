@@ -19,13 +19,17 @@ class SparkBasicTest extends FunSuite {
 
   test("a spark OP should work as below") {
 
-  val sc = new SparkContext("local[*]", "LoadGreenTripData")   
+  val sc = new SparkContext("local[*]", "LoadGreenTripData")
 
-  val data = sc.parallelize(List(1,2,3,4))
+  try {
+    val data = sc.parallelize(List(1,2,3,4))
 
-  assert(data.collect().length ==  4)
-  assert(data.sum() ==  10)
-  assert(data.count() == 4)
+    assert(data.collect().length ==  4)
+    assert(data.sum() ==  10)
+    assert(data.count() == 4)
+  } finally {
+    sc.stop()
+  }
 
   }
 
