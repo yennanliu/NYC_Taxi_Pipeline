@@ -2,7 +2,6 @@ package NYC_Taxi_Pipeline_Test
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, DoubleType}
 import org.scalatest.FunSuite
 import org.scalatest.BeforeAndAfterAll
 
@@ -26,45 +25,39 @@ class SparkDataFrameTest extends FunSuite with BeforeAndAfterAll {
   }
 
   test("DataFrame creation and basic operations") {
-    import spark.implicits._
-
     val data = Seq(
       ("John", 25, 50000.0),
       ("Jane", 30, 60000.0),
       ("Bob", 35, 70000.0)
     )
 
-    val df = data.toDF("name", "age", "salary")
+    val df = spark.createDataFrame(data).toDF("name", "age", "salary")
 
     assert(df.count() == 3)
     assert(df.columns.length == 3)
   }
 
   test("DataFrame filtering") {
-    import spark.implicits._
-
     val data = Seq(
       ("NYC", 1),
       ("LA", 2),
       ("NYC", 3)
     )
 
-    val df = data.toDF("city", "value")
+    val df = spark.createDataFrame(data).toDF("city", "value")
     val filtered = df.filter(col("city") === "NYC")
 
     assert(filtered.count() == 2)
   }
 
   test("DataFrame aggregation") {
-    import spark.implicits._
-
     val data = Seq(
       ("A", 10),
       ("B", 20),
       ("A", 15)
     )
 
-    val df = data.toDF("category", "amount")
+    val df = spark.createDataFrame(data).toDF("category", "amount")
     val agg = df.groupBy("category").agg(sum("amount").as("total"))
 
     assert(agg.count() == 2)
@@ -76,10 +69,8 @@ class SparkDataFrameTest extends FunSuite with BeforeAndAfterAll {
   }
 
   test("DataFrame join operation") {
-    import spark.implicits._
-
-    val data1 = Seq((1, "A"), (2, "B")).toDF("id", "name")
-    val data2 = Seq((1, 100), (2, 200)).toDF("id", "value")
+    val data1 = spark.createDataFrame(Seq((1, "A"), (2, "B"))).toDF("id", "name")
+    val data2 = spark.createDataFrame(Seq((1, 100), (2, 200))).toDF("id", "value")
 
     val joined = data1.join(data2, "id")
 
