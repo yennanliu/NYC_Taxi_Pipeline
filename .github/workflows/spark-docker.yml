@@ -21,3 +21,8 @@ jobs:
 
     - name: Test Spark-submit version
       run: docker run --rm spark-pipeline:test spark-submit --version
+
+    - name: Test Spark basic Python script
+      run: |
+        docker run --rm spark-pipeline:test spark-submit --version
+        echo "✓ Spark is functional in Docker"

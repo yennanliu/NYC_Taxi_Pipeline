@@ -26,7 +26,16 @@ jobs:
           ~/.ivy2/cache
           ~/.coursier/cache/v1
         key: ${{ runner.os }}-sbt-${{ hashFiles('build.sbt') }}
-    - name: Build assembly JAR
+    - name: Download and setup sbt
       run: |
         curl -fsSL "https://github.com/sbt/sbt/releases/download/v1.9.0/sbt-1.9.0.tgz" | tar xfz - -C /tmp
+        export PATH="/tmp/sbt/bin:$PATH"
+        which sbt
+    - name: Run Spark unit tests
+      run: |
+        export PATH="/tmp/sbt/bin:$PATH"
+        /tmp/sbt/bin/sbt test
+    - name: Build assembly JAR
+      run: |
+        export PATH="/tmp/sbt/bin:$PATH"
         /tmp/sbt/bin/sbt assembly
