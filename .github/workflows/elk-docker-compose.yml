@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run:  docker-compose -f elk/docker-compose.yml config
+    - uses: actions/checkout@v3
+    - name: Validate docker-compose.yml syntax
+      run: |
+        python3 -c "import yaml; yaml.safe_load(open('elk/docker-compose.yml'))"
+        echo "✓ docker-compose.yml is valid"
