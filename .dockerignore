@@ -1,0 +1,10 @@
+.git
+.gitignore
+.github
+README.md
+doc
+data
+archived
+*.log
+target
+.sbt

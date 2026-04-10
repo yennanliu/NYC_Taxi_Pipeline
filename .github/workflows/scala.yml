@@ -19,5 +19,5 @@ jobs:
         java-version: 1.8
     - name: Run tests
       run: sbt test
-    - name: Run sbt package
-      run: sbt package
+    - name: Build assembly JAR
+      run: sbt assembly

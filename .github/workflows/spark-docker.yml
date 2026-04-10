@@ -1,4 +1,4 @@
-name: spark Docker Image CI
+name: Spark Docker Build & Test
 
 on:
   push:
@@ -7,12 +7,23 @@ on:
     branches: [ master ]
 
 jobs:
-
-  build:
-
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run:  docker build . -t spark_env
+    - uses: actions/checkout@v3
+
+    - name: Build Docker image
+      run: docker build -t spark-pipeline:test .
+
+    - name: Test Spark installation
+      run: |
+        docker run --rm spark-pipeline:test spark-shell --version
+
+    - name: Test Spark basic command
+      run: |
+        docker run --rm spark-pipeline:test spark-submit --version
+
+    - name: Verify JAR file exists
+      run: |
+        docker run --rm spark-pipeline:test ls -lh /opt/spark/jars/nyc_taxi_pipeline_2.11-1.0.jar
