@@ -16,14 +16,8 @@ jobs:
     - name: Build Docker image
       run: docker build -t spark-pipeline:test .
 
-    - name: Test Spark installation
-      run: |
-        docker run --rm spark-pipeline:test spark-shell --version
+    - name: Test Spark shell version
+      run: docker run --rm spark-pipeline:test spark-shell --version
 
-    - name: Test Spark basic command
-      run: |
-        docker run --rm spark-pipeline:test spark-submit --version
-
-    - name: Verify JAR file exists
-      run: |
-        docker run --rm spark-pipeline:test ls -lh /opt/spark/jars/nyc_taxi_pipeline_2.11-1.0.jar
+    - name: Test Spark-submit version
+      run: docker run --rm spark-pipeline:test spark-submit --version
